@@ -20,7 +20,7 @@ import Sidebar from '@/components/sidebar.vue';
             <div class="h-auto py-3 px-4 bg-slate-100">
 
                 <!-- Start Content -->
-                <div class="w-[1217px] p-1 rounded-lg h-auto bg-white">
+                <div class="w-[1217px] p-1 rounded-lg h-auto bg-white min-h-screen mx-auto">
                     <div class="flex pl-4 pt-4">
                         <div class="w-[6px] h-7 bg-[#2671D9]"></div>
                         <h1 class="text-xl font-medium ml-[6px]">PKS</h1>
@@ -109,7 +109,7 @@ import Sidebar from '@/components/sidebar.vue';
                             </form>
                         </div>
                      </div>
-                     <svg width="1150" class="mt-36 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <svg width="1150" class="mt-56 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1150" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1150" y2="0.5" stroke="#E5E7E9"/>
                     </svg>

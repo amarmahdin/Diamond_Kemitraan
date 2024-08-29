@@ -19,7 +19,7 @@ import navbar from '../components/navbar.vue'
         <div class="h-auto py-3 px-4 bg-slate-100">
 
             <!-- Start Content -->
-            <div class="w-[1217px] h-auto p-1 rounded-lg bg-white">
+            <div class="w-[1217px] h-auto p-1 rounded-lg bg-white min-h-screen mx-auto">
                 <div class="w-[1170px] h-[56px] ml-4 mt-4 flex justify-between">
                     <div>
                     <div class="flex">

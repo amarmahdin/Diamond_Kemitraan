@@ -15,7 +15,7 @@ import navbar from '../components/navbar.vue'
         <div class="h-auto py-3 px-4 bg-slate-100">
 
             <!-- Start Content -->
-            <div class="w-[1217px] h-auto p-1 rounded-lg bg-white">
+            <div class="w-[1217px] h-auto p-1 rounded-lg bg-white min-h-screen mx-auto">
                 <div class="flex pl-4 pt-4">
                     <div class="w-[6px] h-7 bg-[#2671D9]"></div>
                     <h1 class="text-xl font-medium ml-[6px]">Draft</h1>
@@ -51,7 +51,7 @@ import navbar from '../components/navbar.vue'
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
                     <table class="table-auto w-full text-left ">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg">

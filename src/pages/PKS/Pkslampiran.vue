@@ -22,7 +22,7 @@ import kirim from '@/assets/img/Dialogkirim.png';
             <div class="h-auto py-3 px-4 bg-slate-100">
 
                 <!-- Start Content -->
-                <div class="w-[1217px] h-auto bg-white">
+                <div class="w-[1217px] h-auto bg-white min-h-screen mx-auto">
                     <div class="flex pl-4 pt-4">
                         <div class="w-[6px] h-7 bg-[#2671D9]"></div>
                         <h1 class="text-xl font-medium ml-[6px]">PKS</h1>
