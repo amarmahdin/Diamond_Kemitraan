@@ -26,7 +26,7 @@ import logo from '../assets/img/logo.png';
         <div class="w-[212px] h-8 grid mt-[23px] ml-4">
           <!-- Dashboard -->
           <router-link :to="'/'">
-            <div @click="setActive('dashboard')" :class="{'bg-[#2671D9] text-white': isDashboardActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDashboardActive}" class="flex h-10 py-[10px] px-3 rounded-lg cursor-pointer">
+            <div :class="{'bg-[#2671D9] text-white': isDashboardActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDashboardActive}" class="flex h-10 py-[10px] px-3 rounded-lg cursor-pointer">
               <svg width="18" height="16" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg" :fill="isDashboardActive ? '#ffffff' : '#2671D9'">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.9375 1.25C0.9375 0.835786 1.27329 0.5 1.6875 0.5H16.3125C16.7267 0.5 17.0625 0.835786 17.0625 1.25C17.0625 1.66421 16.7267 2 16.3125 2H15.9375V9.6875C15.9375 11.0337 14.8462 12.125 13.5 12.125H12.8531L13.649 14.5128C13.78 14.9058 13.5676 15.3305 13.1747 15.4615C12.7817 15.5925 12.357 15.3801 12.226 14.9872L12.0219 14.375H5.97807L5.77401 14.9872C5.64303 15.3801 5.21829 15.5925 4.82533 15.4615C4.43237 15.3305 4.22 14.9058 4.35099 14.5128L5.14693 12.125H4.5C3.15381 12.125 2.0625 11.0337 2.0625 9.6875V2H1.6875C1.27329 2 0.9375 1.66421 0.9375 1.25ZM3.5625 2V9.6875C3.5625 10.2053 3.98223 10.625 4.5 10.625H13.5C14.0178 10.625 14.4375 10.2053 14.4375 9.6875V2H3.5625ZM6.72807 12.125L6.47807 12.875H11.5219L11.2719 12.125H6.72807ZM11.25 3.3125C11.6642 3.3125 12 3.64829 12 4.0625V8.5625C12 8.97671 11.6642 9.3125 11.25 9.3125C10.8358 9.3125 10.5 8.97671 10.5 8.5625V4.0625C10.5 3.64829 10.8358 3.3125 11.25 3.3125ZM9 5C9.41421 5 9.75 5.33579 9.75 5.75V8.5625C9.75 8.97671 9.41421 9.3125 9 9.3125C8.58579 9.3125 8.25 8.97671 8.25 8.5625V5.75C8.25 5.33579 8.58579 5 9 5ZM6.75 6.6875C7.16421 6.6875 7.5 7.02329 7.5 7.4375V8.5625C7.5 8.97671 7.16421 9.3125 6.75 9.3125C6.33579 9.3125 6 8.97671 6 8.5625V7.4375C6 7.02329 6.33579 6.6875 6.75 6.6875Z"/>
               </svg>
@@ -52,108 +52,118 @@ import logo from '../assets/img/logo.png';
           </div>
           <!-- Draft -->
           <router-link to="/Draft">
-          <div @click="setActive('draft')" :class="{'bg-[#2671D9] text-white': isDraftActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDraftActive}" class="flex mt-2 h-10 hover:bg-[#E9F1FB] hover:text-[#2671D9] py-[10px] px-3 rounded-lg cursor-pointer">
-            <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" :fill="isDraftActive ? '#ffffff' : '#2671D9'">
-              <path d="M8.25 9.5H3.75C3.55109 9.5 3.36032 9.57902 3.21967 9.71967C3.07902 9.86032 3 10.0511 3 10.25C3 10.4489 3.07902 10.6397 3.21967 10.7803C3.36032 10.921 3.55109 11 3.75 11H8.25C8.44891 11 8.63968 10.921 8.78033 10.7803C8.92098 10.6397 9 10.4489 9 10.25C9 10.0511 8.92098 9.86032 8.78033 9.71967C8.63968 9.57902 8.44891 9.5 8.25 9.5ZM8.25 6.5H5.25C5.05109 6.5 4.86032 6.57902 4.71967 6.71967C4.57902 6.86032 4.5 7.05109 4.5 7.25C4.5 7.44891 4.57902 7.63968 4.71967 7.78033C4.86032 7.92098 5.05109 8 5.25 8H8.25C8.44891 8 8.63968 7.92098 8.78033 7.78033C8.92098 7.63968 9 7.44891 9 7.25C9 7.05109 8.92098 6.86032 8.78033 6.71967C8.63968 6.57902 8.44891 6.5 8.25 6.5ZM9.75 2H8.865C8.71027 1.56234 8.42395 1.18325 8.0453 0.914704C7.66665 0.646159 7.21421 0.501305 6.75 0.5H5.25C4.78579 0.501305 4.33335 0.646159 3.9547 0.914704C3.57605 1.18325 3.28974 1.56234 3.135 2H2.25C1.65326 2 1.08097 2.23705 0.65901 2.65901C0.237053 3.08097 0 3.65326 0 4.25V13.25C0 13.8467 0.237053 14.419 0.65901 14.841C1.08097 15.2629 1.65326 15.5 2.25 15.5H9.75C10.3467 15.5 10.919 15.2629 11.341 14.841C11.7629 14.419 12 13.8467 12 13.25V4.25C12 3.65326 11.7629 3.08097 11.341 2.65901C10.919 2.23705 10.3467 2 9.75 2ZM4.5 2.75C4.5 2.55109 4.57902 2.36032 4.71967 2.21967C4.86032 2.07902 5.05109 2 5.25 2H6.75C6.94891 2 7.13968 2.07902 7.28033 2.21967C7.42098 2.36032 7.5 2.55109 7.5 2.75V3.5H4.5V2.75ZM10.5 13.25C10.5 13.4489 10.421 13.6397 10.2803 13.7803C10.1397 13.921 9.94891 14 9.75 14H2.25C2.05109 14 1.86032 13.921 1.71967 13.7803C1.57902 13.6397 1.5 13.4489 1.5 13.25V4.25C1.5 4.05109 1.57902 3.86032 1.71967 3.71967C1.86032 3.57902 2.05109 3.5 2.25 3.5H3V4.25C3 4.44891 3.07902 4.63968 3.21967 4.78033C3.36032 4.92098 3.55109 5 3.75 5H8.25C8.44891 5 8.63968 4.92098 8.78033 4.78033C8.92098 4.63968 9 4.44891 9 4.25V3.5H9.75C9.94891 3.5 10.1397 3.57902 10.2803 3.71967C10.421 3.86032 10.5 4.05109 10.5 4.25V13.25Z" fill="#2671D9"/>
+          <div :class="{'bg-[#2671D9] text-white': isDraftActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDraftActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
+            <svg width="12" height="16" viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg">
+              <path :fill="isDraftActive ? '#ffffff' : '#2671D9'" d="M8.25 9.5H3.75C3.55109 9.5 3.36032 9.57902 3.21967 9.71967C3.07902 9.86032 3 10.0511 3 10.25C3 10.4489 3.07902 10.6397 3.21967 10.7803C3.36032 10.921 3.55109 11 3.75 11H8.25C8.44891 11 8.63968 10.921 8.78033 10.7803C8.92098 10.6397 9 10.4489 9 10.25C9 10.0511 8.92098 9.86032 8.78033 9.71967C8.63968 9.57902 8.44891 9.5 8.25 9.5ZM8.25 6.5H5.25C5.05109 6.5 4.86032 6.57902 4.71967 6.71967C4.57902 6.86032 4.5 7.05109 4.5 7.25C4.5 7.44891 4.57902 7.63968 4.71967 7.78033C4.86032 7.92098 5.05109 8 5.25 8H8.25C8.44891 8 8.63968 7.92098 8.78033 7.78033C8.92098 7.63968 9 7.44891 9 7.25C9 7.05109 8.92098 6.86032 8.78033 6.71967C8.63968 6.57902 8.44891 6.5 8.25 6.5ZM9.75 2H8.865C8.71027 1.56234 8.42395 1.18325 8.0453 0.914704C7.66665 0.646159 7.21421 0.501305 6.75 0.5H5.25C4.78579 0.501305 4.33335 0.646159 3.9547 0.914704C3.57605 1.18325 3.28974 1.56234 3.135 2H2.25C1.65326 2 1.08097 2.23705 0.65901 2.65901C0.237053 3.08097 0 3.65326 0 4.25V13.25C0 13.8467 0.237053 14.419 0.65901 14.841C1.08097 15.2629 1.65326 15.5 2.25 15.5H9.75C10.3467 15.5 10.919 15.2629 11.341 14.841C11.7629 14.419 12 13.8467 12 13.25V4.25C12 3.65326 11.7629 3.08097 11.341 2.65901C10.919 2.23705 10.3467 2 9.75 2ZM4.5 2.75C4.5 2.55109 4.57902 2.36032 4.71967 2.21967C4.86032 2.07902 5.05109 2 5.25 2H6.75C6.94891 2 7.13968 2.07902 7.28033 2.21967C7.42098 2.36032 7.5 2.55109 7.5 2.75V3.5H4.5V2.75ZM10.5 13.25C10.5 13.4489 10.421 13.6397 10.2803 13.7803C10.1397 13.921 9.94891 14 9.75 14H2.25C2.05109 14 1.86032 13.921 1.71967 13.7803C1.57902 13.6397 1.5 13.4489 1.5 13.25V4.25C1.5 4.05109 1.57902 3.86032 1.71967 3.71967C1.86032 3.57902 2.05109 3.5 2.25 3.5H3V4.25C3 4.44891 3.07902 4.63968 3.21967 4.78033C3.36032 4.92098 3.55109 5 3.75 5H8.25C8.44891 5 8.63968 4.92098 8.78033 4.78033C8.92098 4.63968 9 4.44891 9 4.25V3.5H9.75C9.94891 3.5 10.1397 3.57902 10.2803 3.71967C10.421 3.86032 10.5 4.05109 10.5 4.25V13.25Z"/>
             </svg>
             <span class="text-sm font-semibold ml-4 -translate-y-[2px]">Draft</span>
           </div>
           </router-link>
           <!-- Approval -->
           <router-link to="/Pengajuanbaru">
-          <div class="flex mt-2 h-10 hover:bg-[#E9F1FB] hover:text-[#2671D9] py-[10px] px-3 rounded-lg cursor-pointer">
-            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.46875 2C5.48499 2 4.6875 2.79749 4.6875 3.78125C4.6875 4.76501 5.48499 5.5625 6.46875 5.5625C7.45251 5.5625 8.25 4.76501 8.25 3.78125C8.25 2.79749 7.45251 2 6.46875 2ZM3.1875 3.78125C3.1875 1.96907 4.65657 0.5 6.46875 0.5C8.28093 0.5 9.75 1.96907 9.75 3.78125C9.75 5.59343 8.28093 7.0625 6.46875 7.0625C4.65657 7.0625 3.1875 5.59343 3.1875 3.78125ZM13.2188 4.25C12.5457 4.25 12 4.79565 12 5.46875C12 6.14185 12.5457 6.6875 13.2188 6.6875C13.8918 6.6875 14.4375 6.14185 14.4375 5.46875C14.4375 4.79565 13.8918 4.25 13.2188 4.25ZM10.5 5.46875C10.5 3.96723 11.7172 2.75 13.2188 2.75C14.7203 2.75 15.9375 3.96723 15.9375 5.46875C15.9375 6.97027 14.7203 8.1875 13.2188 8.1875C11.7172 8.1875 10.5 6.97027 10.5 5.46875ZM2.45217 12.9974C3.64857 13.6371 5.01535 14 6.46875 14C7.92216 14 9.28896 13.6371 10.4854 12.9974C10.4365 12.4223 10.2672 11.8829 10.0031 11.4031C9.31627 10.1553 7.9904 9.3125 6.46875 9.3125C4.35903 9.3125 2.62783 10.9331 2.45217 12.9974ZM11.4559 14.1743C9.98628 15.0178 8.28277 15.5 6.46875 15.5C4.58005 15.5 2.81113 14.9773 1.30133 14.0683C1.07983 13.9349 0.942643 13.6969 0.938296 13.4383C0.937768 13.4069 0.9375 13.3754 0.9375 13.3438C0.9375 10.2889 3.41392 7.8125 6.46875 7.8125C8.19355 7.8125 9.73319 8.60216 10.7469 9.83768C11.4148 9.27642 12.2771 8.9375 13.2187 8.9375C15.3416 8.9375 17.0625 10.6584 17.0625 12.7812C17.0625 12.835 17.0614 12.8885 17.0592 12.9417C17.0478 13.2166 16.8869 13.4632 16.6399 13.5843C15.6065 14.0909 14.4447 14.375 13.2187 14.375C12.6131 14.375 12.0229 14.3057 11.4559 14.1743ZM11.9685 12.7507C12.3721 12.8322 12.7901 12.875 13.2187 12.875C14.0386 12.875 14.8204 12.7183 15.5369 12.4336C15.3689 11.304 14.395 10.4375 13.2187 10.4375C12.5631 10.4375 11.9701 10.7063 11.544 11.1415C11.7623 11.6439 11.9081 12.1849 11.9685 12.7507Z" fill="#2671D9"/>
+            <div :class="{'bg-[#2671D9] text-white': isApprovalActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isApprovalActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
+            <svg width="18" height="16" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+              <path :fill="isApprovalActive ? '#ffffff' : '#2671D9'" fill-rule="evenodd" clip-rule="evenodd" d="M6.46875 2C5.48499 2 4.6875 2.79749 4.6875 3.78125C4.6875 4.76501 5.48499 5.5625 6.46875 5.5625C7.45251 5.5625 8.25 4.76501 8.25 3.78125C8.25 2.79749 7.45251 2 6.46875 2ZM3.1875 3.78125C3.1875 1.96907 4.65657 0.5 6.46875 0.5C8.28093 0.5 9.75 1.96907 9.75 3.78125C9.75 5.59343 8.28093 7.0625 6.46875 7.0625C4.65657 7.0625 3.1875 5.59343 3.1875 3.78125ZM13.2188 4.25C12.5457 4.25 12 4.79565 12 5.46875C12 6.14185 12.5457 6.6875 13.2188 6.6875C13.8918 6.6875 14.4375 6.14185 14.4375 5.46875C14.4375 4.79565 13.8918 4.25 13.2188 4.25ZM10.5 5.46875C10.5 3.96723 11.7172 2.75 13.2188 2.75C14.7203 2.75 15.9375 3.96723 15.9375 5.46875C15.9375 6.97027 14.7203 8.1875 13.2188 8.1875C11.7172 8.1875 10.5 6.97027 10.5 5.46875ZM2.45217 12.9974C3.64857 13.6371 5.01535 14 6.46875 14C7.92216 14 9.28896 13.6371 10.4854 12.9974C10.4365 12.4223 10.2672 11.8829 10.0031 11.4031C9.31627 10.1553 7.9904 9.3125 6.46875 9.3125C4.35903 9.3125 2.62783 10.9331 2.45217 12.9974ZM11.4559 14.1743C9.98628 15.0178 8.28277 15.5 6.46875 15.5C4.58005 15.5 2.81113 14.9773 1.30133 14.0683C1.07983 13.9349 0.942643 13.6969 0.938296 13.4383C0.937768 13.4069 0.9375 13.3754 0.9375 13.3438C0.9375 10.2889 3.41392 7.8125 6.46875 7.8125C8.19355 7.8125 9.73319 8.60216 10.7469 9.83768C11.4148 9.27642 12.2771 8.9375 13.2187 8.9375C15.3416 8.9375 17.0625 10.6584 17.0625 12.7812C17.0625 12.835 17.0614 12.8885 17.0592 12.9417C17.0478 13.2166 16.8869 13.4632 16.6399 13.5843C15.6065 14.0909 14.4447 14.375 13.2187 14.375C12.6131 14.375 12.0229 14.3057 11.4559 14.1743ZM11.9685 12.7507C12.3721 12.8322 12.7901 12.875 13.2187 12.875C14.0386 12.875 14.8204 12.7183 15.5369 12.4336C15.3689 11.304 14.395 10.4375 13.2187 10.4375C12.5631 10.4375 11.9701 10.7063 11.544 11.1415C11.7623 11.6439 11.9081 12.1849 11.9685 12.7507Z"/>
             </svg>
             <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Approval</span>
           </div>
           </router-link>
           <!-- Proses -->
           <router-link to="/Proses">
-          <div class="flex mt-2 h-10 hover:bg-[#E9F1FB] hover:text-[#2671D9] py-[10px] px-3 rounded-lg cursor-pointer">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.8006 1.08935L4.18235 9.93822M6.6839 12.4509L9.10754 14.8634C9.25638 15.016 9.44247 15.127 9.64741 15.1856C9.85234 15.2441 10.069 15.2481 10.276 15.1973C10.4841 15.1488 10.6762 15.0475 10.8339 14.9033C10.9915 14.7591 11.1094 14.5768 11.1762 14.3738L15.1555 2.44472C15.2388 2.2213 15.2561 1.97866 15.2054 1.74568C15.1546 1.51271 15.038 1.29922 14.8695 1.13062C14.7009 0.962027 14.4874 0.845429 14.2544 0.79471C14.0214 0.74399 13.7788 0.761286 13.5554 0.844537L1.62628 4.82497C1.41633 4.89652 1.2293 5.02285 1.08453 5.1909C0.939758 5.35895 0.842504 5.56262 0.802823 5.78086C0.761837 5.97948 0.770889 6.18517 0.829164 6.37942C0.88744 6.57367 0.993109 6.75038 1.13666 6.89364L4.18235 9.93934L4.0822 13.7963L6.6839 12.4509Z" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          <div :class="{'bg-[#2671D9] text-white': isProsesActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isProsesActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
+            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path :fill="isProsesActive ? '#ffffff' : 'none'" d="M14.8006 1.08935L4.18235 9.93822M6.6839 12.4509L9.10754 14.8634C9.25638 15.016 9.44247 15.127 9.64741 15.1856C9.85234 15.2441 10.069 15.2481 10.276 15.1973C10.4841 15.1488 10.6762 15.0475 10.8339 14.9033C10.9915 14.7591 11.1094 14.5768 11.1762 14.3738L15.1555 2.44472C15.2388 2.2213 15.2561 1.97866 15.2054 1.74568C15.1546 1.51271 15.038 1.29922 14.8695 1.13062C14.7009 0.962027 14.4874 0.845429 14.2544 0.79471C14.0214 0.74399 13.7788 0.761286 13.5554 0.844537L1.62628 4.82497C1.41633 4.89652 1.2293 5.02285 1.08453 5.1909C0.939758 5.35895 0.842504 5.56262 0.802823 5.78086C0.761837 5.97948 0.770889 6.18517 0.829164 6.37942C0.88744 6.57367 0.993109 6.75038 1.13666 6.89364L4.18235 9.93934L4.0822 13.7963L6.6839 12.4509Z" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Proses</span>
           </div>
           </router-link>
           <!-- Selesai -->
           <router-link to="/Selesai">
-          <div class="flex mt-2 h-10 hover:bg-[#E9F1FB] hover:text-[#2671D9] py-[10px] px-3 rounded-lg cursor-pointer">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.27747 6.66003H13.215" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4.78503 6.66003L5.34753 7.22253L7.03503 5.53503" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.27747 11.91H13.215" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M4.78503 11.91L5.34753 12.4725L7.03503 10.785" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke="#2671D9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <div :class="{'bg-[#2671D9] text-white': isSelesaiActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isSelesaiActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path :stroke="isSelesaiActive ? '#FFFFFF' : '#2671D9'" d="M9.27747 6.66016H13.215" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path :stroke="isSelesaiActive ? '#FFFFFF' : '#2671D9'" d="M4.78503 6.66016L5.34753 7.22266L7.03503 5.53516" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path :stroke="isSelesaiActive ? '#FFFFFF' : '#2671D9'" d="M9.27747 11.9102H13.215" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path :stroke="isSelesaiActive ? '#FFFFFF' : '#2671D9'" d="M4.78503 11.9102L5.34753 12.4727L7.03503 10.7852" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path :stroke="isSelesaiActive ? '#FFFFFF' : '#2671D9'" d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Selesai</span>
           </div>
           </router-link>
-
         </div>
       </div>
     </div>
   </template>
 
 <script setup>
-
 import { useRoute } from 'vue-router';
+
 const route = useRoute();   
 
-// Reactive states
-const isDropdownOpen = ref(true);
+const isDropdownOpen = ref(false); 
 
-// Computed properties to track active states
 const isDashboardActive = computed(() => route.name === 'dashboard');
 const isPksActive = computed(() => ['PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
 const isMouActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran'].includes(route.name));
-const isBuatActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran', 'PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
-const isDraftActive = computed(() => route.name === 'draft');
+const isDraftActive = computed(() => route.name === 'Draft');
+const isApprovalActive = computed(() => route.name === 'Pengajuanbaru');
+const isProsesActive = computed(() => route.name === 'Proses');
+const isSelesaiActive = computed(() => route.name === 'Selesai');
+const isBuatActive = computed(() => ['MoU', 'PKS'].includes(route.name));
 
-// Function to handle active states
+watch(() => route.name, (newName) => {
+  if (newName === 'dashboard') {
+    isDashboardActive.value = true;
+    isDropdownOpen.value = false;
+  } else if (isMouActive.value || isPksActive.value) {
+    isDropdownOpen.value = true;
+    isBuatActive.value = true; 
+  } else if (newName === 'Draft' || newName === 'Pengajuanbaru' || newName === 'Proses' || newName === 'Selesai') {
+    isDropdownOpen.value = false;
+    isBuatActive.value = false; 
+  } else {
+    isDropdownOpen.value = false;
+    isBuatActive.value = false; 
+  }
+});
+
 function setActive(tab) {
   if (tab === 'dashboard') {
     isDashboardActive.value = true;
-    isDropdownOpen.value = false;  
-  } else if (tab === 'buat') {
-    isDashboardActive.value = false;
-    isDropdownOpen.value = !isDropdownOpen.value; 
-  } else if (tab === 'mou') {
-    isDashboardActive.value = false;
-    isPksActive.value = false; 
-    isDropdownOpen.value = true;
-  } else if (tab === 'pks') {
-    isDashboardActive.value = false;
-    isMouActive.value = false;  
-    isPksActive.value = true;
-    isDropdownOpen.value = true;
-  } else if (tab === 'draft') {
-    isDraftActive.value = true;
-    isDropdownOpen.value = false; // Close dropdown when "Draft" is active
-  }
-}
-
-watch(() => route.name, (newName) => {
-  if (newName === 'Dashboard') {
-    isDashboardActive.value = true;
     isDropdownOpen.value = false;
-  } else if (newName === 'PKS') {
-    isMouActive.value = false;
-    isPksActive.value = true;
-    isDropdownOpen.value = true;
-  } else if (['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran'].includes(newName)) {
+    isBuatActive.value = false;
+  } else if (tab === 'buat') {
+    isDropdownOpen.value = !isDropdownOpen.value; 
+    isBuatActive.value = isDropdownOpen.value;
+  } else if (tab === 'mou') {
     isMouActive.value = true;
     isPksActive.value = false;
     isDropdownOpen.value = true;
-  } else if (newName === 'Draft') {
+    isBuatActive.value = true; 
+  } else if (tab === 'pks') {
+    isPksActive.value = true;
+    isMouActive.value = false;
+    isDropdownOpen.value = true;
+    isBuatActive.value = true; 
+  } else if (tab === 'draft') {
     isDraftActive.value = true;
-    isDropdownOpen.value = false; // Close dropdown when "Draft" is active
-  } else {
-    isDashboardActive.value = false;
     isDropdownOpen.value = false;
-    isDraftActive.value = false;
-  } 
-});
+    isBuatActive.value = false;
+  } else if (tab === 'approval') { 
+    isApprovalActive.value = true;
+    isDropdownOpen.value = false;
+    isBuatActive.value = false;
+  } else if (tab === 'proses') { 
+    isProsesActive.value = true;
+    isDropdownOpen.value = false;
+    isBuatActive.value = false;
+  } else if (tab === 'selesai') { 
+    isSelesaiActive.value = true;
+    isDropdownOpen.value = false;
+    isBuatActive.value = false;
+  } else {
+    isDropdownOpen.value = false;
+    isBuatActive.value = false;
+  }
+}
 </script>
-perintah active router draft jika di halaman draft
