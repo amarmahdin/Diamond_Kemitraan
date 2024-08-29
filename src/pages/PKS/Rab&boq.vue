@@ -21,7 +21,7 @@ import Sidebar from '@/components/sidebar.vue';
             <div class="h-auto py-3 px-4 bg-slate-100">
 
                 <!-- Start Content -->
-                <div class="w-[1217px] p-1 rounded-lg h-auto bg-white">
+                <div class="w-[1217px] p-1 rounded-lg h-auto bg-white min-h-screen mx-auto">
                     <div class="flex pl-4 pt-4">
                         <div class="w-[6px] h-7 bg-[#2671D9]"></div>
                         <h1 class="text-xl font-medium ml-[6px]">PKS</h1>
@@ -130,7 +130,7 @@ import Sidebar from '@/components/sidebar.vue';
                     </div>
 
                     <!-- Start Data -->
-                    <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4">
+                    <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
                         <table class="table-auto w-full text-left ">
                             <thead class="text-xs text-[#4D5E80] rounded-lg">
                                 <tr class="bg-none border-b-2">
@@ -232,6 +232,46 @@ import Sidebar from '@/components/sidebar.vue';
                                 </tr>
                                 <tr class="bg-white border-b text-sm text-[#333333]">                          
                                     <td class="w-[74px] px-3 py-[18px]">8</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+                                    </div></td>
+                                </tr>
+                                <tr class="bg-white border-b text-sm text-[#333333]">                          
+                                    <td class="w-[74px] px-3 py-[18px]">9</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+                                    </div></td>
+                                </tr>
+                                <tr class="bg-white border-b text-sm text-[#333333]">                          
+                                    <td class="w-[74px] px-3 py-[18px]">10</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+                                    </div></td>
+                                </tr>
+                                <tr class="bg-white border-b text-sm text-[#333333]">                          
+                                    <td class="w-[74px] px-3 py-[18px]">11</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
+                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+                                    </div></td>
+                                </tr>                                
+                                <tr class="bg-white border-b text-sm text-[#333333]">                          
+                                    <td class="w-[74px] px-3 py-[18px]">12</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
