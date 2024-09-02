@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import sidebar from '@/components/sidebar.vue';
+import sidemanager from '@/components/sidemanager.vue';
 import navbar from '@/components/navbar.vue';
 </script>
 
 <template>
     <div class="flex">    
-    <sidebar/>
+    <sidemanager/>
     <div class="flex-grow">
         <navbar/>
         <div class="w-auto h-[54px]">
@@ -33,7 +33,7 @@ import navbar from '@/components/navbar.vue';
                     <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Disetujui', 'text-[#7F7F80]': $route.path !== '/Disetujui'}" class="py-2">
                         <router-link to="/Disetujui" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group px-6" active-class="text-[#2671D9]" exact>
                             Disetujui
-                            <div class="absolute w-[80px] ml-6  h-1 my-2" :class="{'bg-[#2671D9] scale-x-100': $route.path === '/Disetujui'}"></div>
+                            <div class="absolute w-full h-1 my-2  scale-x-0 group-hover:scale-x-100" :class="{'bg-[#2671D9]  scale-x-100': $route.path === '/Disetujui'}"></div>
                         </router-link>
                     </li>
                     <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Ditolak', 'text-[#7F7F80]': $route.path !== '/Ditolak'}" class="py-2">
@@ -130,14 +130,14 @@ import navbar from '@/components/navbar.vue';
                                 <td class="px-3">PKS</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFE5E6] font-medium text-[#FF5656] border-[#FD8A8A] border-1 rounded-[100px]">Ditolak</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Perlu Disetujui</span></td>
                                 <td class="px-3 relative">
                                     <div @click="viewDropdown" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
-                                    <router-link to="/Detailpengajuan">
+                                    <router-link to="/Detailpengajuanmanager">
                                     <div v-show="isViewOpen" 
                                         class="absolute w-[160px] h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer -left-[120px] shadow-sm bg-white hover:bg-gray-200 hover:border-[#2671D9]">
                                         <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@ import navbar from '@/components/navbar.vue';
                                 <td class="px-3">PKS</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFE5E6] font-medium text-[#FF5656] border-[#FD8A8A] border-1 rounded-[100px]">Ditolak</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Perlu Disetujui</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
@@ -171,7 +171,7 @@ import navbar from '@/components/navbar.vue';
                                 <td class="px-3">MoU</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFE5E6] font-medium text-[#FF5656] border-[#FD8A8A] border-1 rounded-[100px]">Ditolak</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Perlu Disetujui</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
@@ -187,7 +187,7 @@ import navbar from '@/components/navbar.vue';
                                 <td class="px-3">MoU</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#FFF6E1] font-medium text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]">Revisi Mayor</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFE5E6] font-medium text-[#FF5656] border-[#FD8A8A] border-1 rounded-[100px]">Ditolak</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF6E1] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Perlu Disetujui</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">

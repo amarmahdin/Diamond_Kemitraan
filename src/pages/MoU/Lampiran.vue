@@ -255,6 +255,7 @@ import kirim from '@/assets/img/Dialogkirim.png';
                     </div>
                 </div>
                  <!-- End Pop up -->
+                  
             </div>
         </div>
     </div>
