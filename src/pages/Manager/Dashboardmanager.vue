@@ -6,9 +6,11 @@ import navbar from '@/components/navbar.vue'
 import user from '@/assets/img/User.png'
 import group from '@/assets/img/Group.png'
 import deliv from '@/assets/img/Delivered.png'
+import deliv1 from '@/assets/img/Delivered1.png'
 import deliv2 from '@/assets/img/Delivered2.png'
 import deliv3 from '@/assets/img/Delivered3.png'
 import deliv4 from '@/assets/img/Delivered4.png'
+
 </script>
 
 <template>
@@ -37,12 +39,12 @@ import deliv4 from '@/assets/img/Delivered4.png'
                     </div>
                 </div>
                 <div class="w-[1170px] h-[68px] ml-4 mt-6 flex justify-between">
-                    <div class="w-[196.4px] h-full bg-[#91BEF7] border-[1px] rounded-lg flex justify-between">
+                    <div class="w-[196.4px] h-full bg-[#5197F9] border-[1px] rounded-lg flex justify-between">
                         <div class="mt-[5px] ml-4">
                             <span class="text-xs text-white">Total Permintaan</span>
-                            <h1 class="text-[24px] text-white font-medium">2</h1>
+                            <h1 class="text-[24px] text-white font-medium">32</h1>
                         </div>
-                        <img :src="deliv2" alt="Direvisi Image" class="object-none">
+                        <img :src="deliv1" alt="Direvisi Image" class="object-none">
                     </div>
                     <div class="w-[196.4px] h-full bg-[#8C62FF] border-[1px] rounded-lg flex justify-between">
                         <div class="mt-[5px] ml-4">

@@ -64,7 +64,7 @@ import navbar from '../components/navbar.vue'
                             </svg>
                         </div>
                     </div> -->
-                    <!-- <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] font-semibold rounded-lg mt-2">Edit</button>    -->
+                    <!-- <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] hover:bg-[#2671D9] hover:text-white font-semibold rounded-lg mt-2">Edit</button>    -->
                 </div>
 
                 <!-- Status Approval Approve Manager -->
@@ -450,9 +450,7 @@ import navbar from '../components/navbar.vue'
                 </svg>
 
                 <div class="mr-5 flex justify-end py-4">
-                    <button class="w-[61px] h-[40px] border-[1px] border-[#C53830] text-[#C53830] rounded-lg mr-4">Tolak</button>
-                    <button class="w-[61px] h-[40px] border-[1px] border-[#2671D9] text-[#2671D9] rounded-lg mr-4">Revisi</button>
-                    <button class="w-[61px] h-[40px] bg-[#2671D9] text-white rounded-lg ">Kirim</button>
+                 <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button>
                 </div>
 
             </div>
