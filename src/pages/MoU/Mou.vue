@@ -88,6 +88,7 @@ import Sidebar from '@/components/sidebar.vue';
 
                      <h1 class="text-xl font-medium pl-4 py-6">Dasar</h1>
                      <div class="pl-4 w-[1160px] flex justify-between">
+                        <!-- MoU/NDA -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">MoU / NDA <span class="text-[#FF5656]">*</span></label>
                             <div class="w-[560px] mt-2">
@@ -105,6 +106,8 @@ import Sidebar from '@/components/sidebar.vue';
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Tanggal -->
                         <div class="relative">
                             <label for="dateInput" class="text-[#4D5E80] font-medium">Tanggal <span class="text-[#FF5656]">*</span></label>
                             <div class="w-[560px] py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between items-center">
@@ -116,16 +119,21 @@ import Sidebar from '@/components/sidebar.vue';
                             </div>
                         </div>
                     </div>
+
+                    <!-- Judul Kemitraan -->
                     <div class="ml-4 mt-6">
                         <label class="text-[#4D5E80] font-medium">Judul Kemitraan <span class="text-[#FF5656]">*</span></label> 
                         <form action="" class="w-[1150px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
                             <input type="text" placeholder="Masukan Judul Kemitraan" class="w-[1080px] outline-none">
                         </form>
                     </div>
+
                     <svg width="1150" class="mt-28 ml-4" height="1" viewBox="0 0 1160 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1160" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1160" y2="0.5" stroke="#E5E7E9"/>
                     </svg>
+
+                    <!-- Button -->
                     <div class="flex justify-end mr-11 py-4">
                         <router-link :to="'Ruanglingkup'"><button class="w-[107px] h-12 rounded-lg text-white text-sm bg-[#2671D9]">Selanjutnya</button></router-link>
                     </div>

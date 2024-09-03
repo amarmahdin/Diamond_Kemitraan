@@ -88,8 +88,8 @@ import kirim from '@/assets/img/Dialogkirim.png';
                      <div class="w-[1170px] h-auto flex justify-between">
 
                         <!-- Start upload -->
-                         <!-- Start Proposal Mitra -->
                         <div>
+                        <!-- Start Proposal Mitra --> 
                         <div class="ml-4"><label class="text-[#4D5E80] font-semibold">Proposal Mitra <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label> 
                             <div><span class="text-xs text-[#7F7F80] italic">Tipe file pdf dan word, dengan maks size 10Mb</span></div>
                             <div v-if="!isUploadedmitra" class="w-[340px] h-[130px] border-[1px] rounded-lg border-dashed mt-2 py-3 hover:bg-[#E9F1FB] hover:border-[#2671D9]">

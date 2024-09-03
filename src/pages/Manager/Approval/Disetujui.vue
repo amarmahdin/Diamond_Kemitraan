@@ -22,24 +22,25 @@ import navbar from '@/components/navbar.vue';
                 </div>
                 <span class="text-base text-[#9C9C9C] pl-4">Approval Surat Pengajuan Mitra</span>
 
+                <!-- Nav -->
                 <div class="px-4 py-4">
                     <ul class="flex flex-row"> 
                     <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Pengajuanbaru', 'text-[#7F7F80]': $route.path !== '/Pengajuanbaru'}" class="py-2">
-                        <router-link to="/Pengajuanbaru" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group" active-class="text-[#2671D9]" exact>
+                        <router-link to="/Approvalpengajuanbaru" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group" active-class="text-[#2671D9]" exact>
                             Pengajuan Baru
                             <div class="absolute w-full h-1 my-2 scale-x-0 group-hover:scale-x-100" :class="{'scale-x-100 bg-[#2671D9]': $route.path === '/Pengajuanbaru'}"></div>
                         </router-link>
                     </li>
-                    <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Disetujui', 'text-[#7F7F80]': $route.path !== '/Disetujui'}" class="py-2">
-                        <router-link to="/Disetujui" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group px-6" active-class="text-[#2671D9]" exact>
+                    <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Approvaldisetujui', 'text-[#7F7F80]': $route.path !== '/Approvaldisetujui'}" class="py-2">
+                        <router-link to="/Approvaldisetujui" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group px-6" active-class="text-[#2671D9]" exact>
                             Disetujui
-                            <div class="absolute w-[80px] ml-6  h-1 my-2" :class="{'bg-[#2671D9] scale-x-100': $route.path === '/Disetujui'}"></div>
+                            <div class="absolute w-[80px] ml-6  h-1 my-2" :class="{'bg-[#2671D9] scale-x-100': $route.path === '/Approvaldisetujui'}"></div>
                         </router-link>
                     </li>
-                    <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Ditolak', 'text-[#7F7F80]': $route.path !== '/Ditolak'}" class="py-2">
-                        <router-link to="/Ditolak" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group" active-class="text-[#2671D9]" exact>
+                    <li :class="{'text-[#2671D9] font-semibold': $route.path === '/Approvalditolak', 'text-[#7F7F80]': $route.path !== '/Approvalditolak'}" class="py-2">
+                        <router-link to="/Approvalditolak" class="hover:text-[#2671D9] text-base font-semibold tracking-widest relative group" active-class="text-[#2671D9]" exact>
                             Ditolak
-                            <div class="absolute w-full h-1 my-2  scale-x-0 group-hover:scale-x-100" :class="{'bg-[#2671D9]  scale-x-100': $route.path === '/Ditolak'}"></div>
+                            <div class="absolute w-full h-1 my-2  scale-x-0 group-hover:scale-x-100" :class="{'bg-[#2671D9]  scale-x-100': $route.path === '/Approvalditolak'}"></div>
                         </router-link>
                     </li>
                 </ul>
@@ -137,7 +138,7 @@ import navbar from '@/components/navbar.vue';
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
-                                    <router-link to="/Detailpengajuanmanager">
+                                    <router-link to="/Detailpengajuanadmin">
                                     <div v-show="isViewOpen" 
                                         class="absolute w-[160px] h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer -left-[120px] shadow-sm bg-white hover:bg-gray-200 hover:border-[#2671D9]">
                                         <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">

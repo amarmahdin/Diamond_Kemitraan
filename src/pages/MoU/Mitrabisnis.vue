@@ -84,6 +84,8 @@ import Sidebar from '@/components/sidebar.vue';
 
                      <h1 class="text-xl text-[#333333] font-medium pl-4 py-6">Daftar Mitra Bisnis</h1>
                      <div class="w-[1230px] h-auto flex justify-between">
+
+                        <!-- Calon Mitra Bisnis -->
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-medium">Calon Mitra Bisnis <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[1160px] h-[40px] px-4 py-2 mt-2 border-[1px] rounded-lg flex justify-between text-sm">
@@ -94,10 +96,12 @@ import Sidebar from '@/components/sidebar.vue';
                             </form>
                         </div>
                      </div>
+
                      <svg width="1150" class="mt-64 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1150" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1190" y2="0.5" stroke="#E5E7E9"/>
                     </svg>
+                    
                     <div class="flex justify-end">
                         <div class="mr-4 py-4">
                             <router-link :to="'Lainnya'"><button class="w-[107px] h-12 font-medium rounded-lg text-[#2671D9] text-sm border-[1px] border-[#2671D9]">Sebelumnya</button></router-link>

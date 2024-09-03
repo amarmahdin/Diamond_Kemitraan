@@ -37,13 +37,13 @@ import Pkslampiran from '../pages/PKS/Pkslampiran.vue';
 const routes = [
     
     // Manager
-    { path: '/Dashboardmanager', name: 'Dashboardmanager', component: Dashboardmanager },
-    { path: '/Pengajuanbaru', name: 'Pengajuanbaru', component: Pengajuanbaru },
-    { path: '/Disetujui', name: 'Disetujui', component: Disetujui },
-    { path: '/Ditolak', name: 'Ditolak', component: Ditolak },
-    { path: '/Prosesmanager', name: 'Prosesmanager', component: Prosesmanager },
-    { path: '/Selesaimanager', name: 'Selesaimanager', component: Selesaimanager },
-    { path: '/Detailpengajuanmanager', name: 'Detailmanager', component: Detailmanager},
+    { path: '/Dashboardadmin', name: 'Dashboardmanager', component: Dashboardmanager },
+    { path: '/Approvalpengajuanbaru', name: 'Pengajuanbaru', component: Pengajuanbaru },
+    { path: '/Approvaldisetujui', name: 'Disetujui', component: Disetujui },
+    { path: '/Approvalditolak', name: 'Ditolak', component: Ditolak },
+    { path: '/Prosesadmin', name: 'Prosesmanager', component: Prosesmanager },
+    { path: '/Selesaiadmin', name: 'Selesaimanager', component: Selesaimanager },
+    { path: '/Detailpengajuanadmin', name: 'Detailmanager', component: Detailmanager},
 
     // User
     { path: '/', name: 'Dashboard', component: Dashboard },
@@ -54,7 +54,7 @@ const routes = [
     { path: '/Detailproses', name: 'Detailproses', component: Detailproses },
 
     // MoU
-    { path: '/MoU', name: 'MoU', component: MoU },
+    { path: '/MoU-NDA', name: 'MoU', component: MoU },
     { path: '/Ruanglingkup', name: 'Ruanglingkup', component: Ruanglingkup },
     { path: '/Lainnya', name: 'Lainnya', component: Lainnya },
     { path: '/Mitrabisnis', name: 'Mitrabisnis', component: Mitrabisnis },

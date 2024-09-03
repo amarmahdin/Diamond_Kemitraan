@@ -431,7 +431,7 @@ import kirim from '@/assets/img/Dialogkirim.png';
                     </div>
                     <!-- Setujui Pengajuan -->
                      <div v-if="isSelesaiSetuju" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[452px]">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[428px]">
                             <div class="flex justify-center"><img :src="kirim" alt="Dialog Image" class="pt-6"></div>
                             <div class="flex justify-center"><h1 class="text-[#333333] text-xl font-semibold mt-2">Pengajuan Telah Disetujui</h1></div>
                             <div class="ml-8 mt-3 w-[250px]"><p class="text-center">Anda telah berhasil menyetujui pengajuan ini.</p></div>
@@ -462,7 +462,7 @@ import kirim from '@/assets/img/Dialogkirim.png';
                     </div>
                     <!-- Tolak Pengajuan -->
                     <div v-if="isSelesaiTolak" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[452px]">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[428px]">
                             <div class="flex justify-center"><img :src="kirim" alt="Dialog Image" class="pt-6"></div>
                             <div class="flex justify-center"><h1 class="text-[#333333] text-xl font-semibold mt-2">Pengajuan Telah Ditolak</h1></div>
                             <div class="ml-8 mt-3 w-[240px]"><p class="text-center">Anda telah berhasil menolak pengajuan ini.</p></div>

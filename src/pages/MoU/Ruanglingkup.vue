@@ -127,16 +127,19 @@ import Sidebar from '@/components/sidebar.vue';
                      </div>
                      <!-- End lingkup -->
                       
-                     <div class="w-[235px] flex ml-4 pl-4 border-[1px] border-[#2671D9] py-3 rounded-lg cursor-pointer hover:bg-[#E9F1FB] hover:border-none">
+                     <!-- Button tambah lingkup pekerjaan -->
+                     <button class="w-[235px] flex ml-4 pl-4 border-[1px] border-[#2671D9] py-3 rounded-lg cursor-pointer hover:bg-[#E9F1FB] hover:border-none">
                         <svg width="14" height="14" class="mt-1" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0.875C7.48325 0.875 7.875 1.26675 7.875 1.75V6.125H12.25C12.7332 6.125 13.125 6.51675 13.125 7C13.125 7.48325 12.7332 7.875 12.25 7.875H7.875V12.25C7.875 12.7332 7.48325 13.125 7 13.125C6.51675 13.125 6.125 12.7332 6.125 12.25V7.875H1.75C1.26675 7.875 0.875 7.48325 0.875 7C0.875 6.51675 1.26675 6.125 1.75 6.125H6.125V1.75C6.125 1.26675 6.51675 0.875 7 0.875Z" fill="#2671D9"/>
                         </svg>
                         <span class="text-sm font-medium text-[#2671D9] ml-3">Tambah Lingkup Pekerjaan</span>
-                     </div>
+                     </button>
+
                      <svg width="1150" class="mt-36 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1150" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1150" y2="0.5" stroke="#E5E7E9"/>
                     </svg>
+                    
                     <div class="flex justify-end">
                         <div class="mr-4 py-4">
                             <router-link :to="'Mou'"><button class="w-[107px] h-12 font-medium rounded-lg text-[#2671D9] text-sm border-[1px] border-[#2671D9]">Sebelumnya</button></router-link>

@@ -86,12 +86,16 @@ import Sidebar from '@/components/sidebar.vue';
 
                      <h1 class="text-xl text-[#333333] font-medium pl-4 py-6">Lainnya</h1>
                      <div class="w-[1160px] h-auto flex justify-between">
+
+                        <!-- Latar Belakang -->
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-medium">Latar Belakang <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[550px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
                                 <input type="text" placeholder="Masukan Latar Belakang" class="w-[400px] outline-none">
                             </form>
                         </div>
+
+                        <!-- Catatan -->
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-medium text-base">Catatan <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label> 
                             <form action="" class="w-[550px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
@@ -99,10 +103,12 @@ import Sidebar from '@/components/sidebar.vue';
                             </form>
                         </div>
                      </div>
+
                      <svg width="1150" class="mt-56 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1150" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1150" y2="0.5" stroke="#E5E7E9"/>
                     </svg>
+                    
                     <div class="flex justify-end">
                         <div class="mr-4 py-4">
                             <router-link :to="'Ruanglingkup'"><button class="w-[107px] h-12 font-medium rounded-lg text-[#2671D9] text-sm border-[1px] border-[#2671D9]">Sebelumnya</button></router-link>
