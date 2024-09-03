@@ -100,6 +100,8 @@ import Sidebar from '@/components/sidebar.vue';
 
                      <h1 class="text-xl font-medium pl-4 py-6">Dasar</h1>
                      <div class="pl-4 w-[1155px] flex justify-between">
+
+                        <!-- Jenis Kemitraan -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Jenis Kemitraan <span class="text-[#FF5656]">*</span></label>
                             <div class="relative w-[540px] mt-2">
@@ -114,11 +116,13 @@ import Sidebar from '@/components/sidebar.vue';
                                         <li @click="jenisOption('Join Operation')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Join Operation', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Operation'}" class="cursor-pointer border-b-[1px] px-4 py-2">Join Operation</li>
                                         <li @click="jenisOption('Resseler')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Resseler', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Resseler'}" class="cursor-pointer border-b-[1px] px-4 py-2">Resseler</li>
                                         <li @click="jenisOption('Bundling Layanan')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Bundling Layanan', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Bundling Layanan'}" class="cursor-pointer border-b-[1px] px-4 py-2">Bundling Layanan</li>
-                                        <li  @click="jenisOption('Join Investmen')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Join Investmen', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Investmen'}" class="cursor-pointer px-4 py-2">Join Investmen</li>
+                                        <li @click="jenisOption('Join Investmen')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Join Investmen', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Investmen'}" class="cursor-pointer px-4 py-2">Join Investmen</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Tanggal -->
                         <div class="relative translate-x-4">
                             <label for="dateInput" class="text-[#4D5E80] font-medium">Tanggal <span class="text-[#FF5656]">*</span></label>
                             <div class="w-[560px] py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between items-center">
@@ -130,7 +134,9 @@ import Sidebar from '@/components/sidebar.vue';
                             </div>
                         </div>
                     </div>
+
                     <div class="pl-4 mt-7 w-[1155px] flex justify-between">
+                        <!-- Tipe Anggaran -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Tipe Anggaran <span class="text-[#FF5656]">*</span></label>
                             <div class="relative w-[540px] mt-2">
@@ -149,6 +155,8 @@ import Sidebar from '@/components/sidebar.vue';
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Nomor Anggaran -->
                         <div class="translate-x-4">
                             <label class="text-[#4D5E80] font-medium">Nomor Anggaran <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[555px] py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between">
@@ -156,7 +164,9 @@ import Sidebar from '@/components/sidebar.vue';
                             </form>
                         </div>
                     </div>
+
                     <div class="pl-4 mt-7 w-[1155px] flex justify-between">
+                        <!-- Metode Kemitraan -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Metode Kemitraan <span class="text-[#FF5656]">*</span></label>
                             <div class="relative w-[540px] mt-2">
@@ -174,6 +184,8 @@ import Sidebar from '@/components/sidebar.vue';
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Jenis Kemitraan -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Jenis Material <span class="text-[#FF5656]">*</span></label>
                             <div class="relative w-[540px] mt-2">
@@ -192,8 +204,9 @@ import Sidebar from '@/components/sidebar.vue';
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+                    <!-- Judul -->
                     <div class="ml-4 mt-6">
                         <label class="text-[#4D5E80] font-medium">Judul <span class="text-[#FF5656]">*</span></label> 
                         <form action="" class="w-[1150px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">

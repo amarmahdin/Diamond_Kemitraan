@@ -93,11 +93,12 @@ import kirim from '@/assets/img/Dialogkirim.png';
                         </div>
                      </div>
                      <!-- End layout angka -->
+                      
                      <h1 class="text-xl text-[#333333] font-semibold pl-4 py-6">Lampiran</h1>
                      <div class="w-[1160px] h-auto flex justify-between">
                         <!-- Start upload -->
-                        <!-- Start KKB -->
                         <div>
+                        <!-- Start KKB -->
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-semibold">KKB <span class="text-[#FF5656]">*</span></label> 
                             <div><span class="text-xs text-[#7F7F80] italic">Tipe file pdf dan word, dengan maks size 10Mb</span></div>
@@ -386,7 +387,6 @@ import kirim from '@/assets/img/Dialogkirim.png';
                     </div>
                     <!-- End Dokumen Lainnya -->
 
-                     <!-- End upload -->
                      <svg width="1150" class="mt-36 ml-4" height="1" viewBox="0 0 1150 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1150" height="0" transform="translate(0 1)" fill="white"/>
                         <line y1="0.5" x2="1150" y2="0.5" stroke="#E5E7E9"/>

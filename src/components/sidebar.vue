@@ -22,6 +22,7 @@ import { computed } from 'vue';
         </div>
         <hr class="mt-[23px] w-[216px] ml-4 ">
         <div class="w-[212px] h-8 grid mt-[23px] ml-4">
+
           <!-- Dashboard -->
           <router-link :to="'/'">
             <div :class="{'bg-[#2671D9] text-white': isDashboardActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDashboardActive}" class="flex h-10 py-[10px] px-3 rounded-lg cursor-pointer">
@@ -31,6 +32,7 @@ import { computed } from 'vue';
               <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Dashboard</span>
             </div>
           </router-link>
+
           <!-- Buat -->
           <div @click="setActive('buat')" :class="{'bg-[#2671D9] text-white': isBuatActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isBuatActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" :fill="isBuatActive ? '#ffffff' : '#2671D9'">
@@ -38,16 +40,18 @@ import { computed } from 'vue';
             </svg>
             <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Buat</span>
             <span :class="{'rotate-0': isDropdownOpen, 'rotate-180': !isDropdownOpen}" class="ml-auto mt-2 mb-2 transition-transform duration-300">
-              <svg class="w-2 h-2 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+              <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
               </svg>
             </span>
           </div>
+
           <!-- Dropdown Menu -->
           <div v-show="isDropdownOpen" class="ml-[48px]" id="submenu">
             <router-link to="/MoU-NDA"><h1  @click="setActive('mou')" :class="{'text-[#2671D9] font-semibold': isMouActive}" class="cursor-pointer text-sm mt-2 hover:text-[#2671D9]">MoU/NDA</h1></router-link>
             <router-link to="/PKS"><h1 @click="setActive('pks')" :class="{'text-[#2671D9] font-semibold': isPksActive}" class="cursor-pointer text-sm mt-3 h-6 hover:text-[#2671D9]">PKS</h1></router-link>
           </div>
+
           <!-- Draft -->
           <router-link to="/Draft">
           <div :class="{'bg-[#2671D9] text-white': isDraftActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isDraftActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
@@ -57,7 +61,7 @@ import { computed } from 'vue';
             <span class="text-sm font-semibold ml-4 -translate-y-[2px]">Draft</span>
           </div>
           </router-link>
-          <!-- Approval -->
+     
           <!-- Proses -->
           <router-link to="/Proses">
           <div :class="{'bg-[#2671D9] text-white': isProsesActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isProsesActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
@@ -67,6 +71,7 @@ import { computed } from 'vue';
             <span class="text-sm font-semibold ml-3 -translate-y-[2px]">Proses</span>
           </div>
           </router-link>
+
           <!-- Selesai -->
           <router-link to="/Selesai">
             <div :class="{'bg-[#2671D9] text-white': isSelesaiActive, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': !isSelesaiActive}" class="flex mt-2 h-10 py-[10px] px-3 rounded-lg cursor-pointer">
@@ -104,12 +109,12 @@ watch(
   () => route.name,
   () => {
     if (isMouActive.value || isPksActive.value) {
-      isDropdownOpen.value = true; // Open dropdown on MoU or PKS routes
+      isDropdownOpen.value = true; 
     } else {
-      isDropdownOpen.value = false; // Close dropdown on other routes
+      isDropdownOpen.value = false; 
     }
   },
-  { immediate: true } // Ensure the watch runs immediately on component mount
+  { immediate: true }
 );
 
 function setActive(tab) {
@@ -117,7 +122,7 @@ function setActive(tab) {
     isDashboardActive.value = true;
     isDropdownOpen.value = false;
   } else if (tab === 'buat') {
-    isDropdownOpen.value = !isDropdownOpen.value; // Toggle dropdown on "buat" click
+    isDropdownOpen.value = !isDropdownOpen.value;
   } else if (tab === 'mou') {
     isMouActive.value = true;
     isPksActive.value = false;

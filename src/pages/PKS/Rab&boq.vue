@@ -100,6 +100,7 @@ import Sidebar from '@/components/sidebar.vue';
                     <h1 class="text-xl font-medium pl-4 mt-6">RAB & BOQ</h1>
                     <div class="w-[1175px] h-10 mt-6 flex justify-between">
                         <div class="flex ">
+                            <!-- Search -->
                             <div class="ml-4 w-[280px] py-2 border-[1px] rounded-s-lg flex ">
                                 <form action="search" class="flex">
                                     <input type="text" name="search" placeholder="Cari sesuatu disini ..." class="ml-4 w-[250px] outline-none">
@@ -108,6 +109,8 @@ import Sidebar from '@/components/sidebar.vue';
                             <div class="w-10 h-10 bg-[#2671D9] rounded-e-lg -translate-x-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[25px] h-[40px] ml-[6px] cursor-pointer" viewBox="0 0 101 101" id="Search"><path d="M63.3 59.9c3.8-4.6 6.2-10.5 6.2-17 0-14.6-11.9-26.5-26.5-26.5S16.5 28.3 16.5 42.9 28.4 69.4 43 69.4c6.4 0 12.4-2.3 17-6.2l20.6 20.6c.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7.9-.9.9-2.5 0-3.4L63.3 59.9zm-20.4 4.7c-12 0-21.7-9.7-21.7-21.7s9.7-21.7 21.7-21.7 21.7 9.7 21.7 21.7-9.7 21.7-21.7 21.7z" fill="#ffffff" class="color000000 svgShape"></path></svg>
                             </div>
+
+                            <!-- Filter -->
                             <div class="w-[90px] ml-2 relative">
                                 <button @click="filterDropdown" :class="{'rounded-t-lg': isFilterOpen, 'rounded-lg': !isFilterOpen}" class="w-[90px] border-[1px] px-1 py-2 flex justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-2 cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
@@ -124,6 +127,8 @@ import Sidebar from '@/components/sidebar.vue';
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Button Tambah -->
                         <div>
                             <button @click="openSend" class="w-[102px] h-10 bg-[#2671D9] rounded-lg text-white"><span class="text-lg font-normal">+</span> Tambah</button>
                         </div>
@@ -132,6 +137,7 @@ import Sidebar from '@/components/sidebar.vue';
                     <!-- Start Data -->
                     <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
                         <table class="table-auto w-full text-left ">
+                            <!-- Kolom -->
                             <thead class="text-xs text-[#4D5E80] rounded-lg">
                                 <tr class="bg-none border-b-2">
                                     <th class="w-[74px] px-3 py-[18px]"><div class="flex justify-between">No.
@@ -159,6 +165,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <th class="w-[54px] px-3"></th>
                                 </tr>
                             </thead>
+                            <!-- Baris -->
                             <tbody>
                                 <tr class="bg-white border-b text-sm text-[#333333]">                          
                                     <td class="w-[74px] px-3 py-[18px]">1</td>
@@ -287,51 +294,51 @@ import Sidebar from '@/components/sidebar.vue';
                     <!-- End data -->
 
                     <!-- Start Menampilkan -->
-                <div class="w-[1120px] ml-4 py-3  flex justify-between">
-                    <div class="flex">
-                    <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
-                    <div class="w-[44px] ml-4 relative">
-                    <button @click="dataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                        <span class="text-sm mt-1 pl-2">{{DataOption || '7'}}</span>
-                        <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
-                        </svg>
-                    </button>
-                    <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-t-lg cursor-pointer z-10 bg-white">
-                        <ul class="text-sm w-full">
-                            <li @click="dataOption('10')" :class="{' text-black': DataOption === '10', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '10'}" class="cursor-pointer border-b pl-3 py-1">10</li>
-                            <li @click="dataOption('15')" :class="{' text-black': DataOption === '15', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '15'}" class="cursor-pointer border-b py-1 pl-3">15</li>
-                            <li @click="dataOption('20')" :class="{' text-black': DataOption === '20', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '20'}" class="cursor-pointer pl-3 py-1">20</li>
-                        </ul>
+                    <div class="w-[1120px] ml-4 py-3  flex justify-between">
+                        <div class="flex">
+                        <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
+                        <div class="w-[44px] ml-4 relative">
+                        <button @click="dataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
+                            <span class="text-sm mt-1 pl-2">{{DataOption || '7'}}</span>
+                            <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
+                            </svg>
+                        </button>
+                        <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-t-lg cursor-pointer z-10 bg-white">
+                            <ul class="text-sm w-full">
+                                <li @click="dataOption('10')" :class="{' text-black': DataOption === '10', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '10'}" class="cursor-pointer border-b pl-3 py-1">10</li>
+                                <li @click="dataOption('15')" :class="{' text-black': DataOption === '15', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '15'}" class="cursor-pointer border-b py-1 pl-3">15</li>
+                                <li @click="dataOption('20')" :class="{' text-black': DataOption === '20', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '20'}" class="cursor-pointer pl-3 py-1">20</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                    <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
-                </div>
-                <div class="w-3 h-3 flex mr-10 -translate-x-[200px]"> 
-                    <div class="flex">
-                        <svg class="h-[5.60px] ml-2 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
-                        </svg>
+                        <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
                     </div>
-                    <span class="ml-4 mt-[2px] cursor-pointer"><svg width="30" height="29" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="32" height="30" rx="8" fill="#2671D9"/>
-                        <path d="M17.3796 10.8182V21H16.1467V12.1108H16.087L13.6012 13.7614V12.5085L16.1467 10.8182H17.3796Z" fill="white"/>
-                    </svg>
-                </span>
-                    <span class="ml-4 mt-[2px] cursor-pointer">2</span>
-                    <span class="ml-6 mt-[2px] cursor-pointer">3</span>
-                    <span class="ml-6 mt-[2px] cursor-pointer">4</span>
-                    <span class="ml-6 mt-[2px] cursor-pointer">5</span>
-                    <span class="ml-6 mt-[2px] cursor-pointer">...</span>
-                    <span class="ml-6 mt-[2px] cursor-pointer">10</span>
-                    <div class="flex">
-                        <svg class="h-[5.60px] ml-4 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7l5.326-5.7a.909.909 0 0 1 1.348 0L13 7"/>
+                    <div class="w-3 h-3 flex mr-10 -translate-x-[200px]"> 
+                        <div class="flex">
+                            <svg class="h-[5.60px] ml-2 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
+                            </svg>
+                        </div>
+                        <span class="ml-4 mt-[2px] cursor-pointer"><svg width="30" height="29" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="30" rx="8" fill="#2671D9"/>
+                            <path d="M17.3796 10.8182V21H16.1467V12.1108H16.087L13.6012 13.7614V12.5085L16.1467 10.8182H17.3796Z" fill="white"/>
                         </svg>
+                    </span>
+                        <span class="ml-4 mt-[2px] cursor-pointer">2</span>
+                        <span class="ml-6 mt-[2px] cursor-pointer">3</span>
+                        <span class="ml-6 mt-[2px] cursor-pointer">4</span>
+                        <span class="ml-6 mt-[2px] cursor-pointer">5</span>
+                        <span class="ml-6 mt-[2px] cursor-pointer">...</span>
+                        <span class="ml-6 mt-[2px] cursor-pointer">10</span>
+                        <div class="flex">
+                            <svg class="h-[5.60px] ml-4 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7l5.326-5.7a.909.909 0 0 1 1.348 0L13 7"/>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                </div>
-                <!-- akhir menampilkan -->
+                    </div>
+                    <!-- akhir menampilkan -->
 
                     <svg width="1170" class="mt-4" height="1" viewBox="0 0 1125 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1160" height="0" transform="translate(0 1)" fill="white"/>

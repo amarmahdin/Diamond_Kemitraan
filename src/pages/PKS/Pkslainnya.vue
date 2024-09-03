@@ -96,12 +96,16 @@ import Sidebar from '@/components/sidebar.vue';
 
                      <h1 class="text-xl text-[#333333] font-medium pl-4 py-6">Lainnya</h1>
                      <div class="w-[1165px] h-auto flex justify-between">
+
+                        <!-- Latar Belakang -->
                         <div class="pl-4">
                             <label class="text-[#4D5E80] font-medium">Latar Belakang <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[540px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
                                 <input type="text" placeholder="Masukan Latar Belakang" class="w-[400px] outline-none">
                             </form>
                         </div>
+
+                        <!-- Catatan -->
                         <div class="">
                             <label class="text-[#4D5E80] font-medium text-base">Catatan <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label> 
                             <form action="" class="w-[540px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
