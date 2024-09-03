@@ -14,7 +14,8 @@ import Dashboard from "@/pages/Dashboard.vue";
 import Draft from "../pages/Draft.vue";
 import Proses from "../pages/Proses.vue";
 import Selesai from "../pages/Selesai.vue";
-import Detailpengajuan from "../pages/Detailpengajuan.vue";
+import Detaildraft from "../pages/Detaildraft.vue";
+import Detailproses from "../pages/Detailproses.vue";
 
 // MoU
 import MoU from '../pages/MoU/Mou.vue';
@@ -49,7 +50,8 @@ const routes = [
     { path: '/Draft', name: 'Draft', component: Draft },
     { path: '/Proses', name: 'Proses', component: Proses },
     { path: '/Selesai', name: 'Selesai', component: Selesai },
-    { path: '/Detailpengajuan', name: 'Detailpengajuan', component: Detailpengajuan },
+    { path: '/Detaildraft', name: 'Detaildraft', component: Detaildraft },
+    { path: '/Detailproses', name: 'Detailproses', component: Detailproses },
 
     // MoU
     { path: '/MoU', name: 'MoU', component: MoU },

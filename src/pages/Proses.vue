@@ -106,7 +106,7 @@ import navbar from '@/components/navbar.vue';
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
-                                    <router-link to="/Detailpengajuan">
+                                    <router-link to="/Detailproses">
                                     <div v-show="isViewOpen" 
                                         class="absolute w-[160px] h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer -left-[120px] shadow-sm bg-white hover:bg-gray-200 hover:border-[#2671D9]">
                                         <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">

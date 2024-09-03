@@ -90,65 +90,53 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();   
 
-const isDropdownOpen = ref(false); 
+const isDropdownOpen = ref(false); // Initialize dropdown to closed
 
 const isDashboardActive = computed(() => route.name === 'Dashboard');
 const isPksActive = computed(() => ['PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
 const isMouActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran'].includes(route.name));
-const isDraftActive = computed(() => ['Draft', 'Detailpengajuan'].includes(route.name));
-const isProsesActive = computed(() => route.name === 'Proses');
+const isDraftActive = computed(() => ['Draft', 'Detaildraft'].includes(route.name));
+const isProsesActive = computed(() => ['Proses', 'Detailproses'].includes(route.name));
 const isSelesaiActive = computed(() => route.name === 'Selesai');
-const isBuatActive = computed(() => ['MoU', 'PKS'].includes(route.name));
+const isBuatActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran', 'PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
 
-watch(() => route.name, (newName) => {
-  if (newName === 'Dashboard') {
-    isDashboardActive.value = true;
-    isDropdownOpen.value = false;
-  } else if (isMouActive.value || isPksActive.value) {
-    isDropdownOpen.value = true;
-    isBuatActive.value = true; 
-  } else if (newName === 'Draft' || newName === 'Proses' || newName === 'Selesai') {
-    isDropdownOpen.value = false;
-    isBuatActive.value = false; 
-  } else {
-    isDropdownOpen.value = false;
-    isBuatActive.value = false; 
-  }
-});
+watch(
+  () => route.name,
+  () => {
+    if (isMouActive.value || isPksActive.value) {
+      isDropdownOpen.value = true; // Open dropdown on MoU or PKS routes
+    } else {
+      isDropdownOpen.value = false; // Close dropdown on other routes
+    }
+  },
+  { immediate: true } // Ensure the watch runs immediately on component mount
+);
 
 function setActive(tab) {
   if (tab === 'Dashboard') {
     isDashboardActive.value = true;
     isDropdownOpen.value = false;
-    isBuatActive.value = false;
   } else if (tab === 'buat') {
-    isDropdownOpen.value = !isDropdownOpen.value; 
-    isBuatActive.value = isDropdownOpen.value;
+    isDropdownOpen.value = !isDropdownOpen.value; // Toggle dropdown on "buat" click
   } else if (tab === 'mou') {
     isMouActive.value = true;
     isPksActive.value = false;
     isDropdownOpen.value = true;
-    isBuatActive.value = true; 
   } else if (tab === 'pks') {
     isPksActive.value = true;
     isMouActive.value = false;
     isDropdownOpen.value = true;
-    isBuatActive.value = true; 
   } else if (tab === 'draft') {
     isDraftActive.value = true;
     isDropdownOpen.value = false;
-    isBuatActive.value = false;
   } else if (tab === 'proses') { 
     isProsesActive.value = true;
     isDropdownOpen.value = false;
-    isBuatActive.value = false;
   } else if (tab === 'selesai') { 
     isSelesaiActive.value = true;
     isDropdownOpen.value = false;
-    isBuatActive.value = false;
   } else {
     isDropdownOpen.value = false;
-    isBuatActive.value = false;
   }
 }
 </script>
