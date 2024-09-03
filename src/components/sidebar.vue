@@ -45,7 +45,7 @@ import { computed } from 'vue';
           </div>
           <!-- Dropdown Menu -->
           <div v-show="isDropdownOpen" class="ml-[48px]" id="submenu">
-            <router-link to="/MoU"><h1  @click="setActive('mou')" :class="{'text-[#2671D9] font-semibold': isMouActive}" class="cursor-pointer text-sm mt-2 hover:text-[#2671D9]">MoU/NDA</h1></router-link>
+            <router-link to="/MoU-NDA"><h1  @click="setActive('mou')" :class="{'text-[#2671D9] font-semibold': isMouActive}" class="cursor-pointer text-sm mt-2 hover:text-[#2671D9]">MoU/NDA</h1></router-link>
             <router-link to="/PKS"><h1 @click="setActive('pks')" :class="{'text-[#2671D9] font-semibold': isPksActive}" class="cursor-pointer text-sm mt-3 h-6 hover:text-[#2671D9]">PKS</h1></router-link>
           </div>
           <!-- Draft -->
