@@ -10,7 +10,7 @@ import navbar from '../components/navbar.vue'
     <div class="flex-grow">
         <navbar/>
         <div class="h-[54px] flex">
-                <h1 class="text-[#2671D9] text-sm ml-6 mt-3">Proses</h1>
+                <router-link to="/Draft"><h1 class="text-[#2671D9] text-sm ml-6 mt-3">Draft</h1></router-link>
                 <svg width="16" height="16" viewBox="0 0 16 16" class="mt-[19px] ml-1" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2071 7.29289C11.5976 7.68342 11.5976 8.31658 11.2071 8.70711L6.20711 13.7071C5.81658 14.0976 5.18342 14.0976 4.79289 13.7071C4.40237 13.3166 4.40237 12.6834 4.79289 12.2929L9.08579 8L4.79289 3.70711C4.40237 3.31658 4.40237 2.68342 4.79289 2.29289C5.18342 1.90237 5.81658 1.90237 6.20711 2.29289L11.2071 7.29289Z" fill="#7F7F80"/>
                 </svg>
@@ -64,7 +64,7 @@ import navbar from '../components/navbar.vue'
                             </svg>
                         </div>
                     </div> -->
-                    <!-- <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] hover:bg-[#2671D9] hover:text-white font-semibold rounded-lg mt-2">Edit</button>    -->
+                    <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] hover:bg-[#2671D9] hover:text-white font-semibold rounded-lg mt-2">Edit</button>   
                 </div>
 
                 <!-- Status Approval Approve Manager -->
@@ -76,12 +76,12 @@ import navbar from '../components/navbar.vue'
                 </div> -->
 
                 <!-- Status Approval Revisi -->
-                <!-- <div class="w-[1170px] h-[58px] bg-[#FEF6EC] border-[#F08800] border-[1px] rounded-lg ml-4 mt-3 flex p-3">
+                <div class="w-[1170px] h-[58px] bg-[#FEF6EC] border-[#F08800] border-[1px] rounded-lg ml-4 mt-3 flex p-3">
                     <svg width="20" height="20" class="mt-1" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99992 2.66634C5.94983 2.66634 2.66659 5.94959 2.66659 9.99967C2.66659 14.0498 5.94983 17.333 9.99992 17.333C14.05 17.333 17.3333 14.0498 17.3333 9.99967C17.3333 5.94959 14.05 2.66634 9.99992 2.66634ZM0.833252 9.99967C0.833252 4.93706 4.93731 0.833008 9.99992 0.833008C15.0625 0.833008 19.1666 4.93706 19.1666 9.99967C19.1666 15.0623 15.0625 19.1663 9.99992 19.1663C4.93731 19.1663 0.833252 15.0623 0.833252 9.99967ZM9.99992 6.33301C10.5062 6.33301 10.9166 6.74341 10.9166 7.24967V10.6872C10.9166 11.1934 10.5062 11.6038 9.99992 11.6038C9.49366 11.6038 9.08325 11.1934 9.08325 10.6872V7.24967C9.08325 6.74341 9.49366 6.33301 9.99992 6.33301ZM9.08325 13.4372C9.08325 12.9309 9.49366 12.5205 9.99992 12.5205H10.0068C10.5131 12.5205 10.9235 12.9309 10.9235 13.4372V13.444C10.9235 13.9503 10.5131 14.3607 10.0068 14.3607H9.99992C9.49366 14.3607 9.08325 13.9503 9.08325 13.444V13.4372Z" fill="#F08800"/>
                     </svg>
                     <h1 class="text-base font-semibold ml-2">Status Approval : <span class="text-[#F08800]">Revisi</span></h1>
-                </div> -->
+                </div>
 
                 <!-- Informasi Umum -->
                 <div class="mt-3">

@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 // Manager
-import Dashboardmanager from "@/pages/Manager/Dashboardmanager.vue";
-import Pengajuanbaru from "@/pages/Manager/Approval/Pengajuanbaru.vue";
-import Disetujui from "@/pages/Manager/Approval/Disetujui.vue";
-import Ditolak from "@/pages/Manager/Approval/Ditolak.vue";
-import Prosesmanager from "@/pages/Manager/Prosesmanager.vue";
-import Selesaimanager from "@/pages/Manager/Selesaimanager.vue";
-import Detailmanager from "@/pages/Manager/Detailmanager.vue";
+import Dashboardmanager from "@/pages/Admin/Dashboardmanager.vue";
+import Pengajuanbaru from "@/pages/Admin/Approval/Pengajuanbaru.vue";
+import Disetujui from "@/pages/Admin/Approval/Disetujui.vue";
+import Ditolak from "@/pages/Admin/Approval/Ditolak.vue";
+import Prosesmanager from "@/pages/Admin/Prosesmanager.vue";
+import Selesaimanager from "@/pages/Admin/Selesaimanager.vue";
+import Detailmanager from "@/pages/Admin/Detailmanager.vue";
 
 // User
 import Dashboard from "@/pages/Dashboard.vue";
