@@ -484,9 +484,7 @@ import navbar from '../components/navbar.vue'
                     <line y1="0.5" x2="1170" y2="0.5" stroke="#E5E7E9"/>
                 </svg>
 
-                <div class="mr-5 flex justify-end py-4">
-                 <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button>
-                </div>
+
 
             </div>
             <!-- End Content -->

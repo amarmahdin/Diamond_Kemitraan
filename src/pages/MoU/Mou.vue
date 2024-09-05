@@ -124,7 +124,7 @@ import Sidebar from '@/components/sidebar.vue';
                     <div class="ml-4 mt-6">
                         <label class="text-[#4D5E80] font-medium">Judul Kemitraan <span class="text-[#FF5656]">*</span></label> 
                         <form action="" class="w-[1150px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
-                            <input type="text" placeholder="Masukan Judul Kemitraan" class="w-[1080px] outline-none">
+                            <input type="text" placeholder="Masukkan Judul Kemitraan" class="w-[1080px] outline-none">
                         </form>
                     </div>
 

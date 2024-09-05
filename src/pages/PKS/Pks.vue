@@ -48,7 +48,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <rect x="1" y="0.5" width="31" height="31" rx="7.5" stroke="#9C9C9C"/>
                                     <path d="M19.5469 21.5H12.5605V20.0303L15.0693 17.4941C15.5752 16.9746 15.9808 16.5417 16.2861 16.1953C16.596 15.8444 16.8193 15.5254 16.9561 15.2383C17.0973 14.9512 17.168 14.6436 17.168 14.3154C17.168 13.9189 17.0563 13.6227 16.833 13.4268C16.6143 13.2262 16.3203 13.126 15.9512 13.126C15.5638 13.126 15.1878 13.2148 14.8232 13.3926C14.4587 13.5703 14.0781 13.8232 13.6816 14.1514L12.5332 12.791C12.8203 12.5449 13.1234 12.3125 13.4424 12.0938C13.766 11.875 14.1396 11.6995 14.5635 11.5674C14.9919 11.4307 15.5046 11.3623 16.1016 11.3623C16.7578 11.3623 17.3206 11.4808 17.79 11.7178C18.264 11.9548 18.6286 12.2783 18.8838 12.6885C19.139 13.0941 19.2666 13.5544 19.2666 14.0693C19.2666 14.6208 19.1572 15.1243 18.9385 15.5801C18.7197 16.0358 18.4007 16.487 17.9814 16.9336C17.5667 17.3802 17.0654 17.8747 16.4775 18.417L15.1924 19.627V19.7227H19.5469V21.5Z" fill="#9C9C9C"/>
                                 </svg>
-                                <span class="text-sm text-[#9C9C9C] mt-1">RAB & BOQ</span>
+                                <span class="text-sm text-[#9C9C9C] mt-1">RAB</span>
                             </div>
                             <svg width="34" height="2" class="mt-6 ml-2" viewBox="0 0 34 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="0.5" y1="1" x2="33.5" y2="1" stroke="#E5E7E9"/>
@@ -210,7 +210,7 @@ import Sidebar from '@/components/sidebar.vue';
                     <div class="ml-4 mt-6">
                         <label class="text-[#4D5E80] font-medium">Judul <span class="text-[#FF5656]">*</span></label> 
                         <form action="" class="w-[1150px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
-                            <input type="text" placeholder="Masukan Judul" class="w-[1080px] outline-none">
+                            <input type="text" placeholder="Masukkan Judul" class="w-[1080px] outline-none">
                         </form>
                     </div>
                     <svg width="1160" class="mt-4" height="1" viewBox="0 0 1125 1" fill="none" xmlns="http://www.w3.org/2000/svg">

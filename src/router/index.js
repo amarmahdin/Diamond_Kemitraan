@@ -26,7 +26,7 @@ import Lampiran from '../pages/MoU/Lampiran.vue';
 
 // PKS
 import PKS from '../pages/PKS/Pks.vue';
-import Rab from '../pages/PKS/Rab&boq.vue';
+import Rab from '../pages/PKS/Rab.vue';
 import Pksruanglingkup from '../pages/PKS/Pksruanglingkup.vue';
 import Pkslainnya from '../pages/PKS/Pkslainnya.vue';
 import Pksmitrabisnis from '../pages/PKS/Pksmitrabisnis.vue';

@@ -91,7 +91,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-medium">Latar Belakang <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[550px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
-                                <input type="text" placeholder="Masukan Latar Belakang" class="w-[400px] outline-none">
+                                <input type="text" placeholder="Masukkan Latar Belakang" class="w-[400px] outline-none">
                             </form>
                         </div>
 
@@ -99,7 +99,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <div class="ml-4">
                             <label class="text-[#4D5E80] font-medium text-base">Catatan <span class="text-[#B3B3B3] text-xs">(Opsional)</span></label> 
                             <form action="" class="w-[550px] h-[88px] px-4 py-1 mt-2 border-[1px] rounded-lg text-sm">
-                                <input type="text" placeholder="Masukan Catatan" class="w-[400px] outline-none">
+                                <input type="text" placeholder="Masukkan Catatan" class="w-[400px] outline-none">
                             </form>
                         </div>
                      </div>

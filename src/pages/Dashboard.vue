@@ -107,7 +107,7 @@ import deliv4 from '../assets/img/Delivered4.png'
                     </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[509.2px]">
                     <table class="table-auto w-full text-left">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg">
@@ -242,54 +242,6 @@ import deliv4 from '../assets/img/Delivered4.png'
                             </tr>
                             <tr class="bg-white border-b text-sm text-[#333333]">                          
                                 <td class="w-[74px] px-3 py-[18px]">8</td>
-                                <td class="w-[268px] px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="w-[122px] px-3">90224</td>
-                                <td class="w-[87px] px-3">PKS</td>
-                                <td class="w-[172px] px-3">01/08/2024</td>
-                                <td class="w-[172px] px-3">11/09/2024</td>
-                                <td class="w-[97px] px-3"><span class="px-[8px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Revisi</span></td>
-                                <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="w-[74px] px-3 py-[18px]">9</td>
-                                <td class="w-[268px] px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="w-[122px] px-3">90224</td>
-                                <td class="w-[87px] px-3">MoU</td>
-                                <td class="w-[172px] px-3">01/08/2024</td>
-                                <td class="w-[172px] px-3">11/09/2024</td>
-                                <td class="w-[97px] px-3"><span class="px-[8px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Selesai</span></td>
-                                <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="w-[74px] px-3 py-[18px]">10</td>
-                                <td class="w-[268px] px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="w-[122px] px-3">90224</td>
-                                <td class="w-[87px] px-3">PKS</td>
-                                <td class="w-[172px] px-3">01/08/2024</td>
-                                <td class="w-[172px] px-3">11/09/2024</td>
-                                <td class="w-[97px] px-3"><span class="px-[8px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Revisi</span></td>
-                                <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="w-[74px] px-3 py-[18px]">11</td>
-                                <td class="w-[268px] px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="w-[122px] px-3">90224</td>
-                                <td class="w-[87px] px-3">MoU</td>
-                                <td class="w-[172px] px-3">01/08/2024</td>
-                                <td class="w-[172px] px-3">11/09/2024</td>
-                                <td class="w-[97px] px-3"><span class="px-[8px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Selesai</span></td>
-                                <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="w-[74px] px-3 py-[18px]">12</td>
                                 <td class="w-[268px] px-3">Lorem ipsum dolor sit amet</td>
                                 <td class="w-[122px] px-3">90224</td>
                                 <td class="w-[87px] px-3">PKS</td>

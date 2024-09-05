@@ -47,7 +47,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#2671D9"/>
                                     <path d="M19.0469 21.5H12.0605V20.0303L14.5693 17.4941C15.0752 16.9746 15.4808 16.5417 15.7861 16.1953C16.096 15.8444 16.3193 15.5254 16.4561 15.2383C16.5973 14.9512 16.668 14.6436 16.668 14.3154C16.668 13.9189 16.5563 13.6227 16.333 13.4268C16.1143 13.2262 15.8203 13.126 15.4512 13.126C15.0638 13.126 14.6878 13.2148 14.3232 13.3926C13.9587 13.5703 13.5781 13.8232 13.1816 14.1514L12.0332 12.791C12.3203 12.5449 12.6234 12.3125 12.9424 12.0938C13.266 11.875 13.6396 11.6995 14.0635 11.5674C14.4919 11.4307 15.0046 11.3623 15.6016 11.3623C16.2578 11.3623 16.8206 11.4808 17.29 11.7178C17.764 11.9548 18.1286 12.2783 18.3838 12.6885C18.639 13.0941 18.7666 13.5544 18.7666 14.0693C18.7666 14.6208 18.6572 15.1243 18.4385 15.5801C18.2197 16.0358 17.9007 16.487 17.4814 16.9336C17.0667 17.3802 16.5654 17.8747 15.9775 18.417L14.6924 19.627V19.7227H19.0469V21.5Z" fill="white"/>
                                 </svg>
-                                <span class="text-sm text-[#2671D9] mt-1">RAB & BOQ</span>
+                                <span class="text-sm text-[#2671D9] mt-1">RAB</span>
                             </div>
                             <svg width="34" height="2" class="mt-6 ml-2" viewBox="0 0 34 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <line x1="0.5" y1="1" x2="33.5" y2="1" stroke="#E5E7E9"/>
@@ -97,7 +97,7 @@ import Sidebar from '@/components/sidebar.vue';
                      </div>
                      <!-- End layout angka -->
 
-                    <h1 class="text-xl font-medium pl-4 mt-6">RAB & BOQ</h1>
+                    <h1 class="text-xl font-medium pl-4 mt-6">RAB</h1>
                     <div class="w-[1175px] h-10 mt-6 flex justify-between">
                         <div class="flex ">
                             <!-- Search -->
@@ -130,13 +130,13 @@ import Sidebar from '@/components/sidebar.vue';
 
                         <!-- Button Tambah -->
                         <div>
-                            <button @click="openSend" class="w-[102px] h-10 bg-[#2671D9] rounded-lg text-white"><span class="text-lg font-normal">+</span> Tambah</button>
+                            <button @click="openTambah" class="w-[102px] h-10 bg-[#2671D9] rounded-lg text-white"><span class="text-lg font-normal">+</span> Tambah</button>
                         </div>
                     </div>
 
                     <!-- Start Data -->
-                    <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
-                        <table class="table-auto w-full text-left ">
+                    <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4 h-[510px]">
+                        <table class="table-auto w-full text-left">
                             <!-- Kolom -->
                             <thead class="text-xs text-[#4D5E80] rounded-lg">
                                 <tr class="bg-none border-b-2">
@@ -173,7 +173,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                    <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
@@ -239,46 +239,6 @@ import Sidebar from '@/components/sidebar.vue';
                                 </tr>
                                 <tr class="bg-white border-b text-sm text-[#333333]">                          
                                     <td class="w-[74px] px-3 py-[18px]">8</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">9</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">10</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">11</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>                                
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">12</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -357,11 +317,11 @@ import Sidebar from '@/components/sidebar.vue';
 
                 <!-- Start Pop up -->
                 <div>
-                    <!-- Model 1: isSendOpen -->
-                     <div v-if="isSendOpen"  class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                    <!-- Tambah RAB-->
+                     <div v-if="isOpen"  class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
                         <div class="bg-white rounded-lg shadow-lg w-[973px] h-[622px]">
                             <div class="bg-[#E9F1FB] w-auto h-[76px] flex justify-between p-4">
-                                <h1 class="text-xl font-semibold">Tambah Rencana Anggaran Biaya & BOQ</h1>
+                                <h1 class="text-xl font-semibold">Tambah Rencana Anggaran Biaya</h1>
                                 <div @click="closeSend" class="cursor-pointer mt-2">
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683418 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L6 4.58579L10.2929 0.292894C10.6834 -0.0976307 11.3166 -0.0976307 11.7071 0.292894C12.0976 0.683418 12.0976 1.31658 11.7071 1.70711L7.41421 6L11.7071 10.2929C12.0976 10.6834 12.0976 11.3166 11.7071 11.7071C11.3166 12.0976 10.6834 12.0976 10.2929 11.7071L6 7.41421L1.70711 11.7071C1.31658 12.0976 0.683417 12.0976 0.292893 11.7071C-0.0976311 11.3166 -0.0976311 10.6834 0.292893 10.2929L4.58579 6L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z" fill="#CCCCCC"/>
@@ -426,7 +386,7 @@ import Sidebar from '@/components/sidebar.vue';
                             <div class="pl-4 mt-6">
                                 <label class="text-[#4D5E80] font-medium">Biaya <span class="text-[#FF5656]">*</span></label> 
                                 <form class="w-[925px] h-[90px] px-4 mt-2 border-[1px] rounded-lg text-sm p-1">
-                                    <input type="text" class="w-[900px] outline-none" placeholder="Masukan Deskripsi" id="pelanggan">
+                                    <input type="text" class="w-[900px] outline-none" placeholder="Masukkan Deskripsi" id="pelanggan">
                                 </form>
                             </div>
                             <svg width="925" class="mt-4 ml-4" height="1" viewBox="0 0 1125 1" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -454,21 +414,21 @@ import { ref } from 'vue'
 export default {
   data() {
     return {
-      isSendOpen: false, 
+      isOpen: false, 
       isOkOpen: false,   
     };
   },
   methods: {
-    openSend() {
-      this.isSendOpen = true;
+    openTambah() {
+      this.isOpen = true;
       this.isOkOpen = false; 
     },
     closeSend() {
-      this.isSendOpen = false;
+      this.isOpen = false;
     },
     openOk() {
       this.isOkOpen = true;
-      this.isSendOpen = false; 
+      this.isOpen = false; 
     },
     closeOk() {
       this.isOkOpen = false;

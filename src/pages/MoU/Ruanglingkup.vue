@@ -142,7 +142,7 @@ import Sidebar from '@/components/sidebar.vue';
                     
                     <div class="flex justify-end">
                         <div class="mr-4 py-4">
-                            <router-link :to="'Mou'"><button class="w-[107px] h-12 font-medium rounded-lg text-[#2671D9] text-sm border-[1px] border-[#2671D9]">Sebelumnya</button></router-link>
+                            <router-link :to="'MoU-NDA'"><button class="w-[107px] h-12 font-medium rounded-lg text-[#2671D9] text-sm border-[1px] border-[#2671D9]">Sebelumnya</button></router-link>
                         </div>
                         <div class=" mr-11 py-4">
                             <router-link :to="'Lainnya'"><button class="w-[107px] h-12 rounded-lg font-medium text-white text-sm bg-[#2671D9]">Selanjutnya</button></router-link>

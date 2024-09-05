@@ -51,8 +51,8 @@ import navbar from '../components/navbar.vue'
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
-                    <table class="table-auto w-full text-left ">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[318px]">
+                    <table class="table-auto w-full text-left">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg">
                             <tr class="bg-none border-b-2">
@@ -100,7 +100,7 @@ import navbar from '../components/navbar.vue'
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
+                            <tr class="bg-white h-[54px] border-b text-sm text-[#333333]">                          
                                 <td class="px-3 py-[18px]">1</td>
                                 <td class="px-3">Lorem ipsum dolor sit amet</td>
                                 <td class="px-3">90224</td>
@@ -124,43 +124,7 @@ import navbar from '../components/navbar.vue'
                                     </div>
                                     </router-link>
                                 </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">2</td>
-                                <td class="px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="px-3">90224</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3">Pusat</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Approval VP</span></td>
-                                <td class="px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">3</td>
-                                <td class="px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="px-3">90224</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3">Pusat</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Approval Direksi</span></td>
-                                <td class="px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">4</td>
-                                <td class="px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="px-3">90224</td>
-                                <td class="px-3">PKS</td>
-                                <td class="px-3">Pusat</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
-                                <td class="px-3"><span class="px-[8px] py-1  text-xs    bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Revisi</span></td>
-                                <td class="px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                </div></td>
-                            </tr>
+                            </tr>                                
                             <!-- tambahkan baris tabel lainnya disini -->
                         </tbody>
                     </table>
