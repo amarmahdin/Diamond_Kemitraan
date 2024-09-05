@@ -135,12 +135,12 @@ import Sidebar from '@/components/sidebar.vue';
                     </div>
 
                     <!-- Start Data -->
-                    <div class="w-[1160px] rounded-lg border-[1px] mt-4 ml-4 h-[510px]">
+                    <div class="w-[1160px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[482px]">
                         <table class="table-auto w-full text-left">
                             <!-- Kolom -->
-                            <thead class="text-xs text-[#4D5E80] rounded-lg">
+                            <thead class="text-xs text-[#4D5E80] rounded-lg h-[48px]">
                                 <tr class="bg-none border-b-2">
-                                    <th class="w-[74px] px-3 py-[18px]"><div class="flex justify-between">No.
+                                    <th class="w-[74px] px-3"><div class="flex justify-between">No.
                                         <svg width="16" height="16" class="cursor-pointer" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4252 3.14404C11.7073 3.14404 11.9359 3.36467 11.9359 3.63684L11.9359 11.3174L14.1282 9.20189C14.3276 9.00944 14.651 9.00944 14.8504 9.20189C15.0499 9.39434 15.0499 9.70636 14.8504 9.89881L11.7863 12.8556C11.6906 12.948 11.5607 12.9999 11.4252 12.9999C11.2898 12.9999 11.1599 12.948 11.0641 12.8556L8.00001 9.89881C7.80057 9.70636 7.80057 9.39434 8.00001 9.20189C8.19944 9.00944 8.52279 9.00944 8.72223 9.20189L10.9145 11.3174L10.9145 3.63684C10.9145 3.36467 11.1432 3.14404 11.4252 3.14404Z" fill="#93B8EC"/>
                                             <path d="M4.21369 3.14482C4.41312 2.95238 4.73647 2.95238 4.9359 3.14482L8.00001 6.10158C8.19945 6.29403 8.19945 6.60605 8.00001 6.79849C7.80058 6.99094 7.47723 6.99094 7.27779 6.79849L5.08548 4.68299V12.3635C5.08548 12.6357 4.85684 12.8563 4.57479 12.8563C4.29275 12.8563 4.06411 12.6357 4.06411 12.3635V4.68299L1.87179 6.79849C1.67236 6.99094 1.34901 6.99094 1.14958 6.79849C0.950141 6.60605 0.950141 6.29403 1.14958 6.10158L4.21369 3.14482Z" fill="#93B8EC"/>
@@ -167,8 +167,8 @@ import Sidebar from '@/components/sidebar.vue';
                             </thead>
                             <!-- Baris -->
                             <tbody>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">1</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">1</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -177,8 +177,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">2</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">2</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -187,8 +187,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">3</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">3</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -197,8 +197,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">4</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">4</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -207,8 +207,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">5</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">5</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -217,8 +217,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">6</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">6</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -227,8 +227,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">7</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">7</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
@@ -237,8 +237,8 @@ import Sidebar from '@/components/sidebar.vue';
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
                                     </div></td>
                                 </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                    <td class="w-[74px] px-3 py-[18px]">8</td>
+                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                    <td class="w-[74px] px-3">8</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
                                     <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>

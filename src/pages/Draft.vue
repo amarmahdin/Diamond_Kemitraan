@@ -51,12 +51,12 @@ import navbar from '../components/navbar.vue'
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[318px]">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[320px]">
                     <table class="table-auto w-full text-left">
                         <!-- Kolom -->
-                        <thead class="text-xs text-[#4D5E80] rounded-lg">
+                        <thead class="text-xs text-[#4D5E80] rounded-lg h-[48px]">
                             <tr class="bg-none border-b-2">
-                                <th class="w-[74px] px-3 py-[18px]"><div class="flex justify-between">No.
+                                <th class="w-[74px] px-3"><div class="flex justify-between">No.
                                     <svg width="16" height="16" class="cursor-pointer" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4252 3.14404C11.7073 3.14404 11.9359 3.36467 11.9359 3.63684L11.9359 11.3174L14.1282 9.20189C14.3276 9.00944 14.651 9.00944 14.8504 9.20189C15.0499 9.39434 15.0499 9.70636 14.8504 9.89881L11.7863 12.8556C11.6906 12.948 11.5607 12.9999 11.4252 12.9999C11.2898 12.9999 11.1599 12.948 11.0641 12.8556L8.00001 9.89881C7.80057 9.70636 7.80057 9.39434 8.00001 9.20189C8.19944 9.00944 8.52279 9.00944 8.72223 9.20189L10.9145 11.3174L10.9145 3.63684C10.9145 3.36467 11.1432 3.14404 11.4252 3.14404Z" fill="#93B8EC"/>
                                         <path d="M4.21369 3.14482C4.41312 2.95238 4.73647 2.95238 4.9359 3.14482L8.00001 6.10158C8.19945 6.29403 8.19945 6.60605 8.00001 6.79849C7.80058 6.99094 7.47723 6.99094 7.27779 6.79849L5.08548 4.68299V12.3635C5.08548 12.6357 4.85684 12.8563 4.57479 12.8563C4.29275 12.8563 4.06411 12.6357 4.06411 12.3635V4.68299L1.87179 6.79849C1.67236 6.99094 1.34901 6.99094 1.14958 6.79849C0.950141 6.60605 0.950141 6.29403 1.14958 6.10158L4.21369 3.14482Z" fill="#93B8EC"/>
@@ -100,31 +100,96 @@ import navbar from '../components/navbar.vue'
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <tr class="bg-white h-[54px] border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">1</td>
-                                <td class="px-3">Lorem ipsum dolor sit amet</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">1</td>
+                                <td class="px-3">MoU Kerja Sama Pengembangan J...</td>
+                                <td class="px-3">200924</td>
                                 <td class="px-3">MoU</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
                                 <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Approval Manager</span></td>
-                                <td class="px-3 relative">
-                                    <div @click="viewDropdown" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                <td class="px-3">
+                                    <div @click="toggleView" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
-                                    <router-link to="/Detaildraft">
-                                    <div v-show="isViewOpen" 
-                                        class="absolute w-[160px] h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer -left-[120px] shadow-sm bg-white hover:bg-gray-200 hover:border-[#2671D9]">
-                                        <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
-                                        </svg>
-                                        <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
-                                    </div>
-                                    </router-link>
+                                    <div class="absolute -translate-x-[135px] w-[160px]">
+                                        <router-link v-if="isViewVisible" to="/Detaildraft">
+                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
+                                            <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
+                                            </svg>
+                                            <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
+                                        </div>
+                                        </router-link>
+                                        </div>
                                 </td>
-                            </tr>                                
+                            </tr>   
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">2</td>
+                                <td class="px-3">MoU Rencana Kerja Sama Pengem...</td>
+                                <td class="px-3">201124</td>
+                                <td class="px-3">PKS</td>
+                                <td class="px-3">Pusat</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Approval VP</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="bg-white h-[54px] border-b text-sm text-[#333333]">                          
+                                <td class="px-3">3</td>
+                                <td class="px-3">NDA FTTH Project Collaboration Pl...</td>
+                                <td class="px-3">301024</td>
+                                <td class="px-3">NDA</td>
+                                <td class="px-3">Pusat</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Approval Direksi</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="bg-white h-[54px] border-b text-sm text-[#333333]">                          
+                                <td class="px-3">4</td>
+                                <td class="px-3">MoU Rencana Kerja Sama Sistem I...</td>
+                                <td class="px-3">201124</td>
+                                <td class="px-3">MoU</td>
+                                <td class="px-3">Pusat</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF3E6] font-medium text-[#FF8000] border-[#FFD6AD] border-1 rounded-[100px]">Revisi</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="bg-white h-[54px] border-b text-sm text-[#333333]">                          
+                                <td class="px-3">5</td>
+                                <td class="px-3">Kerja Sama Penyediaan APN Privat...</td>
+                                <td class="px-3">100624</td>
+                                <td class="px-3">PKS</td>
+                                <td class="px-3">Pusat</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
+                                <td class="px-3 w-auto"><span class="px-[5px] py-1 text-xs bg-[#FFF6E1] font-medium text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]">Waiting Approval</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>                         
                             <!-- tambahkan baris tabel lainnya disini -->
                         </tbody>
                     </table>
@@ -213,10 +278,17 @@ function dataOption(option) {
 }
 
 // View
-const isViewOpen = ref(false);
-
-function viewDropdown(){
-    isViewOpen.value = !isViewOpen.value;
-}
+export default {
+  data() {
+    return {
+      isViewVisible: false,
+    };
+  },
+  methods: {
+    toggleView() {
+      this.isViewVisible = !this.isViewVisible; 
+    },
+  },
+};
 
 </script>
