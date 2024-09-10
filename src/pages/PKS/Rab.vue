@@ -135,7 +135,7 @@ import Sidebar from '@/components/sidebar.vue';
                     </div>
 
                     <!-- Start Data -->
-                    <div class="w-[1160px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[482px]">
+                    <div class="w-[1160px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
                         <table class="table-auto w-full text-left">
                             <!-- Kolom -->
                             <thead class="text-xs text-[#4D5E80] rounded-lg h-[48px]">
@@ -167,86 +167,20 @@ import Sidebar from '@/components/sidebar.vue';
                             </thead>
                             <!-- Baris -->
                             <tbody>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">1</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">2</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">3</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">4</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">5</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">6</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">7</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
-                                <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                    <td class="w-[74px] px-3">8</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[231px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[265px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[200px] px-3">Lorem ipsum dolor sit amet</td>
-                                    <td class="w-[54px] px-3"><div @click="openSend" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512"><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
-                                    </div></td>
-                                </tr>
+                                <tr v-for="(row, index) in limitedRows" :key="index" class="bg-white border-b text-sm text-[#333333] h-[54px]">
+                                <td class="w-[74px] px-3">{{ row.id }}</td>
+                                <td class="w-[268px] px-3">{{ row.pelanggan }}</td>
+                                <td class="w-[122px] px-3">{{ row.produk }}</td>
+                                <td class="w-[87px] px-3">{{ row.desk }}</td>
+                                <td class="w-[172px] px-3">{{ row.type }}</td>
+                                <td class="w-[54px] px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
                                 <!-- tambahkan baris tabel lainnya disini -->
                             </tbody>
                         </table>
@@ -258,20 +192,20 @@ import Sidebar from '@/components/sidebar.vue';
                         <div class="flex">
                         <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
                         <div class="w-[44px] ml-4 relative">
-                        <button @click="dataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                            <span class="text-sm mt-1 pl-2">{{DataOption || '7'}}</span>
-                            <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
-                            </svg>
-                        </button>
-                        <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-t-lg cursor-pointer z-10 bg-white">
-                            <ul class="text-sm w-full">
-                                <li @click="dataOption('10')" :class="{' text-black': DataOption === '10', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '10'}" class="cursor-pointer border-b pl-3 py-1">10</li>
-                                <li @click="dataOption('15')" :class="{' text-black': DataOption === '15', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '15'}" class="cursor-pointer border-b py-1 pl-3">15</li>
-                                <li @click="dataOption('20')" :class="{' text-black': DataOption === '20', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '20'}" class="cursor-pointer pl-3 py-1">20</li>
-                            </ul>
+                            <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
+                                <span class="text-sm mt-1 pl-2">{{ DataOption || '7' }}</span>
+                                <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
+                                </svg>
+                            </button>
+                            <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-lg cursor-pointer z-10 bg-white">
+                                <ul class="text-sm w-full">
+                                    <li @click="selectDataOption('5')" :class="{' text-black': DataOption === '5', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '5'}" class="cursor-pointer border-b pl-3 py-1">5</li>
+                                    <li @click="selectDataOption('7')" :class="{' text-black': DataOption === '7', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '7'}" class="cursor-pointer border-b py-1 pl-3">7</li>
+                                    <li @click="selectDataOption('8')" :class="{' text-black': DataOption === '8', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '8'}" class="cursor-pointer pl-3 py-1">8</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
                         <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
                     </div>
                     <div class="w-3 h-3 flex mr-10 -translate-x-[200px]"> 
@@ -414,11 +348,32 @@ import { ref } from 'vue'
 export default {
   data() {
     return {
+    // Pop Up
       isOpen: false, 
-      isOkOpen: false,   
+      isOkOpen: false, 
+      
+    //   Data
+    isDataOpen: false,
+            DataOption: '7', // Default option
+            dataRows: [
+                { id: 1, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 2, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 3, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 4, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 5, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 6, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 7, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+                { id: 8, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+            ]
     };
   },
+  computed: {
+        limitedRows() {
+            return this.dataRows.slice(0, Number(this.DataOption));
+        }
+    },
   methods: {
+    // Pop Up
     openTambah() {
       this.isOpen = true;
       this.isOkOpen = false; 
@@ -433,6 +388,15 @@ export default {
     closeOk() {
       this.isOkOpen = false;
     },
+
+    // Data
+    toggleDataDropdown() {
+            this.isDataOpen = !this.isDataOpen;
+        },
+        selectDataOption(option) {
+            this.DataOption = option;
+            this.isDataOpen = false;
+        }
   },
 };
 
@@ -458,18 +422,5 @@ function filterDropdown() {
 function filterOption(option) {
     FilterOption.value = option;
   isFilterOpen.value = false;  
-}
-
-// Data
-const isDataOpen = ref(false);
-const DataOption = ref('');
-
-function dataDropdown() {
-  isDataOpen.value = !isDataOpen.value;
-
-}
-function dataOption(option) {
-    DataOption.value = option;
-  isDataOpen.value = false;  
 }
 </script>

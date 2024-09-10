@@ -160,7 +160,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <div class="translate-x-4">
                             <label class="text-[#4D5E80] font-medium">Nomor Anggaran <span class="text-[#FF5656]">*</span></label> 
                             <form action="" class="w-[555px] py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between">
-                                <input id="dateInput" type="text" placeholder="Masukan Nomor Anggaran" class="w-[450px] outline-none">
+                                <input id="dateInput" type="text" placeholder="Masukkan Nomor Anggaran" class="w-[450px] outline-none">
                             </form>
                         </div>
                     </div>

@@ -76,7 +76,7 @@ import navbar from '@/components/navbar.vue';
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
                     <table class="table-auto w-full text-left ">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg">
@@ -128,7 +128,7 @@ import navbar from '@/components/navbar.vue';
                             <tr class="bg-white border-b text-sm text-[#333333]">                          
                                 <td class="px-3 py-[18px]">1</td>
                                 <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                                <td class="px-3">100724</td>
                                 <td class="px-3">PKS</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
@@ -154,7 +154,7 @@ import navbar from '@/components/navbar.vue';
                             <tr class="bg-white border-b text-sm text-[#333333]">                          
                                 <td class="px-3 py-[18px]">2</td>
                                 <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                                <td class="px-3">100824</td>
                                 <td class="px-3">PKS</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
@@ -170,7 +170,7 @@ import navbar from '@/components/navbar.vue';
                             <tr class="bg-white border-b text-sm text-[#333333]">                          
                                 <td class="px-3 py-[18px]">2</td>
                                 <td class="px-3">MoU Kerja Sama Pengembangan J...</td>
-                                <td class="px-3">90224</td>
+                                <td class="px-3">201424</td>
                                 <td class="px-3">MoU</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Draft</span></td>
@@ -186,7 +186,7 @@ import navbar from '@/components/navbar.vue';
                             <tr class="bg-white border-b text-sm text-[#333333]">                          
                                 <td class="px-3 py-[18px]">4</td>
                                 <td class="px-3">Lorem ipsum</td>
-                                <td class="px-3">90224</td>
+                                <td class="px-3">201324</td>
                                 <td class="px-3">MoU</td>
                                 <td class="px-3">Pusat</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#FFF6E1] font-medium text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]">Revisi Mayor</span></td>

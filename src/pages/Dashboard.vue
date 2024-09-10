@@ -248,19 +248,7 @@ function filterOption(option) {
   isFilterOpen.value = false;  
 }
 
-// // Data
-// const isDataOpen = ref(false);
-// const DataOption = ref('');
-
-// function dataDropdown() {
-//   isDataOpen.value = !isDataOpen.value;
-
-// }
-// function dataOption(option) {
-//     DataOption.value = option;
-//   isDataOpen.value = false;  
-// }
-
+// Data
 export default {
     data() {
         return {

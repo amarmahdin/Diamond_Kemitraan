@@ -51,7 +51,7 @@ import navbar from '@/components/navbar.vue';
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 min-h-screen">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
                     <table class="table-auto w-full text-left">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg">
@@ -94,33 +94,34 @@ import navbar from '@/components/navbar.vue';
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">1</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">1</td>
+                                <td class="px-3">Sewa Menyewa Infrastruktur Telek...</td>
+                                <td class="px-3">101224</td>
                                 <td class="px-3">PKS</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Masuk Kemitraan</span></td>
-                                <td class="px-3 relative">
-                                    <div @click="viewDropdown" class="w-6 h-6 mt-3 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                <td class="px-3">
+                                    <div @click="toggleView" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
-                                    <router-link to="/Detailpengajuan">
-                                    <div v-show="isViewOpen" 
-                                        class="absolute w-[160px] h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer -left-[120px] shadow-sm bg-white hover:bg-gray-200 hover:border-[#2671D9]">
-                                        <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
-                                        </svg>
-                                        <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
-                                    </div>
-                                    </router-link>
+                                    <div class="absolute -translate-x-[135px] w-[160px]">
+                                        <router-link v-if="isViewVisible" to="/Detailproses">
+                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
+                                            <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
+                                            </svg>
+                                            <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
+                                        </div>
+                                        </router-link>
+                                        </div>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">2</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">2</td>
+                                <td class="px-3">MoU Rencana Kerja Sama Pemanfa...</td>
+                                <td class="px-3">200724</td>
                                 <td class="px-3">MoU</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
                                 <td class="px-3">
@@ -131,11 +132,25 @@ import navbar from '@/components/navbar.vue';
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">3</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">3</td>
+                                <td class="px-3">MoU Rencana Kerja Sama Sistem I...</td>
+                                <td class="px-3">200924</td>
                                 <td class="px-3">MoU</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">MoU</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">4</td>
+                                <td class="px-3">Kerja Sama Reseller Penyediaan Pe...</td>
+                                <td class="px-3">101324</td>
+                                <td class="px-3">PKS</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
@@ -145,12 +160,12 @@ import navbar from '@/components/navbar.vue';
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">4</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">5</td>
+                                <td class="px-3">MoU Rencana Kerja Sama Pengem...</td>
+                                <td class="px-3">201524</td>
                                 <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Surat Penawaran</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
@@ -159,12 +174,12 @@ import navbar from '@/components/navbar.vue';
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">5</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">6</td>
+                                <td class="px-3">Kerja Sama Reseller Penyediaan Pr...</td>
+                                <td class="px-3">1011224</td>
+                                <td class="px-3">PKS</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Evaluasi</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
@@ -173,12 +188,26 @@ import navbar from '@/components/navbar.vue';
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333]">                          
-                                <td class="px-3 py-[18px]">6</td>
-                                <td class="px-3">Kerja Sama Penyediaan APN Private</td>
-                                <td class="px-3">90224</td>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">7</td>
+                                <td class="px-3">Kerja Sama Reseller Penyediaan Pr...</td>
+                                <td class="px-3">1011224</td>
+                                <td class="px-3">PKS</td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Evaluasi</span></td>
+                                <td class="px-3">
+                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                                <td class="px-3">8</td>
+                                <td class="px-3">MoU Kerja Sama Penyelenggaraan ...</td>
+                                <td class="px-3">101524</td>
                                 <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
+                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">MoU</span></td>
                                 <td class="px-3">
                                     <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
@@ -279,10 +308,17 @@ function dataOption(option) {
 }
 
 // View
-const isViewOpen = ref(false);
-
-function viewDropdown(){
-    isViewOpen.value = !isViewOpen.value;
-}
+export default {
+  data() {
+    return {
+      isViewVisible: false,
+    };
+  },
+  methods: {
+    toggleView() {
+      this.isViewVisible = !this.isViewVisible; 
+    },
+  },
+};
 
 </script>

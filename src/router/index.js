@@ -73,7 +73,6 @@ const routes = [
     { path: '/Pkslainnya', name: 'Pkslainnya', component: Pkslainnya },
     { path: '/Pksmitrabisnis', name: 'Pksmitrabisnis', component: Pksmitrabisnis },
     { path: '/Pkslampiran', name: 'Pkslampiran', component: Pkslampiran },
-    
 
   ];
 const router = Router();
