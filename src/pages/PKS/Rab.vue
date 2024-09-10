@@ -356,7 +356,7 @@ import Sidebar from '@/components/sidebar.vue';
                                 <div>
                                     <label class="text-[#4D5E80] font-medium">PLN/Non PLN <span class="text-[#FF5656]">*</span></label>
                                     <div class="relative w-[529px] mt-2">
-                                        <button @click="plnDropdown" :class="{'rounded-t-lg': isPlnOpen, 'rounded-lg text-[#7F7F80]': !isPlnOpen}" class="w-[454px] h-[40px] px-4 border-[1px] rounded-lg text-sm flex justify-between items-center">
+                                        <button @click="plnDropdown" :class="{'rounded-t-lg': isPlnOpen, 'rounded-lg': !isPlnOpen, 'text-[#7F7F80]': !isPlnOpen}" class="w-[454px] h-[40px] px-4 border-[1px] text-sm flex justify-between items-center">
                                             <span :class="{'text-black': PlnOption, 'text-[#9C9C9C]': !PlnOption}">{{ PlnOption || 'PLN/Non PLN' }}</span>
                                             <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.70711 11.2071C8.31658 11.5976 7.68342 11.5976 7.29289 11.2071L2.29289 6.20711C1.90237 5.81658 1.90237 5.18342 2.29289 4.79289C2.68342 4.40237 3.31658 4.40237 3.70711 4.79289L8 9.08579L12.2929 4.79289C12.6834 4.40237 13.3166 4.40237 13.7071 4.79289C14.0976 5.18342 14.0976 5.81658 13.7071 6.20711L8.70711 11.2071Z" fill="#2671D9"/>

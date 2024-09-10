@@ -2,6 +2,7 @@
 <script setup>
 import sidebar from '../components/sidebar.vue'
 import navbar from '../components/navbar.vue'
+import kirim from '../assets/img/Dialogkirim.png'
 </script>
 
 <template>
@@ -32,7 +33,7 @@ import navbar from '../components/navbar.vue'
                         <div class="w-auto h-[29px] bg-[#FFB200] rounded-t-xl text-[10px] text-[#333333] px-4 py-[7px]">Progres Kemitraan</div>
                         <div class="text-[#FFB200] text-lg font-bold flex px-4">
                             <span class="py-2">Proposal</span>
-                            <svg width="60" height="60" class="cursor-pointer" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="60" height="60" @click="openAlur" class="cursor-pointer translate-x-[50px] -translate-y-[1px]" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_d_1290_22642)">
                                 <g opacity="0.4" filter="url(#filter1_d_1290_22642)">
                                 <path d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z" fill="#FFB200"/>
@@ -483,11 +484,820 @@ import navbar from '../components/navbar.vue'
                     <rect width="1170" height="0" transform="translate(0 1)" fill="white"/>
                     <line y1="0.5" x2="1170" y2="0.5" stroke="#E5E7E9"/>
                 </svg>
-
-
-
             </div>
             <!-- End Content -->
+
+            <!-- Pop Up Alur PKS -->
+                <div>
+                    <!-- Alur -->
+                    <div v-if="isOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-lg w-[1040.84px] h-[700px]">
+                            <div class="flex ml-[20px] mt-[20px]">
+                                <div class="w-[6px] h-7 bg-[#2671D9]"></div>
+                                <h1 class="text-xl font-medium ml-[6px]">Progres Kemitraan</h1>
+                                <svg width="38" height="30" @click="closeSend" class="ml-[780px] cursor-pointer" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0063 15.0063C14.348 14.6646 14.902 14.6646 15.2437 15.0063L19 18.7626L22.7563 15.0063C23.098 14.6646 23.652 14.6646 23.9937 15.0063C24.3354 15.348 24.3354 15.902 23.9937 16.2437L20.2374 20L23.9937 23.7563C24.3354 24.098 24.3354 24.652 23.9937 24.9937C23.652 25.3354 23.098 25.3354 22.7563 24.9937L19 21.2374L15.2437 24.9937C14.902 25.3354 14.348 25.3354 14.0063 24.9937C13.6646 24.652 13.6646 24.098 14.0063 23.7563L17.7626 20L14.0063 16.2437C13.6646 15.902 13.6646 15.348 14.0063 15.0063Z" fill="#2671D9"/>
+                                </svg>
+                            </div>
+                            <span class="text-base text-[#9C9C9C] ml-[20px]">$judul_pengajuan</span>
+
+                            <div class="w-[1000px] h-[500px] ml-[20px] mt-6">
+                                <div class="flex w-auto h-[130px]">
+                                    <!-- Surat Penawaran -->
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">Surat Penawaran</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Surat Penawaran</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Surat Penawaran</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Surat Penawaran</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Surat Penawaran</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen Surat Penawaran</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">suratpenawaran.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <svg width="33" height="28" class="ml-[18px] mt-[51px]" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    <!-- Proposal -->
+                                    <!-- Progres -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">Proposal</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen Proposal</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Proposal</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Proposal</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Proposal</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Proposal</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Proposal</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen Proposal</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">proposal.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <svg width="33" height="28" class="ml-[18px] mt-[51px]" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.75 6.91797L31.8317 13.9996L24.75 21.0813" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M1 14H30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    <!-- Evaluasi -->
+                                    <!-- Progres -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">Evaluasi</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen Evaluasi</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Evaluasi</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Evaluasi</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Evaluasi</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Evaluasi</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                     <!-- Berhasil -->
+                                     <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Evaluasi</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen Evaluasi</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">evaluasi.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <!-- Arrow -->
+                                <div class="flex justify-end w-[870px] mt-[18px]">
+                                    <svg width="28" height="33" viewBox="0 0 28 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.1221 24.75L14.3405 31.8317L7.55898 24.75" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.3408 1L14.3408 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div> 
+
+                                <div class="flex w-auto h-[130px] mt-[18px]">
+                                    <!-- Surat Pesanan -->
+                                    <!-- Progres -->
+                                    <!-- <div class="w-[289px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">Surat Pesanan</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen Surat Pesanan</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Surat Pesanan</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Surat Pesanan</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Surat Pesanan</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Surat Pesanan</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Surat Pesanan</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen Surat Pesanan</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">surat_pesanan.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <svg width="33" height="29" class="ml-[18px] mt-[51px]" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.17041 7.83984L1.08874 14.9215L8.17041 22.0032" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M31.9204 14.9209H2.28041" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    <!-- BAK Pemilihan Mitra -->
+                                    <!-- Progres -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">BAK Pemilihan Mitra</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen BAK Pemilihan Mitra</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">BAK Pemilihan Mitra</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen BAK Pemilihan Mitra</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">BAK Pemilihan Mitra</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen BAK Pemilihan Mitra</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">BAK Pemilihan Mitra</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen BAK Pemilihan Mitra</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">BAK_pemilihan_mitra.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <svg width="33" height="29" class="ml-[18px] mt-[51px]" viewBox="0 0 33 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.17041 7.83984L1.08874 14.9215L8.17041 22.0032" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M31.9204 14.9209H2.28041" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    <!-- Negosiasi -->
+                                    <!-- Progres -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">Negosiasi</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen Negosiasi</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Negosiasi</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Negosiasi</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] ml-[18px] h-auto border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Negosiasi</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen Negosiasi</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Negosiasi</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen Negosiasi</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">negosiasi.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="flex justify-center w-[289px] mt-[18px]">
+                                    <svg width="28" height="33" viewBox="0 0 28 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.1221 24.75L14.3405 31.8317L7.55898 24.75" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14.3408 1L14.3408 30.64" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div> 
+
+                                 <!-- PKS -->
+                                 <!-- Progres -->
+                                    <!-- <div class="w-[289px] mt-[18px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#E0E0E0] rounded-t-lg"><span class="font-semibold ml-4 absolute translate-y-2">PKS</span></div>
+                                            <span class="text-[#7F7F80] text-xs ml-3">Dokumen PKS</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#E0E0E0] rounded-lg flex py-2">
+                                                    <svg width="10" height="9" class="ml-[14.12px]" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <g clip-path="url(#clip0_2261_4135)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79378 2.13053C3.93803 2.13053 3.2443 2.82426 3.2443 3.68001C3.2443 3.77881 3.2535 3.87512 3.271 3.96824C3.30473 4.14782 3.20033 4.32463 3.02679 4.38182C2.51744 4.54968 2.15055 5.02951 2.15055 5.59407C2.15055 6.29881 2.72186 6.87012 3.42659 6.87012H7.52816C8.08188 6.87012 8.53076 6.42124 8.53076 5.86751C8.53076 5.43975 8.26271 5.07368 7.88416 4.92985C7.69935 4.85963 7.60418 4.65491 7.66962 4.46836C7.69596 4.39326 7.71045 4.31216 7.71045 4.22689C7.71045 3.82418 7.38399 3.49772 6.98128 3.49772C6.90208 3.49772 6.82651 3.51022 6.75603 3.53308C6.66084 3.56395 6.55714 3.55433 6.46925 3.50649C6.38136 3.45864 6.31699 3.37677 6.29125 3.28007C6.11496 2.61791 5.51082 2.13053 4.79378 2.13053ZM2.51514 3.68001C2.51514 2.42155 3.53532 1.40137 4.79378 1.40137C5.72976 1.40137 6.53326 1.96543 6.8841 2.77176C6.91625 2.76963 6.94866 2.76855 6.98128 2.76855C7.7867 2.76855 8.43962 3.42147 8.43962 4.22689C8.43962 4.28171 8.43657 4.33591 8.43064 4.3893C8.92769 4.69338 9.25993 5.24132 9.25993 5.86751C9.25993 6.82394 8.48459 7.59928 7.52816 7.59928H3.42659C2.31915 7.59928 1.42139 6.70152 1.42139 5.59407C1.42139 4.81305 1.86772 4.13701 2.51856 3.80588C2.51629 3.76418 2.51514 3.72222 2.51514 3.68001ZM5.08286 3.42221C5.22524 3.27983 5.45608 3.27983 5.59846 3.42221L6.69221 4.51596C6.83459 4.65834 6.83459 4.88918 6.69221 5.03156C6.54983 5.17394 6.31899 5.17394 6.17661 5.03156L5.70524 4.56019L5.70524 6.14095C5.70524 6.3423 5.54201 6.50553 5.34066 6.50553C5.1393 6.50553 4.97607 6.3423 4.97607 6.14095L4.97607 4.56019L4.50471 5.03156C4.36233 5.17394 4.13149 5.17394 3.98911 5.03156C3.84673 4.88918 3.84673 4.65834 3.98911 4.51596L5.08286 3.42221Z" fill="#7F7F80"/>
+                                                        </g>
+                                                        <defs>
+                                                        <clipPath id="clip0_2261_4135">
+                                                        <rect width="8.75" height="8.75" fill="white" transform="translate(0.96582 0.125)"/>
+                                                        </clipPath>
+                                                        </defs>
+                                                    </svg>
+                                                    <span class="text-[#7F7F80] text-[8.75px] font-semibold -translate-y-[2px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Upload -->
+                                    <!-- <div class="w-[289px] mt-[18px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FFB200] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">PKS</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen PKS</span>
+                                            <div class="ml-3 mt-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Tenggat -->
+                                    <!-- <div class="w-[289px] mt-[18px] h-[130px] border-[1px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#FF5656] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">PKS</span></div>
+                                            <span class="text-[#333333] text-xs ml-3">Dokumen PKS</span>
+                                            <div class="ml-3 -translate-y-2"><span class="text-[8px] text-[#FF5656]">Progress kemitraan melewati tenggat waktu yang telah ditentukan. </span></div>
+                                            <div class="ml-3">
+                                                <button class="w-[73px] h-[25px] bg-[#2671D9] rounded-lg flex py-2">
+                                                    <svg width="9" height="7" class="ml-[14.12px]" viewBox="0 0 9 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.87337 1.13053C3.01762 1.13053 2.32389 1.82426 2.32389 2.68001C2.32389 2.77881 2.33309 2.87512 2.35059 2.96824C2.38432 3.14782 2.27992 3.32463 2.10638 3.38182C1.59703 3.54968 1.23014 4.02951 1.23014 4.59407C1.23014 5.29881 1.80145 5.87012 2.50618 5.87012H6.60775C7.16147 5.87012 7.61035 5.42124 7.61035 4.86751C7.61035 4.43975 7.3423 4.07368 6.96375 3.92985C6.77894 3.85963 6.68377 3.65491 6.74921 3.46836C6.77555 3.39326 6.79004 3.31216 6.79004 3.22689C6.79004 2.82418 6.46358 2.49772 6.06087 2.49772C5.98167 2.49772 5.9061 2.51022 5.83562 2.53308C5.74043 2.56395 5.63673 2.55433 5.54884 2.50649C5.46095 2.45864 5.39658 2.37677 5.37084 2.28007C5.19455 1.61791 4.59041 1.13053 3.87337 1.13053ZM1.59473 2.68001C1.59473 1.42155 2.61491 0.401367 3.87337 0.401367C4.80935 0.401367 5.61285 0.965434 5.96369 1.77176C5.99584 1.76963 6.02825 1.76855 6.06087 1.76855C6.86629 1.76855 7.51921 2.42147 7.51921 3.22689C7.51921 3.28171 7.51616 3.33591 7.51023 3.3893C8.00728 3.69338 8.33952 4.24132 8.33952 4.86751C8.33952 5.82394 7.56418 6.59928 6.60775 6.59928H2.50618C1.39874 6.59928 0.500977 5.70152 0.500977 4.59407C0.500977 3.81305 0.947312 3.13701 1.59815 2.80588C1.59588 2.76418 1.59473 2.72222 1.59473 2.68001ZM4.16245 2.42221C4.30483 2.27983 4.53567 2.27983 4.67805 2.42221L5.7718 3.51596C5.91418 3.65834 5.91418 3.88918 5.7718 4.03156C5.62942 4.17394 5.39858 4.17394 5.2562 4.03156L4.78483 3.56019L4.78483 5.14095C4.78483 5.3423 4.6216 5.50553 4.42025 5.50553C4.21889 5.50553 4.05566 5.3423 4.05566 5.14095L4.05566 3.56019L3.5843 4.03156C3.44192 4.17394 3.21108 4.17394 3.0687 4.03156C2.92632 3.88918 2.92632 3.65834 3.0687 3.51596L4.16245 2.42221Z" fill="white"/>
+                                                    </svg>
+                                                    <span class="text-white text-[8.75px] font-semibold -translate-y-[3px] ml-[2.63px]">Upload</span>
+                                                </button>
+                                            </div>
+                                    </div> -->
+
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] mt-[18px] rounded-t-lg rounded-b-lg">
+                                        <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">PKS</span></div>
+                                        <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
+                                            <span class="text-[#333333] text-xs">Dokumen PKS</span>
+                                            <svg width="46" height="46" class="-translate-y-2 translate-x-5 " viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g filter="url(#filter0_d_685_22194)">
+                                                <g opacity="0.4" filter="url(#filter1_d_685_22194)">
+                                                <path d="M19 26.5C23.1421 26.5 26.5 23.1421 26.5 19C26.5 14.8579 23.1421 11.5 19 11.5C14.8579 11.5 11.5 14.8579 11.5 19C11.5 23.1421 14.8579 26.5 19 26.5Z" fill="#8ADFC3"/>
+                                                </g>
+                                                <path d="M18.3081 22.1256C18.1581 22.1256 18.0156 22.0656 17.9106 21.9606L15.7881 19.8381C15.5706 19.6206 15.5706 19.2606 15.7881 19.0431C16.0056 18.8256 16.3656 18.8256 16.5831 19.0431L18.3081 20.7681L22.1631 16.9131C22.3806 16.6956 22.7406 16.6956 22.9581 16.9131C23.1756 17.1306 23.1756 17.4906 22.9581 17.7081L18.7056 21.9606C18.6006 22.0656 18.4581 22.1256 18.3081 22.1256Z" fill="#0C8D63"/>
+                                                </g>
+                                                <defs>
+                                                <filter id="filter0_d_685_22194" x="6" y="7" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dy="1"/>
+                                                <feGaussianBlur stdDeviation="2"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.054902 0 0 0 0 0.662745 0 0 0 0 0.462745 0 0 0 0.15 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                <filter id="filter1_d_685_22194" x="0.5" y="0.5" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                <feOffset dx="4" dy="4"/>
+                                                <feGaussianBlur stdDeviation="7.5"/>
+                                                <feComposite in2="hardAlpha" operator="out"/>
+                                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
+                                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_685_22194"/>
+                                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_685_22194" result="shape"/>
+                                                </filter>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                        <div class="w-[265px] h-auto flex ml-3 py-[10px]">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="14.5652" cy="14.5652" r="14.5652" fill="#E2FCF3"/>
+                                                <path d="M19.4206 12.7088C19.4143 12.6531 19.4021 12.5982 19.3842 12.545V12.4904C19.355 12.428 19.3161 12.3706 19.2689 12.3204L15.6276 8.67914C15.5774 8.63193 15.52 8.59301 15.4576 8.56383H15.403C15.3414 8.52847 15.2733 8.50578 15.2027 8.49707H11.5311C11.0482 8.49707 10.5851 8.68889 10.2437 9.03033C9.90227 9.37177 9.71045 9.83486 9.71045 10.3177V18.8141C9.71045 19.297 9.90227 19.7601 10.2437 20.1015C10.5851 20.4429 11.0482 20.6348 11.5311 20.6348H17.5999C18.0828 20.6348 18.5459 20.4429 18.8873 20.1015C19.2288 19.7601 19.4206 19.297 19.4206 18.8141V12.7453V12.7088ZM15.7793 10.5665L17.3511 12.1384H16.3862C16.2252 12.1384 16.0709 12.0744 15.957 11.9606C15.8432 11.8468 15.7793 11.6924 15.7793 11.5315V10.5665ZM18.2068 18.8141C18.2068 18.9751 18.1429 19.1294 18.0291 19.2432C17.9153 19.357 17.7609 19.421 17.5999 19.421H11.5311C11.3701 19.421 11.2158 19.357 11.102 19.2432C10.9882 19.1294 10.9242 18.9751 10.9242 18.8141V10.3177C10.9242 10.1568 10.9882 10.0024 11.102 9.88859C11.2158 9.77478 11.3701 9.71084 11.5311 9.71084H14.5655V11.5315C14.5655 12.0144 14.7573 12.4774 15.0988 12.8189C15.4402 13.1603 15.9033 13.3521 16.3862 13.3521H18.2068V18.8141Z" fill="#0EA976"/>
+                                            </svg>
+                                            <div class="ml-[13px] -translate-y-2">
+                                                <span class="text-[#333333] text-sm font-semibold">PKS.pdf</span>
+                                                <p class="text-[#9E9E9E] text-xs">2 MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <svg width="1000" class="mt-9 ml-4" height="1" viewBox="0 0 1125 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="1125" height="0" transform="translate(0 1)" fill="white"/>
+                                <line y1="0.5" x2="1125" y2="0.5" stroke="#E5E7E9"/>
+                            </svg>
+                            <div class="flex justify-end w-[1010px] mt-3">
+                                <button @click="openOk" class="w-[83px] h-[40px] bg-[#2671D9] text-white font-semibold rounded-lg">Kirim</button>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <!-- Penyelesaian -->
+                    <div v-if="isOkOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-lg w-[502px] h-[596px]">
+                            <div class="w-auto h-[76px] bg-[#E9F1FB] rounded-t-lg">
+                                <div class="w-[454px] flex justify-between">
+                                    <span class="text-xl font-semibold ml-6 mt-6">Progress Kemitraan (PKS) Selesai</span>
+                                    <svg @click="closeOk" width="16" height="16" class="mt-[30px] cursor-pointer" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.29289 2.29289C2.68342 1.90237 3.31658 1.90237 3.70711 2.29289L8 6.58579L12.2929 2.29289C12.6834 1.90237 13.3166 1.90237 13.7071 2.29289C14.0976 2.68342 14.0976 3.31658 13.7071 3.70711L9.41421 8L13.7071 12.2929C14.0976 12.6834 14.0976 13.3166 13.7071 13.7071C13.3166 14.0976 12.6834 14.0976 12.2929 13.7071L8 9.41421L3.70711 13.7071C3.31658 14.0976 2.68342 14.0976 2.29289 13.7071C1.90237 13.3166 1.90237 12.6834 2.29289 12.2929L6.58579 8L2.29289 3.70711C1.90237 3.31658 1.90237 2.68342 2.29289 2.29289Z" fill="#CCCCCC"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-[454px] h-[408px] ml-6 mt-4">
+                                <h1 class="text-[#333333] text-base w-[430px]">Silakan mengisi form berikut untuk penyelesaian dokumen PKS.</h1>
+                                <div class="mt-4">
+                                    <label class="text-[#4D5E80] font-semibold">Nomor PKS <span class="text-[#FF5656]">*</span></label> 
+                                    <form action="" class="mt-2">
+                                        <input type="text" class="w-[454.5px] h-[40px] border-[1px] rounded-lg outline-none px-4" placeholder="Masukkan Nomor PKS" >
+                                    </form>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="dateInput" class="text-[#4D5E80] font-medium">Tanggal <span class="text-[#FF5656]">*</span></label>
+                                    <div class="w-[454px] h-[40px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between items-center">
+                                        <span>{{ selectedDate || "Pilih Tanggal" }}</span>
+                                        <svg ref="calendarIcon" width="14" height="14" class="mt-2 -translate-y-1" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 0.5C3.77614 0.5 4 0.723858 4 1V2H10V1C10 0.723858 10.2239 0.5 10.5 0.5C10.7761 0.5 11 0.723858 11 1V2H11.5C12.6046 2 13.5 2.89543 13.5 4V11.5C13.5 12.6046 12.6046 13.5 11.5 13.5H2.5C1.39543 13.5 0.5 12.6046 0.5 11.5V4C0.5 2.89543 1.39543 2 2.5 2H3V1C3 0.723858 3.22386 0.5 3.5 0.5ZM2.5 3C1.94772 3 1.5 3.44772 1.5 4V4.76756C1.79417 4.59739 2.13571 4.5 2.5 4.5H11.5C11.8643 4.5 12.2058 4.59739 12.5 4.76756V4C12.5 3.44772 12.0523 3 11.5 3H2.5ZM12.5 6.5C12.5 5.94772 12.0523 5.5 11.5 5.5H2.5C1.94772 5.5 1.5 5.94772 1.5 6.5V11.5C1.5 12.0523 1.94772 12.5 2.5 12.5H11.5C12.0523 12.5 12.5 12.0523 12.5 11.5V6.5Z" fill="#2671D9"/>
+                                        </svg>      
+                                        <input ref="dateInput" id="dateInput" type="date" v-model="selectedDate" class="w-[400px] opacity-0 absolute">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="dateInput" class="text-[#4D5E80] font-medium">Jangka Waktu Perjanjian <span class="text-[#FF5656]">*</span></label>
+                                    <div class="w-[454px] h-[40px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between items-center">
+                                        <span>{{ selectedDate || "Pilih Tanggal" }}</span>
+                                        <p class="-translate-x-16">s.d</p>
+                                        <span class="-translate-x-32">{{ selectedDate1 || "Pilih Tanggal" }}</span>
+                                        <svg ref="calendarIcon" width="14" height="14" class="mt-2 -translate-y-1" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 0.5C3.77614 0.5 4 0.723858 4 1V2H10V1C10 0.723858 10.2239 0.5 10.5 0.5C10.7761 0.5 11 0.723858 11 1V2H11.5C12.6046 2 13.5 2.89543 13.5 4V11.5C13.5 12.6046 12.6046 13.5 11.5 13.5H2.5C1.39543 13.5 0.5 12.6046 0.5 11.5V4C0.5 2.89543 1.39543 2 2.5 2H3V1C3 0.723858 3.22386 0.5 3.5 0.5ZM2.5 3C1.94772 3 1.5 3.44772 1.5 4V4.76756C1.79417 4.59739 2.13571 4.5 2.5 4.5H11.5C11.8643 4.5 12.2058 4.59739 12.5 4.76756V4C12.5 3.44772 12.0523 3 11.5 3H2.5ZM12.5 6.5C12.5 5.94772 12.0523 5.5 11.5 5.5H2.5C1.94772 5.5 1.5 5.94772 1.5 6.5V11.5C1.5 12.0523 1.94772 12.5 2.5 12.5H11.5C12.0523 12.5 12.5 12.0523 12.5 11.5V6.5Z" fill="#2671D9"/>
+                                        </svg>      
+                                        <input ref="dateInput" id="dateInput" type="date" v-model="selectedDate1" class="w-[400px] opacity-0 absolute">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="text-[#4D5E80] font-medium">Nama Pejabat yang Bertanda Tangan <span class="text-[#FF5656]">*</span></label>
+                                    <div class="relative w-[529px] mt-2">
+                                        <form class="w-[454px] h-[40px] px-4 border-[1px] rounded-lg text-sm flex justify-between items-center">
+                                            <input type="text" class="w-[399px] outline-none" placeholder="Cari Nama Pejabat" name="" id="">
+                                            <svg width="17" height="16" class="cursor-pointer ml-2" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.49992 2.66683C5.10668 2.66683 3.16659 4.60693 3.16659 7.00016C3.16659 9.3934 5.10668 11.3335 7.49992 11.3335C8.69672 11.3335 9.77914 10.8492 10.564 10.0643C11.349 9.27938 11.8333 8.19696 11.8333 7.00016C11.8333 4.60693 9.89315 2.66683 7.49992 2.66683ZM1.83325 7.00016C1.83325 3.87055 4.3703 1.3335 7.49992 1.3335C10.6295 1.3335 13.1666 3.87055 13.1666 7.00016C13.1666 8.32447 12.7117 9.54343 11.9506 10.508L14.9713 13.5288C15.2317 13.7891 15.2317 14.2112 14.9713 14.4716C14.711 14.7319 14.2889 14.7319 14.0285 14.4716L11.0078 11.4508C10.0432 12.2119 8.82422 12.6668 7.49992 12.6668C4.3703 12.6668 1.83325 10.1298 1.83325 7.00016Z" fill="#2671D9"/>
+                                            </svg>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-end mr-6 mt-4">
+                                <button @click="openSelesai" class="w-[78px] h-[40px] bg-[#2671D9] text-white text-sm font-semibold rounded-lg">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progres Selesai -->
+                    <div v-if="isSelesai" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[452px]">
+                            <div class="flex justify-center"><img :src="kirim" alt="Dialog Image" class="pt-6"></div>
+                            <div class="flex justify-center"><h1 class="text-[#333333] text-xl font-semibold mt-2">Progres Kemitraan Selesai</h1></div>
+                            <div class="ml-8 mt-3 w-[260px]"><p class="text-center">Progress kemitraan PKS telah selesai. Selanjutnya akan dilakukan proses approval oleh atasan.</p></div>
+                            <div class="flex justify-center mt-8">
+                                <button @click="closSelesai" class="w-[296px] h-[40px] bg-[#2671D9] text-white text-sm font-semibold rounded-lg">Selesai</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         </div>
     </div>
@@ -503,6 +1313,15 @@ export default {
         dropdownRab: false,
         dropdownBerkas: false,
         dropdownProgres: false,
+
+        // Pop Up Alur
+        isOpen: false, 
+        isOkOpen: false, 
+        isSelesai: false,
+        
+        // Date
+        selectedDate: '',
+        selectedDate1: ''
     };
   },
   methods: {
@@ -520,6 +1339,29 @@ export default {
     },
     progresDropdown() {
       this.dropdownProgres = !this.dropdownProgres;
+    },
+
+    // Pop Up Alur
+    openAlur() {
+      this.isOpen = true;
+      this.isOkOpen = false; 
+    },
+    closeSend() {
+      this.isOpen = false;
+    },
+    openOk() {
+      this.isOkOpen = true;
+      this.isOpen = false; 
+    },
+    openSelesai() {
+        this.isSelesai = true;
+        this.isOkOpen = false;
+    },
+    closeOk() {
+      this.isOkOpen = false;
+    },
+    closSelesai() {
+        this.isSelesai = false;
     },
   },
 };

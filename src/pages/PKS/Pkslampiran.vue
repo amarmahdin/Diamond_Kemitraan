@@ -427,7 +427,7 @@ import kirim from '@/assets/img/Dialogkirim.png';
                     </div>
                     
                     <!-- Model 2: isOkOpen -->
-                     <div v-if="isOkOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                    <div v-if="isOkOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
                         <div class="bg-white p-6 rounded-lg shadow-lg w-[360px] h-[452px]">
                             <div class="flex justify-center"><img :src="kirim" alt="Dialog Image" class="pt-6"></div>
                             <div class="flex justify-center"><h1 class="text-[#333333] text-xl font-semibold mt-2">Berhasil Dikirim</h1></div>

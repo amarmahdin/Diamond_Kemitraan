@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+// Login
+import Login from "@/pages/Login.vue";
+
 // Manager
 import Dashboardmanager from "@/pages/Admin/Dashboardmanager.vue";
 import Pengajuanbaru from "@/pages/Admin/Approval/Pengajuanbaru.vue";
@@ -35,6 +38,9 @@ import Pkslampiran from '../pages/PKS/Pkslampiran.vue';
 
 
 const routes = [
+
+    // Login
+    { path: '/', name: 'Login', component: Login },
     
     // Manager
     { path: '/Dashboardadmin', name: 'Dashboardmanager', component: Dashboardmanager },
@@ -46,7 +52,7 @@ const routes = [
     { path: '/Detailpengajuanadmin', name: 'Detailmanager', component: Detailmanager},
 
     // User
-    { path: '/', name: 'Dashboard', component: Dashboard },
+    { path: '/Dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/Draft', name: 'Draft', component: Draft },
     { path: '/Proses', name: 'Proses', component: Proses },
     { path: '/Selesai', name: 'Selesai', component: Selesai },
