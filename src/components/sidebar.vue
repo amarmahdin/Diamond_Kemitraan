@@ -95,13 +95,13 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();   
 
-const isDropdownOpen = ref(false); // Initialize dropdown to closed
+const isDropdownOpen = ref(false);
 
 const isDashboardActive = computed(() => route.name === 'Dashboard');
 const isPksActive = computed(() => ['PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
 const isMouActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran'].includes(route.name));
 const isDraftActive = computed(() => ['Draft', 'Detaildraft'].includes(route.name));
-const isProsesActive = computed(() => ['Proses', 'Detailproses'].includes(route.name));
+const isProsesActive = computed(() => ['Proses', 'Detailproses', 'DetailMoU'].includes(route.name));
 const isSelesaiActive = computed(() => route.name === 'Selesai');
 const isBuatActive = computed(() => ['MoU', 'Ruanglingkup', 'Lainnya', 'Mitrabisnis', 'Lampiran', 'PKS', 'Rab', 'Pksruanglingkup', 'Pkslainnya', 'Pksmitrabisnis', 'Pkslampiran'].includes(route.name));
 

@@ -19,6 +19,7 @@ import Proses from "../pages/Proses.vue";
 import Selesai from "../pages/Selesai.vue";
 import Detaildraft from "../pages/Detaildraft.vue";
 import Detailproses from "../pages/Detailproses.vue";
+import DetailMoU from "../pages/DetailMoU.vue";
 
 // MoU
 import MoU from '../pages/MoU/Mou.vue';
@@ -58,6 +59,7 @@ const routes = [
     { path: '/Selesai', name: 'Selesai', component: Selesai },
     { path: '/Detaildraft', name: 'Detaildraft', component: Detaildraft },
     { path: '/Detailproses', name: 'Detailproses', component: Detailproses },
+    { path: '/DetailMoU', name: 'DetailMoU', component: DetailMoU },
 
     // MoU
     { path: '/MoU-NDA', name: 'MoU', component: MoU },

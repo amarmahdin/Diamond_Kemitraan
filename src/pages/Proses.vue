@@ -51,7 +51,7 @@ import navbar from '@/components/navbar.vue';
                 </div>
 
                 <!-- Start Data -->
-                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-[482px]">
+                <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
                     <table class="table-auto w-full text-left">
                         <!-- Kolom -->
                         <thead class="text-xs text-[#4D5E80] rounded-lg h-[48px]">
@@ -94,7 +94,7 @@ import navbar from '@/components/navbar.vue';
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                            <!-- <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
                                 <td class="px-3">1</td>
                                 <td class="px-3">Sewa Menyewa Infrastruktur Telek...</td>
                                 <td class="px-3">101224</td>
@@ -115,7 +115,7 @@ import navbar from '@/components/navbar.vue';
                                             <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
                                         </div>
                                         </router-link>
-                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
@@ -125,14 +125,24 @@ import navbar from '@/components/navbar.vue';
                                 <td class="px-3">MoU</td>
                                 <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
                                 <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                    <div @click="toggleView1" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
                                             <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
                                         </svg>
                                     </div>
+                                    <div class="absolute -translate-x-[135px] w-[160px]">
+                                        <router-link v-if="isView1Visible" to="/DetailMou">
+                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
+                                            <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
+                                            </svg>
+                                            <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
+                                        </div>
+                                        </router-link>
+                                    </div>
                                 </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
+                            </tr> -->
+                            <!-- <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
                                 <td class="px-3">3</td>
                                 <td class="px-3">MoU Rencana Kerja Sama Sistem I...</td>
                                 <td class="px-3">200924</td>
@@ -215,7 +225,47 @@ import navbar from '@/components/navbar.vue';
                                         </svg>
                                     </div>
                                 </td>
+                            </tr> -->
+                            
+                            
+                            <tr v-for="(row, index) in limitedRows" :key="index" class="bg-white border-b text-sm text-[#333333] h-[54px]">
+                                <td class="w-[74px] px-3">{{ row.id }}</td>
+                                <td class="w-[268px] px-3">{{ row.judul }}</td>
+                                <td class="w-[122px] px-3">{{ row.code }}</td>
+                                <td class="w-[87px] px-3">{{ row.type }}</td>
+                                <td class="w-[97px] px-3">
+                                    <span :class="row.progresClass" class="px-[8px] py-1 text-xs font-medium border-1 rounded-[100px]">{{ row.progres }}</span>
+                                </td>
+                                <td class="w-[54px] px-3">
+                                    <div @click="toggleView1(index, row.type)" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
+                                        <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
+                                    </svg>
+                                    </div>
+                                    <!-- View -->
+                                    <div v-if="activeViewIndex === index" class="absolute -translate-x-[135px] w-[160px]">
+                                    <!-- PKS type -->
+                                    <router-link v-if="row.type === 'PKS'" to="/Detailproses">
+                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
+                                        <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
+                                        </svg>
+                                        <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
+                                        </div>
+                                    </router-link>
+                                    <!-- MoU type -->
+                                    <router-link v-if="row.type === 'MoU'" to="/DetailMoU">
+                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
+                                        <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
+                                        </svg>
+                                        <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
+                                        </div>
+                                    </router-link>
+                                    </div>
+                                </td>
                             </tr>
+                            
                             <!-- tambahkan baris tabel lainnya disini -->
                         </tbody>
                     </table>
@@ -227,21 +277,21 @@ import navbar from '@/components/navbar.vue';
                 <div class="w-[1170px] ml-4 py-3  flex justify-between">
                     <div class="flex">
                     <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
-                <div class="w-[44px] ml-4 relative">
-                    <button @click="dataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                        <span class="text-sm mt-1 pl-2">{{DataOption || '7'}}</span>
-                        <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
-                        </svg>
-                    </button>
-                    <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded--lg cursor-pointer z-10 bg-white">
-                        <ul class="text-sm w-full">
-                            <li @click="dataOption('10')" :class="{' text-black': DataOption === '10', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '10'}" class="cursor-pointer border-b pl-3 py-1">10</li>
-                            <li @click="dataOption('15')" :class="{' text-black': DataOption === '15', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '15'}" class="cursor-pointer border-b py-1 pl-3">15</li>
-                            <li @click="dataOption('20')" :class="{' text-black': DataOption === '20', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '20'}" class="cursor-pointer pl-3 py-1">20</li>
-                        </ul>
+                    <div class="w-[44px] ml-4 relative">
+                        <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
+                            <span class="text-sm mt-1 pl-2">{{ DataOption || '7' }}</span>
+                            <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
+                            </svg>
+                        </button>
+                        <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-lg cursor-pointer z-10 bg-white">
+                            <ul class="text-sm w-full">
+                                <li @click="selectDataOption('5')" :class="{' text-black': DataOption === '5', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '5'}" class="cursor-pointer border-b pl-3 py-1">5</li>
+                                <li @click="selectDataOption('7')" :class="{' text-black': DataOption === '7', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '7'}" class="cursor-pointer border-b py-1 pl-3">7</li>
+                                <li @click="selectDataOption('8')" :class="{' text-black': DataOption === '8', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '8'}" class="cursor-pointer pl-3 py-1">8</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
                     <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
                     </div>
                     <div class="w-3 h-3 flex mr-10 -translate-x-[240px]"> 
@@ -294,30 +344,54 @@ function filterOption(option) {
   isFilterOpen.value = false;  
 }
 
-// Data
-const isDataOpen = ref(false);
-const DataOption = ref('');
-
-function dataDropdown() {
-  isDataOpen.value = !isDataOpen.value;
-
-}
-function dataOption(option) {
-    DataOption.value = option;
-  isDataOpen.value = false;  
-}
-
 // View
 export default {
   data() {
     return {
       isViewVisible: false,
+      isView1Visible: false,
+
+    // Data
+    isDataOpen: false,
+            DataOption: '8', 
+            activeViewIndex: null,
+            dataRows: [
+                { id: 1, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Masuk Kemitraan', progresClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+                { id: 2, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '200724', type: 'MoU', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 3, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '201723', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 4, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 5, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '201124', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 6, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Evaluasi', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 7, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '200824', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 8, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '101524', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+            ]
     };
   },
-  methods: {
-    toggleView() {
-      this.isViewVisible = !this.isViewVisible; 
+    // Data
+  computed: {
+        limitedRows() {
+            return this.dataRows.slice(0, Number(this.DataOption));
+        }
     },
+  methods: {
+
+    // View
+    toggleView1(index) {
+      if (this.activeViewIndex === index) {
+        this.activeViewIndex = null; 
+      } else {
+        this.activeViewIndex = index;
+      }
+    },
+
+    // Data
+    toggleDataDropdown() {
+            this.isDataOpen = !this.isDataOpen;
+        },
+        selectDataOption(option) {
+            this.DataOption = option;
+            this.isDataOpen = false;
+        }
   },
 };
 
