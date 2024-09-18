@@ -2,7 +2,7 @@
 <script setup>
 import sidebar from '../components/sidebar.vue'
 import navbar from '../components/navbar.vue'
-import kirim from '../assets/img/Dialogkirim.png'
+
 </script>
 
 <template>

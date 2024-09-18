@@ -122,7 +122,7 @@ import deliv4 from '../assets/img/Delivered4.png'
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4252 3.14404C11.7073 3.14404 11.9359 3.36467 11.9359 3.63684L11.9359 11.3174L14.1282 9.20189C14.3276 9.00944 14.651 9.00944 14.8504 9.20189C15.0499 9.39434 15.0499 9.70636 14.8504 9.89881L11.7863 12.8556C11.6906 12.948 11.5607 12.9999 11.4252 12.9999C11.2898 12.9999 11.1599 12.948 11.0641 12.8556L8.00001 9.89881C7.80057 9.70636 7.80057 9.39434 8.00001 9.20189C8.19944 9.00944 8.52279 9.00944 8.72223 9.20189L10.9145 11.3174L10.9145 3.63684C10.9145 3.36467 11.1432 3.14404 11.4252 3.14404Z" fill="#93B8EC"/>
                                         <path d="M4.21369 3.14482C4.41312 2.95238 4.73647 2.95238 4.9359 3.14482L8.00001 6.10158C8.19945 6.29403 8.19945 6.60605 8.00001 6.79849C7.80058 6.99094 7.47723 6.99094 7.27779 6.79849L5.08548 4.68299V12.3635C5.08548 12.6357 4.85684 12.8563 4.57479 12.8563C4.29275 12.8563 4.06411 12.6357 4.06411 12.3635V4.68299L1.87179 6.79849C1.67236 6.99094 1.34901 6.99094 1.14958 6.79849C0.950141 6.60605 0.950141 6.29403 1.14958 6.10158L4.21369 3.14482Z" fill="#93B8EC"/>
                                     </svg></div></th>
-                                <th class="w-[122px] px-3"><div class="flex justify-between">No                                    
+                                <th class="w-[130px] px-3"><div class="flex justify-between">No Pengajuan                                  
                                     <svg width="16" height="16" class="cursor-pointer" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4252 3.14404C11.7073 3.14404 11.9359 3.36467 11.9359 3.63684L11.9359 11.3174L14.1282 9.20189C14.3276 9.00944 14.651 9.00944 14.8504 9.20189C15.0499 9.39434 15.0499 9.70636 14.8504 9.89881L11.7863 12.8556C11.6906 12.948 11.5607 12.9999 11.4252 12.9999C11.2898 12.9999 11.1599 12.948 11.0641 12.8556L8.00001 9.89881C7.80057 9.70636 7.80057 9.39434 8.00001 9.20189C8.19944 9.00944 8.52279 9.00944 8.72223 9.20189L10.9145 11.3174L10.9145 3.63684C10.9145 3.36467 11.1432 3.14404 11.4252 3.14404Z" fill="#93B8EC"/>
                                         <path d="M4.21369 3.14482C4.41312 2.95238 4.73647 2.95238 4.9359 3.14482L8.00001 6.10158C8.19945 6.29403 8.19945 6.60605 8.00001 6.79849C7.80058 6.99094 7.47723 6.99094 7.27779 6.79849L5.08548 4.68299V12.3635C5.08548 12.6357 4.85684 12.8563 4.57479 12.8563C4.29275 12.8563 4.06411 12.6357 4.06411 12.3635V4.68299L1.87179 6.79849C1.67236 6.99094 1.34901 6.99094 1.14958 6.79849C0.950141 6.60605 0.950141 6.29403 1.14958 6.10158L4.21369 3.14482Z" fill="#93B8EC"/>
@@ -156,7 +156,7 @@ import deliv4 from '../assets/img/Delivered4.png'
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <tr v-for="(row, index) in limitedRows" :key="index" class="bg-white border-b text-sm text-[#333333] h-[54px]">
+                            <tr  v-for="row in paginatedRows" :key="row.id" class="bg-white border-b text-sm text-[#333333] h-[54px]">
                                 <td class="w-[74px] px-3">{{ row.id }}</td>
                                 <td class="w-[268px] px-3">{{ row.name }}</td>
                                 <td class="w-[122px] px-3">{{ row.code }}</td>
@@ -174,7 +174,6 @@ import deliv4 from '../assets/img/Delivered4.png'
                                     </div>
                                 </td>
                             </tr>
-                            <!-- tambahkan baris tabel lainnya disini -->
                         </tbody>
                     </table>
                 </div>
@@ -187,40 +186,42 @@ import deliv4 from '../assets/img/Delivered4.png'
                     <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
                     <div class="w-[44px] ml-4 relative">
                         <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                            <span class="text-sm mt-1 pl-2">{{ DataOption || '7' }}</span>
+                            <span class="text-sm mt-1 pl-3">{{ DataOption || '7' }}</span>
                             <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
                             </svg>
                         </button>
                         <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-lg cursor-pointer z-10 bg-white">
                             <ul class="text-sm w-full">
-                                <li @click="selectDataOption('5')" :class="{' text-black': DataOption === '5', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '5'}" class="cursor-pointer border-b pl-3 py-1">5</li>
-                                <li @click="selectDataOption('7')" :class="{' text-black': DataOption === '7', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '7'}" class="cursor-pointer border-b py-1 pl-3">7</li>
-                                <li @click="selectDataOption('8')" :class="{' text-black': DataOption === '8', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '8'}" class="cursor-pointer pl-3 py-1">8</li>
+                                <li @click="selectDataOption('5')" :class="{ 'text-black': rowsPerPage === 5, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 5 }" class="cursor-pointer border-b pl-3 py-1">5</li>
+                                <li @click="selectDataOption('7')" :class="{ 'text-black': rowsPerPage === 7, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 7 }" class="cursor-pointer border-b py-1 pl-3">7</li>
+                                <li @click="selectDataOption('8')" :class="{ 'text-black': rowsPerPage === 8, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 8 }" class="cursor-pointer pl-3 py-1">8</li>
                             </ul>
                         </div>
                     </div>
-                    <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
+                    <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">{{ dataRows.length }}</span> Data</p>
                     </div>
-                    <div class="w-3 h-3 flex mr-10 -translate-x-[240px]"> 
-                        <button class="px-[10px] h-8">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79289 8.70711C4.40237 8.31658 4.40237 7.68342 4.79289 7.29289L9.79289 2.29289C10.1834 1.90237 10.8166 1.90237 11.2071 2.29289C11.5976 2.68342 11.5976 3.31658 11.2071 3.70711L6.91421 8L11.2071 12.2929C11.5976 12.6834 11.5976 13.3166 11.2071 13.7071C10.8166 14.0976 10.1834 14.0976 9.79289 13.7071L4.79289 8.70711Z" fill="#7F7F80"/>
-                            </svg>
-                        </button>
-                        <button class="px-[10px] text-white rounded-lg h-8 bg-[#2671D9]"><span class="">1</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">2</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">3</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">4</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1 "><span class="">5</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1 "><span class="">...</span></button>
-                        <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">10</span></button>
-                        <button class="px-[10px] h-8">
-                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
-                            </svg>
-                        </button>
-                    </div>
+                    <div class="pagination-controls">
+                        <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">
+        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.792893 6.70711C0.402369 6.31658 0.402369 5.68342 0.792893 5.29289L5.79289 0.292893C6.18342 -0.0976314 6.81658 -0.0976314 7.20711 0.292893C7.59763 0.683417 7.59763 1.31658 7.20711 1.70711L2.91421 6L7.20711 10.2929C7.59763 10.6834 7.59763 11.3166 7.20711 11.7071C6.81658 12.0976 6.18342 12.0976 5.79289 11.7071L0.792893 6.70711Z" fill="#7F7F80"/>
+        </svg>
+    </button>
+    <div v-for="page in paginationPages" :key="page">
+  <button 
+    v-if="page !== '...'" 
+    @click="changePage(page)"
+    :class="{ active: page === currentPage }">
+    {{ page }}
+  </button>
+  <span v-else>...</span>
+</div>
+                        <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">
+        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#7F7F80"/>
+        </svg>
+    </button>
+                     </div>
                 </div>
                 <!-- akhir menampilkan -->
 
@@ -250,35 +251,180 @@ function filterOption(option) {
 
 // Data
 export default {
-    data() {
-        return {
-            isDataOpen: false,
-            DataOption: '7', // Default option
-            dataRows: [
-                { id: 1, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 2, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 3, name: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 4, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 5, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 6, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 7, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 8, name: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            ]
-        };
-    },
-    computed: {
-        limitedRows() {
-            return this.dataRows.slice(0, Number(this.DataOption));
+  data() {
+    return {
+      isDataOpen: false,
+      DataOption: '8',
+      currentPage: 1,
+      rowsPerPage: 8,
+      dataRows: [
+        { id: 1, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 2, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 3, name: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 4, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 5, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
+        { id: 6, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 7, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 8, name: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 9, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 10, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 11, name: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 12, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 13, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
+        { id: 14, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 15, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 16, name: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 17, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 18, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 19, name: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 20, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 21, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
+        { id: 22, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 23, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 24, name: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 25, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 26, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 27, name: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+        { id: 28, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 29, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
+        { id: 30, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 31, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 32, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 33, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 34, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 35, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 36, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 37, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 38, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+        { id: 39, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 40, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 41, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 42, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 43, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 44, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 45, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 46, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 47, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 48, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 49, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 50, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 51, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+       { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+
+      ]
+    };
+  },
+  computed: {
+    totalPages() {
+    return Math.ceil(this.dataRows.length / this.rowsPerPage);
+  },
+  paginatedRows() {
+    const start = (this.currentPage - 1) * this.rowsPerPage;
+    const end = start + this.rowsPerPage;
+    return this.dataRows.slice(start, end);
+  },
+  paginationPages() {
+        const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+        let pages = [];
+
+        if (totalPages <= 7) {
+            // If total pages are less than 7, show all pages
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            if (this.currentPage <= 4) {
+                pages = [1, 2, 3, 4, 5, '...', totalPages];
+            } else if (this.currentPage > totalPages - 4) {
+                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+            } else {
+                pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
+            }
         }
+
+        return pages;
     },
-    methods: {
-        toggleDataDropdown() {
-            this.isDataOpen = !this.isDataOpen;
-        },
-        selectDataOption(option) {
-            this.DataOption = option;
-            this.isDataOpen = false;
-        }
+  },
+  methods: {
+    toggleDataDropdown() {
+      this.isDataOpen = !this.isDataOpen;
+    },
+    goToPage(page) {
+    console.log('Attempting to go to page:', page);
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
     }
+  },
+    changePage(page) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  },
+    selectDataOption(option) {
+    const newRowsPerPage = Number(option);
+    this.DataOption = option;
+    this.rowsPerPage = newRowsPerPage;
+    console.log('Data Option:', this.DataOption);
+    console.log('Rows per Page:', this.rowsPerPage);
+
+    const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+    if (this.currentPage > totalPages) {
+      this.currentPage = totalPages;
+    }
+
+    this.isDataOpen = false;
+  },
+  }
 };
 </script>
+
+<style>
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px 10px;
+}
+
+.pagination-controls .active {
+  background-color: #2671D9;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.data-row {
+  margin-bottom: 10px;
+}
+</style>
