@@ -167,7 +167,7 @@ import Sidebar from '@/components/sidebar.vue';
                             </thead>
                             <!-- Baris -->
                             <tbody>
-                                <tr v-for="(row, index) in limitedRows" :key="index" class="bg-white border-b text-sm text-[#333333] h-[54px]">
+                                <tr v-for="row in paginatedRows" :key="row.id" class="bg-white border-b text-sm text-[#333333] h-[54px]">
                                 <td class="w-[74px] px-3">{{ row.id }}</td>
                                 <td class="w-[268px] px-3">{{ row.pelanggan }}</td>
                                 <td class="w-[122px] px-3">{{ row.produk }}</td>
@@ -206,31 +206,25 @@ import Sidebar from '@/components/sidebar.vue';
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
+                        <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">{{ dataRows.length }}</span> Data</p>
                     </div>
-                    <div class="w-3 h-3 flex mr-10 -translate-x-[200px]"> 
-                        <div class="flex">
-                            <svg class="h-[5.60px] ml-2 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"/>
+                    <div class="pagination-controls translate-x-10">
+                        <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">
+                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.792893 6.70711C0.402369 6.31658 0.402369 5.68342 0.792893 5.29289L5.79289 0.292893C6.18342 -0.0976314 6.81658 -0.0976314 7.20711 0.292893C7.59763 0.683417 7.59763 1.31658 7.20711 1.70711L2.91421 6L7.20711 10.2929C7.59763 10.6834 7.59763 11.3166 7.20711 11.7071C6.81658 12.0976 6.18342 12.0976 5.79289 11.7071L0.792893 6.70711Z" fill="#7F7F80"/>
                             </svg>
+                        </button>
+                        <div v-for="page in paginationPages" :key="page">
+                            <button v-if="page !== '...'" @click="changePage(page)" :class="{ active: page === currentPage }">
+                                {{ page }}
+                            </button><span v-else>...</span>
                         </div>
-                        <span class="ml-4 mt-[2px] cursor-pointer"><svg width="30" height="29" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="32" height="30" rx="8" fill="#2671D9"/>
-                            <path d="M17.3796 10.8182V21H16.1467V12.1108H16.087L13.6012 13.7614V12.5085L16.1467 10.8182H17.3796Z" fill="white"/>
-                        </svg>
-                    </span>
-                        <span class="ml-4 mt-[2px] cursor-pointer">2</span>
-                        <span class="ml-6 mt-[2px] cursor-pointer">3</span>
-                        <span class="ml-6 mt-[2px] cursor-pointer">4</span>
-                        <span class="ml-6 mt-[2px] cursor-pointer">5</span>
-                        <span class="ml-6 mt-[2px] cursor-pointer">...</span>
-                        <span class="ml-6 mt-[2px] cursor-pointer">10</span>
-                        <div class="flex">
-                            <svg class="h-[5.60px] ml-4 mt-[13px] cursor-pointer transform rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7l5.326-5.7a.909.909 0 0 1 1.348 0L13 7"/>
+                        <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">
+                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#7F7F80"/>
                             </svg>
-                        </div>
-                    </div>
+                        </button>
+                     </div>
                     </div>
                     <!-- akhir menampilkan -->
 
@@ -349,30 +343,112 @@ export default {
   data() {
     return {
     // Pop Up
-      isOpen: false, 
-      isOkOpen: false, 
+    isOpen: false, 
+    isOkOpen: false, 
       
     //   Data
     isDataOpen: false,
-            DataOption: '7', // Default option
-            dataRows: [
-                { id: 1, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 2, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 3, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 4, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 5, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 6, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 7, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-                { id: 8, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
-            ]
+    DataOption: '8',
+    currentPage: 1,
+    rowsPerPage: 8,
+    dataRows: [
+        { id: 1, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 2, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 3, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 4, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 5, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 6, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 7, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 8, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 9, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 10, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 11, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 12, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 13, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 14, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 15, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 16, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 17, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 18, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 19, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 20, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 21, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 22, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 23, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 24, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 25, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 26, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 27, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 28, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 29, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 30, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        { id: 31, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
+        ]
     };
   },
   computed: {
-        limitedRows() {
-            return this.dataRows.slice(0, Number(this.DataOption));
+    totalPages() {
+        return Math.ceil(this.dataRows.length / this.rowsPerPage);
+    },
+    paginatedRows() {
+        const start = (this.currentPage - 1) * this.rowsPerPage;
+        const end = start + this.rowsPerPage;
+        return this.dataRows.slice(start, end);
+    },
+    paginationPages() {
+            const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+            let pages = [];
+
+        if (totalPages <= 7) {
+            
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            if (this.currentPage <= 4) {
+                pages = [1, 2, 3, 4, 5, '...', totalPages];
+            } else if (this.currentPage > totalPages - 4) {
+                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+            } else {
+                pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
+            }
         }
+
+        return pages;
+    },
     },
   methods: {
+
+    // Data
+    toggleDataDropdown() {
+        this.isDataOpen = !this.isDataOpen;
+    },
+    goToPage(page) {
+        console.log('Attempting to go to page:', page);
+        if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+        }
+    },
+    changePage(page) {
+        if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+        }
+    },
+    selectDataOption(option) {
+        const newRowsPerPage = Number(option);
+        this.DataOption = option;
+        this.rowsPerPage = newRowsPerPage;
+        console.log('Data Option:', this.DataOption);
+        console.log('Rows per Page:', this.rowsPerPage);
+
+        const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+        if (this.currentPage > totalPages) {
+        this.currentPage = totalPages;
+        }
+
+        this.isDataOpen = false;
+    },
+
     // Pop Up
     openTambah() {
       this.isOpen = true;
@@ -388,15 +464,6 @@ export default {
     closeOk() {
       this.isOkOpen = false;
     },
-
-    // Data
-    toggleDataDropdown() {
-            this.isDataOpen = !this.isDataOpen;
-        },
-        selectDataOption(option) {
-            this.DataOption = option;
-            this.isDataOpen = false;
-        }
   },
 };
 
@@ -424,3 +491,27 @@ function filterOption(option) {
   isFilterOpen.value = false;  
 }
 </script>
+
+<style>
+.pagination-controls {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px 10px;
+}
+
+.pagination-controls .active {
+  background-color: #2671D9;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.data-row {
+  margin-bottom: 10px;
+}
+</style>

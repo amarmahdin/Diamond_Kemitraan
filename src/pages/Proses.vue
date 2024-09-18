@@ -94,141 +94,7 @@ import navbar from '@/components/navbar.vue';
                         </thead>
                         <!-- Baris -->
                         <tbody>  
-                            <!-- <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">1</td>
-                                <td class="px-3">Sewa Menyewa Infrastruktur Telek...</td>
-                                <td class="px-3">101224</td>
-                                <td class="px-3">PKS</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E2FCF3] font-medium text-[#0EA976] border-[#8ADFC3] border-1 rounded-[100px]">Masuk Kemitraan</span></td>
-                                <td class="px-3">
-                                    <div @click="toggleView" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="absolute -translate-x-[135px] w-[160px]">
-                                        <router-link v-if="isViewVisible" to="/Detailproses">
-                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
-                                            <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
-                                            </svg>
-                                            <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
-                                        </div>
-                                        </router-link>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">2</td>
-                                <td class="px-3">MoU Rencana Kerja Sama Pemanfa...</td>
-                                <td class="px-3">200724</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
-                                <td class="px-3">
-                                    <div @click="toggleView1" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="absolute -translate-x-[135px] w-[160px]">
-                                        <router-link v-if="isView1Visible" to="/DetailMou">
-                                        <div class="h-[40px] rounded-lg border-[1px] border-[#E5E7E9] flex cursor-pointer shadow-lg bg-white hover:bg-gray-200 hover:border-[#2671D9]">
-                                            <svg width="16" height="12" class="mx-3 my-3" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00054 1.66634C5.20282 1.66634 2.82717 3.48083 1.98949 5.99905C1.989 6.00052 1.989 6.00234 1.98949 6.00381C2.82821 8.52021 5.20296 10.333 7.99937 10.333C10.7971 10.333 13.1727 8.51852 14.0104 6.0003C14.0109 5.99882 14.0109 5.99701 14.0104 5.99554C13.1717 3.47914 10.797 1.66634 8.00054 1.66634ZM0.724321 5.5782C1.7378 2.53148 4.61156 0.333008 8.00054 0.333008C11.3879 0.333008 14.2606 2.52944 15.2753 5.57394C15.367 5.84883 15.367 6.14622 15.2756 6.42115C14.2621 9.46787 11.3883 11.6663 7.99937 11.6663C4.61197 11.6663 1.7393 9.46991 0.72457 6.42541C0.632951 6.15052 0.632864 5.85314 0.724321 5.5782ZM8 4.66634C7.26362 4.66634 6.66666 5.26329 6.66666 5.99967C6.66666 6.73605 7.26362 7.33301 8 7.33301C8.73638 7.33301 9.33333 6.73605 9.33333 5.99967C9.33333 5.26329 8.73638 4.66634 8 4.66634ZM5.33333 5.99967C5.33333 4.52692 6.52724 3.33301 8 3.33301C9.47276 3.33301 10.6667 4.52691 10.6667 5.99967C10.6667 7.47243 9.47276 8.66634 8 8.66634C6.52724 8.66634 5.33333 7.47243 5.33333 5.99967Z" fill="#2671D9"/>
-                                            </svg>
-                                            <span class="text-[#333333] mt-[10px] hover:text-[#2671D9]">View</span>
-                                        </div>
-                                        </router-link>
-                                    </div>
-                                </td>
-                            </tr> -->
-                            <!-- <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">3</td>
-                                <td class="px-3">MoU Rencana Kerja Sama Sistem I...</td>
-                                <td class="px-3">200924</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">MoU</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">4</td>
-                                <td class="px-3">Kerja Sama Reseller Penyediaan Pe...</td>
-                                <td class="px-3">101324</td>
-                                <td class="px-3">PKS</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Proposal</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">5</td>
-                                <td class="px-3">MoU Rencana Kerja Sama Pengem...</td>
-                                <td class="px-3">201524</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Surat Penawaran</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">6</td>
-                                <td class="px-3">Kerja Sama Reseller Penyediaan Pr...</td>
-                                <td class="px-3">1011224</td>
-                                <td class="px-3">PKS</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Evaluasi</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">7</td>
-                                <td class="px-3">Kerja Sama Reseller Penyediaan Pr...</td>
-                                <td class="px-3">1011224</td>
-                                <td class="px-3">PKS</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">Evaluasi</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b text-sm text-[#333333] h-[54px]">                          
-                                <td class="px-3">8</td>
-                                <td class="px-3">MoU Kerja Sama Penyelenggaraan ...</td>
-                                <td class="px-3">101524</td>
-                                <td class="px-3">MoU</td>
-                                <td class="px-3"><span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">MoU</span></td>
-                                <td class="px-3">
-                                    <div class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[2px]" viewBox="0 0 128 512">
-                                            <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                        </svg>
-                                    </div>
-                                </td>
-                            </tr> -->
-                            
-                            
-                            <tr v-for="(row, index) in limitedRows" :key="index" class="bg-white border-b text-sm text-[#333333] h-[54px]">
+                            <tr v-for="(row, index) in paginatedRows" :key="row.id" class="bg-white border-b text-sm text-[#333333] h-[54px]">
                                 <td class="w-[74px] px-3">{{ row.id }}</td>
                                 <td class="w-[268px] px-3">{{ row.judul }}</td>
                                 <td class="w-[122px] px-3">{{ row.code }}</td>
@@ -265,8 +131,6 @@ import navbar from '@/components/navbar.vue';
                                     </div>
                                 </td>
                             </tr>
-                            
-                            <!-- tambahkan baris tabel lainnya disini -->
                         </tbody>
                     </table>
                 </div>
@@ -279,40 +143,38 @@ import navbar from '@/components/navbar.vue';
                     <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
                     <div class="w-[44px] ml-4 relative">
                         <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                            <span class="text-sm mt-1 pl-2">{{ DataOption || '7' }}</span>
+                            <span class="text-sm mt-1 pl-3">{{ DataOption || '7' }}</span>
                             <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
                             </svg>
                         </button>
                         <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-lg cursor-pointer z-10 bg-white">
                             <ul class="text-sm w-full">
-                                <li @click="selectDataOption('5')" :class="{' text-black': DataOption === '5', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '5'}" class="cursor-pointer border-b pl-3 py-1">5</li>
-                                <li @click="selectDataOption('7')" :class="{' text-black': DataOption === '7', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '7'}" class="cursor-pointer border-b py-1 pl-3">7</li>
-                                <li @click="selectDataOption('8')" :class="{' text-black': DataOption === '8', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': DataOption !== '8'}" class="cursor-pointer pl-3 py-1">8</li>
+                                <li @click="selectDataOption('5')" :class="{ 'text-black': rowsPerPage === 5, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 5 }" class="cursor-pointer border-b pl-3 py-1">5</li>
+                                <li @click="selectDataOption('7')" :class="{ 'text-black': rowsPerPage === 7, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 7 }" class="cursor-pointer border-b py-1 pl-3">7</li>
+                                <li @click="selectDataOption('8')" :class="{ 'text-black': rowsPerPage === 8, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 8 }" class="cursor-pointer pl-3 py-1">8</li>
                             </ul>
                         </div>
                     </div>
-                    <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">25</span> Data</p>
+                    <p class="text-sm text-[#333333] mt-1 ml-3">dari <span class="font-semibold text-sm">{{ dataRows.length }}</span> Data</p>
                     </div>
-                    <div class="w-3 h-3 flex mr-10 -translate-x-[240px]"> 
-                    <button class="px-[10px] h-8">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.79289 8.70711C4.40237 8.31658 4.40237 7.68342 4.79289 7.29289L9.79289 2.29289C10.1834 1.90237 10.8166 1.90237 11.2071 2.29289C11.5976 2.68342 11.5976 3.31658 11.2071 3.70711L6.91421 8L11.2071 12.2929C11.5976 12.6834 11.5976 13.3166 11.2071 13.7071C10.8166 14.0976 10.1834 14.0976 9.79289 13.7071L4.79289 8.70711Z" fill="#7F7F80"/>
-                        </svg>
-                    </button>
-                    <button class="px-[10px] text-white rounded-lg h-8 bg-[#2671D9]"><span class="">1</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">2</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">3</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">4</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1 "><span class="">5</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1 "><span class="">...</span></button>
-                    <button class="px-[10px] rounded-lg h-8 ml-1"><span class="">10</span></button>
-                    <button class="px-[10px] h-8">
-                        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
-                        </svg>
-                    </button>
-                </div>
+                    <div class="pagination-controls">
+                        <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">
+                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.792893 6.70711C0.402369 6.31658 0.402369 5.68342 0.792893 5.29289L5.79289 0.292893C6.18342 -0.0976314 6.81658 -0.0976314 7.20711 0.292893C7.59763 0.683417 7.59763 1.31658 7.20711 1.70711L2.91421 6L7.20711 10.2929C7.59763 10.6834 7.59763 11.3166 7.20711 11.7071C6.81658 12.0976 6.18342 12.0976 5.79289 11.7071L0.792893 6.70711Z" fill="#7F7F80"/>
+                            </svg>
+                        </button>
+                        <div v-for="page in paginationPages" :key="page">
+                            <button v-if="page !== '...'" @click="changePage(page)" :class="{ active: page === currentPage }">
+                                {{ page }}
+                            </button><span v-else>...</span>
+                        </div>
+                        <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">
+                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#7F7F80"/>
+                            </svg>
+                        </button>
+                     </div>
                 </div>
                 <!-- akhir menampilkan -->
 
@@ -353,25 +215,62 @@ export default {
 
     // Data
     isDataOpen: false,
-            DataOption: '8', 
-            activeViewIndex: null,
+      DataOption: '8',
+      currentPage: 1,
+      rowsPerPage: 8,
+      activeViewIndex: null,
             dataRows: [
                 { id: 1, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Masuk Kemitraan', progresClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 2, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '200724', type: 'MoU', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
-                { id: 3, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '201723', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
-                { id: 4, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 2, judul: 'MoU Rencana Kerja Sama Pemanfa...', code: '200724', type: 'MoU', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 3, judul: 'MoU Rencana Kerja Sama Sistem I...', code: '201723', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 4, judul: 'Kerja Sama Reseller Penyediaan Pe...', code: '101224', type: 'PKS', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
                 { id: 5, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '201124', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
-                { id: 6, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Evaluasi', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 6, judul: 'Kerja Sama Reseller Penyediaan Pr...', code: '101224', type: 'PKS', progres: 'Evaluasi', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
                 { id: 7, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '200824', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
-                { id: 8, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '101524', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 8, judul: 'MoU Kerja Sama Penyelenggaraan ...', code: '101524', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 9, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Masuk Kemitraan', progresClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+                { id: 10, judul: 'MoU Rencana Kerja Sama Pemanfa...', code: '200724', type: 'MoU', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 11, judul: 'MoU Rencana Kerja Sama Sistem I...', code: '201723', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 12, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 13, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '201124', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 14, judul: 'Kerja Sama Reseller Penyediaan Pr...', code: '101224', type: 'PKS', progres: 'Evaluasi', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 15, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '200824', type: 'MoU', progres: 'MoU', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                { id: 16, judul: 'MoU Kerjasama Penyelenggaraan ...', code: '101524', type: 'MoU', progres: 'Surat Penawaran', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
+                
             ]
     };
   },
     // Data
   computed: {
-        limitedRows() {
-            return this.dataRows.slice(0, Number(this.DataOption));
+    totalPages() {
+        return Math.ceil(this.dataRows.length / this.rowsPerPage);
+    },
+    paginatedRows() {
+        const start = (this.currentPage - 1) * this.rowsPerPage;
+        const end = start + this.rowsPerPage;
+        return this.dataRows.slice(start, end);
+    },
+    paginationPages() {
+            const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+            let pages = [];
+
+        if (totalPages <= 7) {
+            
+            for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
+            }
+        } else {
+            if (this.currentPage <= 4) {
+                pages = [1, 2, 3, 4, 5, '...', totalPages];
+            } else if (this.currentPage > totalPages - 4) {
+                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+            } else {
+                pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
+            }
         }
+
+        return pages;
+    },
     },
   methods: {
 
@@ -386,13 +285,33 @@ export default {
 
     // Data
     toggleDataDropdown() {
-            this.isDataOpen = !this.isDataOpen;
-        },
-        selectDataOption(option) {
-            this.DataOption = option;
-            this.isDataOpen = false;
+        this.isDataOpen = !this.isDataOpen;
+    },
+    goToPage(page) {
+        console.log('Attempting to go to page:', page);
+        if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
         }
+    },
+    changePage(page) {
+        if (page >= 1 && page <= this.totalPages) {
+        this.currentPage = page;
+        }
+    },
+    selectDataOption(option) {
+        const newRowsPerPage = Number(option);
+        this.DataOption = option;
+        this.rowsPerPage = newRowsPerPage;
+        console.log('Data Option:', this.DataOption);
+        console.log('Rows per Page:', this.rowsPerPage);
+
+        const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
+        if (this.currentPage > totalPages) {
+        this.currentPage = totalPages;
+        }
+
+        this.isDataOpen = false;
+    },
   },
 };
-
 </script>
