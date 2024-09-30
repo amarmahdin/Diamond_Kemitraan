@@ -149,11 +149,11 @@ import navbar from '@/components/navbar.vue';
                                 <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
                             </svg>
                         </button>
-                        <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-lg cursor-pointer z-10 bg-white">
+                        <div v-show="isDataOpen" class="absolute bottom-full w-[44px] border-[1px] rounded-t-lg cursor-pointer z-10 bg-white">
                             <ul class="text-sm w-full">
-                                <li @click="selectDataOption('5')" :class="{ 'text-black': rowsPerPage === 5, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 5 }" class="cursor-pointer border-b pl-3 py-1">5</li>
-                                <li @click="selectDataOption('7')" :class="{ 'text-black': rowsPerPage === 7, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 7 }" class="cursor-pointer border-b py-1 pl-3">7</li>
-                                <li @click="selectDataOption('8')" :class="{ 'text-black': rowsPerPage === 8, 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': rowsPerPage !== 8 }" class="cursor-pointer pl-3 py-1">8</li>
+                                <li @click="selectDataOption('5')" :class="{ 'text-black': rowsPerPage === 5, '': rowsPerPage !== 5 }" class="cursor-pointer border-b pl-4 py-1 hover:font-semibold">5</li>
+                                <li @click="selectDataOption('7')" :class="{ 'text-black': rowsPerPage === 7, '': rowsPerPage !== 7 }" class="cursor-pointer border-b py-1 pl-4 hover:font-semibold">7</li>
+                                <li @click="selectDataOption('8')" :class="{ 'text-black': rowsPerPage === 8, '': rowsPerPage !== 8 }" class="cursor-pointer pl-4 py-1 hover:font-semibold">8</li>
                             </ul>
                         </div>
                     </div>
