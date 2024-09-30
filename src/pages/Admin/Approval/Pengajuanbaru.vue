@@ -49,31 +49,102 @@ import navbar from '@/components/navbar.vue';
 
                 <div class="">
                     <div class="flex">
-                    <div><div class="ml-4 w-[280px] py-2 border-[1px] rounded-s-lg flex">
-                        <form action="search" class="flex">
-                            <input type="text" name="search" placeholder="Cari sesuatu disini ..." class="ml-4 w-[250px] outline-none">
-                        </form></div>
-                    </div>
-                    <div class="w-10 h-10 bg-[#2671D9] rounded-e-lg -translate-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-[25px] h-[40px] ml-[6px] cursor-pointer" viewBox="0 0 101 101" id="Search"><path d="M63.3 59.9c3.8-4.6 6.2-10.5 6.2-17 0-14.6-11.9-26.5-26.5-26.5S16.5 28.3 16.5 42.9 28.4 69.4 43 69.4c6.4 0 12.4-2.3 17-6.2l20.6 20.6c.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7.9-.9.9-2.5 0-3.4L63.3 59.9zm-20.4 4.7c-12 0-21.7-9.7-21.7-21.7s9.7-21.7 21.7-21.7 21.7 9.7 21.7 21.7-9.7 21.7-21.7 21.7z" fill="#ffffff" class="color000000 svgShape"></path></svg>
-                    </div>
+                        <div><div class="ml-4 w-[280px] py-2 border-[1px] rounded-s-lg flex">
+                            <form action="search" class="flex">
+                                <input v-model="searchQuery" type="text" name="search" placeholder="Cari sesuatu disini ..." class="ml-4 w-[250px] outline-none">
+                            </form></div>
+                        </div>
+                        <div class="w-10 h-[41.5px] bg-[#2671D9] rounded-e-lg -translate-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-[25px] h-[40px] ml-[6px] cursor-pointer" viewBox="0 0 101 101" id="Search"><path d="M63.3 59.9c3.8-4.6 6.2-10.5 6.2-17 0-14.6-11.9-26.5-26.5-26.5S16.5 28.3 16.5 42.9 28.4 69.4 43 69.4c6.4 0 12.4-2.3 17-6.2l20.6 20.6c.5.5 1.1.7 1.7.7.6 0 1.2-.2 1.7-.7.9-.9.9-2.5 0-3.4L63.3 59.9zm-20.4 4.7c-12 0-21.7-9.7-21.7-21.7s9.7-21.7 21.7-21.7 21.7 9.7 21.7 21.7-9.7 21.7-21.7 21.7z" fill="#ffffff" class="color000000 svgShape"></path></svg>
+                        </div>
                 
+                    <!-- Filter -->
                     <div class="w-[90px] ml-2 relative">
-                                <button @click="filterDropdown" :class="{'rounded-t-lg': isFilterOpen, 'rounded-lg': !isFilterOpen}" class="w-[90px] border-[1px] px-1 py-2 flex justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-2 cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
-                                        <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
-                                    </svg>
-                                    <span class="text-sm ml-2 mt-1">{{FilterOption || 'Filter'}}</span>
-                                </button>
-                                <div v-show="isFilterOpen" class="absolute w-[90px] border-[1px] rounded-b-lg bg-white z-10">
-                                    <ul class="text-sm w-full">
-                                        <li @click="filterOption('Item 1')" :class="{' text-black': FilterOption === 'Item 1', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': FilterOption !== 'Item 1'}" class="cursor-pointer border-b px-4 py-2">Item 1</li>
-                                        <li @click="filterOption('Item 2')" :class="{' text-black': FilterOption === 'Item 2', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': FilterOption !== 'Item 2'}" class="cursor-pointer border-b px-4 py-2">Item 2</li>
-                                        <li @click="filterOption('Item 3')" :class="{' text-black': FilterOption === 'Item 3', 'hover:bg-[#E9F1FB] hover:text-[#2671D9]': FilterOption !== 'Item 3'}" class="cursor-pointer px-4 py-2">Item 3</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <button @click="filterDropdown" class="w-[90px] border-[1px] px-1 py-2 flex justify-center rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-[6px] cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
+                                <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
+                            </svg>
+                            <span class="text-[#333333] ml-2 ">Filter</span>
+                        </button>
+
+                        <!-- Pilih Filter -->
+                        <div v-show="isFilterOpen" class="absolute w-[240px] border-[1px] rounded-lg bg-white z-10 mt-2">
+                            <ul class="text-sm w-full">
+                                <li class="border-b h-[40px] flex">
+                                    <svg width="14" height="14" class="ml-[17.33px] mt-[13.33px]" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.6667 0.333374H2.33337C1.80294 0.333374 1.29423 0.544088 0.919161 0.91916C0.544088 1.29423 0.333374 1.80294 0.333374 2.33337V3.11337C0.333279 3.38867 0.390018 3.66102 0.500041 3.91337V3.95337C0.594227 4.16735 0.727636 4.36181 0.893374 4.52671L5.00004 8.60671V13C4.99981 13.1133 5.02846 13.2248 5.08329 13.324C5.13811 13.4231 5.2173 13.5067 5.31337 13.5667C5.41947 13.6325 5.54189 13.6671 5.66671 13.6667C5.77107 13.6661 5.87383 13.641 5.96671 13.5934L8.63337 12.26C8.74332 12.2046 8.83577 12.1199 8.90049 12.0152C8.96521 11.9104 8.99967 11.7898 9.00004 11.6667V8.60671L13.08 4.52671C13.2458 4.36181 13.3792 4.16735 13.4734 3.95337V3.91337C13.5926 3.66299 13.6584 3.39056 13.6667 3.11337V2.33337C13.6667 1.80294 13.456 1.29423 13.0809 0.91916C12.7058 0.544088 12.1971 0.333374 11.6667 0.333374ZM7.86004 7.86004C7.79825 7.92233 7.74937 7.99621 7.71619 8.07744C7.68302 8.15866 7.6662 8.24564 7.66671 8.33337V11.2534L6.33337 11.92V8.33337C6.33388 8.24564 6.31706 8.15866 6.28389 8.07744C6.25071 7.99621 6.20183 7.92233 6.14004 7.86004L2.60671 4.33337H11.3934L7.86004 7.86004ZM12.3334 3.00004H1.66671V2.33337C1.66671 2.15656 1.73695 1.98699 1.86197 1.86197C1.98699 1.73695 2.15656 1.66671 2.33337 1.66671H11.6667C11.8435 1.66671 12.0131 1.73695 12.1381 1.86197C12.2631 1.98699 12.3334 2.15656 12.3334 2.33337V3.00004Z" fill="#2671D9"/>
+                                    </svg>                                              
+                                    <span class="text-[#7F7F80] ml-2 mt-[10px]">Pilih Filter</span>
+                                </li>
+                                <li @click="filterTipe" class="cursor-pointer border-b h-[40px] flex justify-between hover:font-semibold">
+                                    <span class="text-[#333333] ml-4 mt-[10px]">Tipe</span>  
+                                    <svg width="8" height="12" class="mt-3 mr-3" iewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
+                                    </svg>    
+                                </li>
+                                <li @click="toggleFilterStatus" class="cursor-pointer border-b h-[40px] flex justify-between hover:font-semibold">
+                                    <span class="text-[#333333] ml-4 mt-[10px]">Status</span>  
+                                    <svg width="8" height="12" class="mt-3 mr-3" iewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
+                                    </svg>    
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Type -->
+                        <div v-show="isFilterTipe" class="absolute w-[240px] ml-[247px] mt-[48px] border-[1px] rounded-lg bg-white z-10">
+                            <ul class="text-sm w-full">
+                                <li @click="updateFilterType('PKS')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'PKS'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'PKS'}">PKS</span>
+                                </li>
+                                <li @click="updateFilterType('NDA')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'NDA'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'NDA'}">NDA</span>
+                                </li>
+                                <li @click="updateFilterType('MoU')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'MoU'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'MoU'}">MoU</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Status -->
+                        <div v-show="isFilterStatus" class="absolute w-[240px] ml-[247px] mt-[90px] border-[1px] rounded-lg bg-white z-10">
+                            <ul class="text-sm w-full">
+                                <li @click="updateFilterStatus('Draft')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Draft'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Draft'}">Draft</span>
+                                </li>
+                                <li @click="updateFilterStatus('Revisi Mayor')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Revisi Mayor'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Revisi Mayor'}">Revisi Mayor</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
+                    <!-- All -->
+                    <div v-if="isFilterVisibleAll" class="w-[1170px] h-[44px] border-[1px] rounded-lg mt-4 ml-4 flex justify-between">
+                        <div class="px-[10px] py-[10px] flex">
+                            <div v-if="isFilterVisibleType" class="w-[60px] h-[24px] bg-[#E9F1FB] border-[1px] border-[#BAD1F3] rounded-[100px] flex justify-between">
+                                <span class=" text-xs text-[#2671D9] font-semibold ml-[10px] mt-[3px]">{{ filterType }}</span>
+                                <svg @click="clearFilterType" width="10" height="10" class="cursor-pointer mr-[7px] mt-[7px]" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43306 1.43306C1.67714 1.18898 2.07286 1.18898 2.31694 1.43306L5 4.11612L7.68306 1.43306C7.92714 1.18898 8.32286 1.18898 8.56694 1.43306C8.81102 1.67714 8.81102 2.07286 8.56694 2.31694L5.88388 5L8.56694 7.68306C8.81102 7.92714 8.81102 8.32286 8.56694 8.56694C8.32286 8.81102 7.92714 8.81102 7.68306 8.56694L5 5.88388L2.31694 8.56694C2.07286 8.81102 1.67714 8.81102 1.43306 8.56694C1.18898 8.32286 1.18898 7.92714 1.43306 7.68306L4.11612 5L1.43306 2.31694C1.18898 2.07286 1.18898 1.67714 1.43306 1.43306Z" fill="#2671D9"/>
+                                </svg>
+                            </div>
+                            <div v-if="isFilterVisibleStatus" class="w-auto h-[24px] ml-[6px] bg-[#E9F1FB] border-[1px] border-[#BAD1F3] rounded-[100px] flex justify-between">
+                                <span class=" text-xs text-[#2671D9] font-semibold ml-[10px] mt-[3px]">{{ filterStatus }}</span>
+                                <svg @click="clearFilterStatus" width="10" height="10" class="cursor-pointer ml-1 mr-[7px] mt-[7px]" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43306 1.43306C1.67714 1.18898 2.07286 1.18898 2.31694 1.43306L5 4.11612L7.68306 1.43306C7.92714 1.18898 8.32286 1.18898 8.56694 1.43306C8.81102 1.67714 8.81102 2.07286 8.56694 2.31694L5.88388 5L8.56694 7.68306C8.81102 7.92714 8.81102 8.32286 8.56694 8.56694C8.32286 8.81102 7.92714 8.81102 7.68306 8.56694L5 5.88388L2.31694 8.56694C2.07286 8.81102 1.67714 8.81102 1.43306 8.56694C1.18898 8.32286 1.18898 7.92714 1.43306 7.68306L4.11612 5L1.43306 2.31694C1.18898 2.07286 1.18898 1.67714 1.43306 1.43306Z" fill="#2671D9"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <svg width="12" height="8" class="mr-[18.5px] mt-[18.5px]" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70711 7.20711C6.31658 7.59763 5.68342 7.59763 5.29289 7.20711L0.292893 2.20711C-0.0976316 1.81658 -0.0976317 1.18342 0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L6 5.08579L10.2929 0.792893C10.6834 0.402369 11.3166 0.402369 11.7071 0.792893C12.0976 1.18342 12.0976 1.81658 11.7071 2.20711L6.70711 7.20711Z" fill="#7F7F80"/>
+                            </svg>
+                    </div>
 
                 <!-- Start Data -->
                 <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
@@ -181,7 +252,6 @@ import navbar from '@/components/navbar.vue';
                 <!-- End data -->
             </div>
 
-
                 <!-- Start Menampilkan -->
                 <div class="w-[1170px] ml-4 py-3  flex justify-between">
                     <div class="flex">
@@ -237,117 +307,185 @@ import navbar from '@/components/navbar.vue';
 
 <script >
 import { ref } from 'vue';
-
-// Filter
 const isFilterOpen = ref(false);
-const FilterOption = ref('');
+const isFilterTipe = ref(false);
+const isFilterStatus = ref(false);
+const filterStatus = ref('');
 
 function filterDropdown() {
-  isFilterOpen.value = !isFilterOpen.value;
-
-}
-function filterOption(option) {
-    FilterOption.value = option;
-  isFilterOpen.value = false;  
+    isFilterOpen.value = !isFilterOpen.value;
+    isFilterTipe.value = false;
+    isFilterStatus.value = false;
 }
 
+function filterTipe() {
+    isFilterTipe.value = !isFilterTipe.value;
+    if (isFilterTipe.value) {
+        isFilterStatus.value = false;    
+    }
+}
 
-// View
+function updateFilterStatus(status) {
+    filterStatus.value = status;
+    isFilterOpen.value = false;
+    isFilterStatus.value = false;
+}
+
+function toggleFilterStatus() {
+    isFilterStatus.value = !isFilterStatus.value;
+    if (isFilterStatus.value) {
+        isFilterTipe.value = false; 
+    }
+}
+
 export default {
   data() {
     return {
-    // View
-    isViewVisible: false,
-    isView1Visible: false,
+        // View
+        isViewVisible: false,
+        isView1Visible: false,
 
-    // Data
-    isDataOpen: false,
-      DataOption: '4',
-      currentPage: 1,
-      rowsPerPage: 4,
-      activeViewIndex: null,
-      dataRows: [
-        { id: 1, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 2, judul: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 3, judul: 'MoU Kerja Sama Pengembangan J...', code: '200923', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 4, judul: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', pelaksana: 'Pusat', status:'Revisi Mayor', statusClass:'bg-[#FFF6E1] text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 5, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 6, judul: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 7, judul: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', pelaksana: 'Pusat', status:'Revisi Mayor', statusClass:'bg-[#FFF6E1] text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-        { id: 8, judul: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
-      ]
-    };
-  },
-  computed: {
+        // Data
+        isDataOpen: false,
+        DataOption: '4',
+        currentPage: 1,
+        rowsPerPage: 4,
+        filterType: '',
+        filterStatus: '',
+        FilterOptionStatus: '',
+        searchQuery: '',
+        activeViewIndex: null,
+        dataRows: [
+            { id: 1, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 2, judul: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 3, judul: 'MoU Kerja Sama Pengembangan J...', code: '200923', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 4, judul: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', pelaksana: 'Pusat', status:'Revisi Mayor', statusClass:'bg-[#FFF6E1] text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 5, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 6, judul: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 7, judul: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', pelaksana: 'Pusat', status:'Revisi Mayor', statusClass:'bg-[#FFF6E1] text-[#FFB200] border-[#FFD064] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+            { id: 8, judul: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', pelaksana: 'Pusat', status:'Draft', statusClass:'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]', statusap: 'Perlu Disetujui'},
+        ]
+        };
+    },
+computed: {
+    searchedRows() {
+        const searched = this.dataRows.filter((row) => {
+        const searchQuery = this.searchQuery.toLowerCase();
+        const titleMatch = row.judul.toLowerCase().includes(searchQuery);
+            return titleMatch;
+        });
+            return searched;
+    },
+    isFilterVisibleAll() {
+        return this.filterType !== '' || filterStatus.value !== '';
+    },
+    isFilterVisibleType() {
+        return this.filterType !== '';
+    },
+    isFilterVisibleStatus() {
+        return filterStatus.value !== '';
+    },
+    filteredRows() {
+        const filtered = this.dataRows.filter((row) => {
+        const typeMatch = this.filterType === '' || row.type === this.filterType;
+        const statusMatch = filterStatus.value === '' || row.status === filterStatus.value;
+            return typeMatch && statusMatch;
+        });
+            return filtered;
+    },
+    filteredTotalPages() {
+        if (this.searchQuery) {
+            return Math.ceil(this.searchedRows.length / this.rowsPerPage);
+        } else {
+            return Math.ceil(this.filteredRows.length / this.rowsPerPage);
+        }
+    },
     totalPages() {
         return Math.ceil(this.dataRows.length / this.rowsPerPage);
     },
     paginatedRows() {
         const start = (this.currentPage - 1) * this.rowsPerPage;
         const end = start + this.rowsPerPage;
-        return this.dataRows.slice(start, end);
+        if (this.searchQuery) {
+            return this.searchedRows.slice(start, end);
+        } else {
+            return this.filteredRows.slice(start, end);
+        }
     },
     paginationPages() {
-            const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
-            let pages = [];
+        const totalPages = this.searchQuery ? Math.ceil(this.searchedRows.filter(row => row.statusap === this.filterStatus.value).length / this.rowsPerPage) : Math.ceil(this.filteredRows.length / this.rowsPerPage);
+        let pages = [];
 
+        if (totalPages <= 1) {
+            return null;
+        }
         if (totalPages <= 7) {
-            
             for (let i = 1; i <= totalPages; i++) {
-                pages.push(i);
+            pages.push(i);
             }
         } else {
             if (this.currentPage <= 4) {
-                pages = [1, 2, 3, 4, 5, '...', totalPages];
+            pages = [1, 2, 3, 4, 5, '...', totalPages];
             } else if (this.currentPage > totalPages - 4) {
-                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+            pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
             } else {
-                pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
+            pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
             }
         }
-
         return pages;
-    },
-  },
-  methods: {
+    }
+},
+methods: {
     // View
     toggleView1(index) {
-      if (this.activeViewIndex === index) {
-        this.activeViewIndex = null; 
-      } else {
-        this.activeViewIndex = index;
-      }
+        if (this.activeViewIndex === index) {
+            this.activeViewIndex = null; 
+        } else {
+            this.activeViewIndex = index;
+        }
     },
-
-    // Data
+    clearFilterType() {
+        this.filterType = '';
+        isFilterTipe.value = false;
+    },
+    clearFilterStatus() {
+        filterStatus.value = '';
+        isFilterStatus.value = false;
+    },
+    updateFilterType(type) {
+        this.filterType = type;
+        isFilterOpen.value = false;  
+        isFilterTipe.value = false; 
+    },
+    updateFilterStatus(status) {
+        filterStatus.value = status;
+    },
     toggleDataDropdown() {
         this.isDataOpen = !this.isDataOpen;
     },
     goToPage(page) {
         console.log('Attempting to go to page:', page);
-        if (page >= 1 && page <= this.totalPages) {
-        this.currentPage = page;
-        }
+            if (page >= 1 && page <= this.filteredTotalPages) {
+                this.currentPage = page;
+            }
     },
     changePage(page) {
-        if (page >= 1 && page <= this.totalPages) {
-        this.currentPage = page;
+        if (page >= 1 && page <= this.filteredTotalPages) {
+            this.currentPage = page;
         }
     },
     selectDataOption(option) {
         const newRowsPerPage = Number(option);
-        this.DataOption = option;
-        this.rowsPerPage = newRowsPerPage;
+            this.DataOption = option;
+            this.rowsPerPage = newRowsPerPage;
         console.log('Data Option:', this.DataOption);
         console.log('Rows per Page:', this.rowsPerPage);
-
         const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
         if (this.currentPage > totalPages) {
-        this.currentPage = totalPages;
+            this.currentPage = totalPages;
         }
-
-        this.isDataOpen = false;
+            this.isDataOpen = false;
     },
-  },
+},
 };
 </script>

@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+// date
+import Date from "@/components/datepicker.vue"
+
 // Login
 import Login from "@/pages/Login.vue";
 
@@ -39,6 +42,9 @@ import Pkslampiran from '../pages/PKS/Pkslampiran.vue';
 
 
 const routes = [
+
+    // Date
+    { path: '/Date', name: 'Date', component: Date },
 
     // Login
     { path: '/', name: 'Login', component: Login },
