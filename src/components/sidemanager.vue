@@ -74,7 +74,7 @@ const route = useRoute();
 
 const isDashboardActive = computed(() => route.name === 'Dashboardmanager');
 const isApprovalActive = computed(() => ['Pengajuanbaru', 'Disetujui', 'Ditolak','Detailmanager'].includes(route.name));
-const isProsesActive = computed(() => route.name === 'Prosesmanager');
+const isProsesActive = computed(() => ['Prosesmanager', 'Detailprosesmanager','DetailMoUmanager'].includes(route.name));
 const isSelesaiActive = computed(() => route.name === 'Selesaimanager');
 
 watch(() => route.name, (newName) => {

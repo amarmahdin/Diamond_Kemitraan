@@ -14,6 +14,8 @@ import Ditolak from "@/pages/Admin/Approval/Ditolak.vue";
 import Prosesmanager from "@/pages/Admin/Prosesmanager.vue";
 import Selesaimanager from "@/pages/Admin/Selesaimanager.vue";
 import Detailmanager from "@/pages/Admin/Detailmanager.vue";
+import Detailprosesmanager from "@/pages/Admin/Detailprosesmanager.vue";
+import DetailMoUmanager from "@/pages/Admin/DetailMoUmanager.vue";
 
 // User
 import Dashboard from "@/pages/Dashboard.vue";
@@ -57,6 +59,8 @@ const routes = [
     { path: '/Prosesadmin', name: 'Prosesmanager', component: Prosesmanager },
     { path: '/Selesaiadmin', name: 'Selesaimanager', component: Selesaimanager },
     { path: '/Detailpengajuanadmin', name: 'Detailmanager', component: Detailmanager},
+    { path: '/Detailprosesmanager', name: 'Detailprosesmanager', component: Detailprosesmanager},
+    { path: '/DetailMoUmanager', name: 'DetailMoUmanager', component: DetailMoUmanager},
 
     // User
     { path: '/Dashboard', name: 'Dashboard', component: Dashboard },
