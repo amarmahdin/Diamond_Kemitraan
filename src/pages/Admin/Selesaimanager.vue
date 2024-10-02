@@ -57,6 +57,12 @@ import navbar from '@/components/navbar.vue';
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
                                     </svg>    
                                 </li>
+                                <li @click="toggleFilterStatus" class="cursor-pointer border-b h-[40px] flex justify-between hover:font-semibold">
+                                    <span class="text-[#333333] ml-4 mt-[10px]">Status</span>  
+                                    <svg width="8" height="12" class="mt-3 mr-3" iewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#2671D9"/>
+                                    </svg>    
+                                </li>
                             </ul>
                         </div>
 
@@ -77,6 +83,20 @@ import navbar from '@/components/navbar.vue';
                                 </li>
                             </ul>
                         </div>
+
+                        <!-- Status -->
+                        <div v-show="isFilterStatus" class="absolute w-[240px] ml-[247px] mt-[90px] border-[1px] rounded-lg bg-white z-10">
+                            <ul class="text-sm w-full">
+                                <li @click="updateFilterStatus('Selesai')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Selesai'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Selesai'}">Selesai</span>
+                                </li>
+                                <li @click="updateFilterStatus('Ditolak')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Ditolak'" readonly>
+                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Ditolak'}">Ditolak</span>
+                                </li>
+                            </ul>
+                        </div>
         
                     </div>
                 </div>
@@ -90,11 +110,17 @@ import navbar from '@/components/navbar.vue';
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43306 1.43306C1.67714 1.18898 2.07286 1.18898 2.31694 1.43306L5 4.11612L7.68306 1.43306C7.92714 1.18898 8.32286 1.18898 8.56694 1.43306C8.81102 1.67714 8.81102 2.07286 8.56694 2.31694L5.88388 5L8.56694 7.68306C8.81102 7.92714 8.81102 8.32286 8.56694 8.56694C8.32286 8.81102 7.92714 8.81102 7.68306 8.56694L5 5.88388L2.31694 8.56694C2.07286 8.81102 1.67714 8.81102 1.43306 8.56694C1.18898 8.32286 1.18898 7.92714 1.43306 7.68306L4.11612 5L1.43306 2.31694C1.18898 2.07286 1.18898 1.67714 1.43306 1.43306Z" fill="#2671D9"/>
                             </svg>
                         </div>
+                        <div v-if="isFilterVisibleStatus" class="w-[70px] h-[24px] ml-[6px] bg-[#E9F1FB] border-[1px] border-[#BAD1F3] rounded-[100px] flex justify-between">
+                            <span class=" text-xs text-[#2671D9] font-semibold ml-[10px] mt-[3px]">{{ filterStatus }}</span>
+                            <svg @click="clearFilterStatus" width="10" height="10" class="cursor-pointer mr-[7px] mt-[7px]" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43306 1.43306C1.67714 1.18898 2.07286 1.18898 2.31694 1.43306L5 4.11612L7.68306 1.43306C7.92714 1.18898 8.32286 1.18898 8.56694 1.43306C8.81102 1.67714 8.81102 2.07286 8.56694 2.31694L5.88388 5L8.56694 7.68306C8.81102 7.92714 8.81102 8.32286 8.56694 8.56694C8.32286 8.81102 7.92714 8.81102 7.68306 8.56694L5 5.88388L2.31694 8.56694C2.07286 8.81102 1.67714 8.81102 1.43306 8.56694C1.18898 8.32286 1.18898 7.92714 1.43306 7.68306L4.11612 5L1.43306 2.31694C1.18898 2.07286 1.18898 1.67714 1.43306 1.43306Z" fill="#2671D9"/>
+                            </svg>
+                        </div>
                     </div>
                     <svg width="12" height="8" class="mr-[18.5px] mt-[18.5px]" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M6.70711 7.20711C6.31658 7.59763 5.68342 7.59763 5.29289 7.20711L0.292893 2.20711C-0.0976316 1.81658 -0.0976317 1.18342 0.292893 0.792893C0.683417 0.402369 1.31658 0.402369 1.70711 0.792893L6 5.08579L10.2929 0.792893C10.6834 0.402369 11.3166 0.402369 11.7071 0.792893C12.0976 1.18342 12.0976 1.81658 11.7071 2.20711L6.70711 7.20711Z" fill="#7F7F80"/>
                     </svg>
-                </div> 
+                </div>   
 
                 <!-- Start Data -->
                 <div class="w-[1170px] overflow-auto rounded-lg border-[1px] mt-4 ml-4 h-auto">
@@ -232,60 +258,80 @@ import { ref } from 'vue';
 
 const isFilterOpen = ref(false);
 const isFilterTipe = ref(false);
+const isFilterStatus = ref(false);
 const filterStatus = ref('');
 
 function filterDropdown() {
   isFilterOpen.value = !isFilterOpen.value;
   isFilterTipe.value = false;
+  isFilterStatus.value = false;
 }
 
 function filterTipe() {
-    isFilterTipe.value = !isFilterTipe.value;
+  isFilterTipe.value = !isFilterTipe.value;
+  if (isFilterTipe.value) {
+    isFilterStatus.value = false;    
+  }
+}
+
+function updateFilterStatus(status) {
+  filterStatus.value = status;
+  isFilterOpen.value = false;
+  isFilterStatus.value = false;
+}
+
+function toggleFilterStatus() {
+  isFilterStatus.value = !isFilterStatus.value;
+  if (isFilterStatus.value) {
+    isFilterTipe.value = false; 
+  }
 }
 
 export default {
-  data() {
-    return {
-        isDataOpen: false,
-        DataOption: '8',
-        currentPage: 1,
-        rowsPerPage: 8,
-        filterType: '',
-        searchQuery: '',
-      dataRows: [
-        { id: 1, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 2, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 3, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 4, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 5, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 6, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 7, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 8, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 9, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 10, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 11, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 12, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 13, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 14, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 15, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 16, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 17, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 18, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 19, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 20, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 21, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 22, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 23, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 24, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 25, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 26, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 27, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 28, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-        { id: 29, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
-        { id: 30, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
-    ]
-    };
-  },
+    data() {
+        return {
+            isDataOpen: false,
+            DataOption: '8',
+            currentPage: 1,
+            rowsPerPage: 8,
+            filterType: '',
+            filterStatus: '',
+            FilterOptionStatus: '',
+            searchQuery: '',
+            dataRows: [
+            { id: 1, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 2, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 3, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 4, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 5, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 6, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 7, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 8, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 9, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 10, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 11, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 12, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 13, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 14, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 15, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 16, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 17, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 18, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 19, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 20, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 21, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 22, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 23, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 24, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 25, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 26, judul: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 27, judul: 'Pemanfaatan Tiang Penyangga Jar...', code: '100923', type: 'PKS', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 28, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            { id: 29, judul: 'NDA Penjajakan Kerja Sama berkai...', code: '200223', type: 'NDA', status: 'Ditolak', statusClass: 'bg-[#FFE5E6] text-[#FF5656] border-[#FD8A8A]', ket:'Pengajuan Ditolak Oleh Manager', tgl:'Tanggal : 04/04/2024' },
+            { id: 30, judul: 'Kerja Sama Reseller Produk IBM', code: '100132', type: 'PKS', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]', ket:'Pengajuan Selesai', tgl:'Tanggal : 04/04/2024' },
+            ]
+        };
+    },
 
 computed: {
     searchedRows() {
@@ -302,10 +348,14 @@ computed: {
     isFilterVisibleType() {
         return this.filterType !== '';
     },
+    isFilterVisibleStatus() {
+        return filterStatus.value !== '';
+    },
     filteredRows() {
         const filtered = this.dataRows.filter((row) => {
         const typeMatch = this.filterType === '' || row.type === this.filterType;
-            return typeMatch;
+        const statusMatch = filterStatus.value === '' || row.status === filterStatus.value;
+            return typeMatch && statusMatch;
         });
             return filtered;
     },
@@ -329,23 +379,23 @@ computed: {
         }
     },
     paginationPages() {
-        const totalPages = this.searchQuery ? Math.ceil(this.searchedRows.filter(row => row.progres).length / this.rowsPerPage) : Math.ceil(this.filteredRows.length / this.rowsPerPage);
+        const totalPages = this.searchQuery ? Math.ceil(this.searchedRows.filter(row => row.status === this.filterStatus.value && row.startDate.split('/')[0] === this.selectedDay.toString().padStart(2, '0')).length / this.rowsPerPage) : Math.ceil(this.filteredRows.length / this.rowsPerPage);
         let pages = [];
 
         if (totalPages <= 1) {
             return null;
         }
         if (totalPages <= 7) {
-            for (let i = 1; i <= totalPages; i++) {
-            pages.push(i);
+        for (let i = 1; i <= totalPages; i++) {
+                pages.push(i);
             }
         } else {
             if (this.currentPage <= 4) {
-            pages = [1, 2, 3, 4, 5, '...', totalPages];
+                pages = [1, 2, 3, 4, 5, '...', totalPages];
             } else if (this.currentPage > totalPages - 4) {
-            pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+                pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
             } else {
-            pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
+                pages = [1, '...', this.currentPage - 1, this.currentPage, this.currentPage + 1, '...', totalPages];
             }
         }
         return pages;
@@ -404,6 +454,10 @@ methods: {
         this.filterType = '';
         isFilterTipe.value = false;
     },
+    clearFilterStatus() {
+        filterStatus.value = '';
+        isFilterStatus.value = false;
+    },
     updateFilterType(type) {
         this.filterType = type;
         isFilterOpen.value = false;  
@@ -416,10 +470,10 @@ methods: {
         this.isDataOpen = !this.isDataOpen;
     },
     goToPage(page) {
-        console.log('Attempting to go to page:', page);
-            if (page >= 1 && page <= this.filteredTotalPages) {
-                this.currentPage = page;
-            }
+    console.log('Attempting to go to page:', page);
+        if (page >= 1 && page <= this.filteredTotalPages) {
+            this.currentPage = page;
+        }
     },
     changePage(page) {
         if (page >= 1 && page <= this.filteredTotalPages) {
@@ -428,15 +482,15 @@ methods: {
     },
     selectDataOption(option) {
         const newRowsPerPage = Number(option);
-            this.DataOption = option;
-            this.rowsPerPage = newRowsPerPage;
+        this.DataOption = option;
+        this.rowsPerPage = newRowsPerPage;
         console.log('Data Option:', this.DataOption);
         console.log('Rows per Page:', this.rowsPerPage);
         const totalPages = Math.ceil(this.dataRows.length / this.rowsPerPage);
         if (this.currentPage > totalPages) {
-            this.currentPage = totalPages;
+        this.currentPage = totalPages;
         }
-            this.isDataOpen = false;
+        this.isDataOpen = false;
     },
 },
 };
