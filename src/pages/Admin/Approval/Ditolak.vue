@@ -95,15 +95,15 @@ import navbar from '@/components/navbar.vue';
                                 <ul class="text-sm w-full">
                                     <li @click="updateFilterType('PKS')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'PKS'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'PKS'}">PKS</span>
+                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'PKS'}">PKS</span>
                                     </li>
                                     <li @click="updateFilterType('NDA')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'NDA'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'NDA'}">NDA</span>
+                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'NDA'}">NDA</span>
                                     </li>
                                     <li @click="updateFilterType('MoU')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'MoU'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'MoU'}">MoU</span>
+                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'MoU'}">MoU</span>
                                     </li>
                                 </ul>
                             </div>
@@ -113,11 +113,11 @@ import navbar from '@/components/navbar.vue';
                                 <ul class="text-sm w-full">
                                     <li @click="updateFilterStatus('Draft')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Draft'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Draft'}">Draft</span>
+                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Draft'}">Draft</span>
                                     </li>
                                     <li @click="updateFilterStatus('Revisi Mayor')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Revisi Mayor'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Revisi Mayor'}">Revisi Mayor</span>
+                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Revisi Mayor'}">Revisi Mayor</span>
                                     </li>
                                 </ul>
                             </div>

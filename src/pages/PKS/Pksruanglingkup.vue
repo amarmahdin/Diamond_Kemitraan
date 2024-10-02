@@ -160,9 +160,7 @@ document.addEventListener("DOMContentLoaded1", function() {
                 newWorkScope.remove();
             });
         });
-    } else {
-        console.error("Elemen add-button atau work-scope-container tidak ditemukan.");
-    }
+    } 
 });
 
 </script>

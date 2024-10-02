@@ -77,10 +77,10 @@
         <button @click="applyDate" class="w-[90px] h-[40px] bg-[#2671D9] rounded-lg text-white font-semibold">Terapkan</button>
       </div>
     </div>
-  </template>
+</template>
   
   
-  <script>
+<script>
   export default {
     data() {
   return {
@@ -94,9 +94,13 @@
     calendar: []
   };
 },
-    mounted() {
-      this.generateCalendar();
-    },
+mounted() {
+  const today = new Date();
+  this.selectedYear = today.getFullYear();
+  this.selectedMonth = today.getMonth();
+  this.selectedDay = today.getDate();
+  this.generateCalendar();
+},
     methods: {
     selectYear(year) {
       this.selectedYear = year;
@@ -165,4 +169,4 @@ this.calendar = calendar;
       }
     }
   };
-  </script>
+</script>

@@ -6,7 +6,7 @@ import Date from "@/components/datepicker.vue"
 // Login
 import Login from "@/pages/Login.vue";
 
-// Manager
+// Admin (Manager, VP, Direksi)
 import Dashboardmanager from "@/pages/Admin/Dashboardmanager.vue";
 import Pengajuanbaru from "@/pages/Admin/Approval/Pengajuanbaru.vue";
 import Disetujui from "@/pages/Admin/Approval/Disetujui.vue";
@@ -16,6 +16,7 @@ import Selesaimanager from "@/pages/Admin/Selesaimanager.vue";
 import Detailmanager from "@/pages/Admin/Detailmanager.vue";
 import Detailprosesmanager from "@/pages/Admin/Detailprosesmanager.vue";
 import DetailMoUmanager from "@/pages/Admin/DetailMoUmanager.vue";
+import Notifadmin from "@/components/notifadmin.vue";
 
 // User
 import Dashboard from "@/pages/Dashboard.vue";
@@ -51,7 +52,7 @@ const routes = [
     // Login
     { path: '/', name: 'Login', component: Login },
     
-    // Manager
+    // Admin (Manager, VP, Direksi)
     { path: '/Dashboardadmin', name: 'Dashboardmanager', component: Dashboardmanager },
     { path: '/Approvalpengajuanbaru', name: 'Pengajuanbaru', component: Pengajuanbaru },
     { path: '/Approvaldisetujui', name: 'Disetujui', component: Disetujui },
@@ -61,6 +62,7 @@ const routes = [
     { path: '/Detailpengajuanadmin', name: 'Detailmanager', component: Detailmanager},
     { path: '/Detailprosesmanager', name: 'Detailprosesmanager', component: Detailprosesmanager},
     { path: '/DetailMoUmanager', name: 'DetailMoUmanager', component: DetailMoUmanager},
+    { path: '/Notifadmin', name: 'Notifadmin', component: Notifadmin},
 
     // User
     { path: '/Dashboard', name: 'Dashboard', component: Dashboard },

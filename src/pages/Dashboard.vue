@@ -27,13 +27,13 @@ import deliv4 from '../assets/img/Delivered4.png'
                 </div>
                 <span class="text-base text-[#9C9C9C] pl-4">Dashboard User</span>
                 <div class="w-[1170px] h-[100px] bg-[#2671D9] ml-4 mt-4 rounded-lg">
-                    <div class="ml-[23px] translate-y-[23px] flex">
-                        <img :src="user" alt="User Image" class="w-[18px] h-[18px]">
-                        <div class="">
+                    <div class="ml-[23px] flex">
+                        <img :src="user" alt="User Image" class="w-[18px] h-[18px] mt-[23px]">
+                        <div class="mt-[23px]">
                             <h1 class="text-[15px] ml-2 text-white font-medium">OFFICER KEMITRAAN BISNIS</h1>
-                            <h1 class="text-[20px] text-white ml-2 mt-2 ">Staff Sub Bidang Kemitraan Bisnis Konektivitas dan Infrastruktur</h1>
+                            <h1 class="text-[20px] text-white ml-2 mt-2 w-[600px]">Staff Sub Bidang Kemitraan Bisnis Konektivitas dan Infrastruktur</h1>
                         </div>
-                        <img :src="group" alt="Group Image" class="-translate-y-[23px] translate-x-[316px] rounded-lg">
+                        <img :src="group" alt="Group Image" class="ml-[275px] rounded-lg">
                     </div>
                 </div>
 
@@ -126,15 +126,15 @@ import deliv4 from '../assets/img/Delivered4.png'
                             <ul class="text-sm w-full">
                                 <li @click="updateFilterType('PKS')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                 <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'PKS'" readonly>
-                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'PKS'}">PKS</span>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'PKS'}">PKS</span>
                                 </li>
                                 <li @click="updateFilterType('NDA')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                 <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'NDA'" readonly>
-                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'NDA'}">NDA</span>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'NDA'}">NDA</span>
                                 </li>
                                 <li @click="updateFilterType('MoU')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                 <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'MoU'" readonly>
-                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterType === 'MoU'}">MoU</span>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'MoU'}">MoU</span>
                                 </li>
                             </ul>
                             </div>
@@ -144,11 +144,11 @@ import deliv4 from '../assets/img/Delivered4.png'
                             <ul class="text-sm w-full">
                                 <li @click="updateFilterStatus('Selesai')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                 <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Selesai'" readonly>
-                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Selesai'}">Selesai</span>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Selesai'}">Selesai</span>
                                 </li>
                                 <li @click="updateFilterStatus('Revisi')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                 <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Revisi'" readonly>
-                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9]': filterStatus === 'Revisi'}">Revisi</span>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Revisi'}">Revisi</span>
                                 </li>
                             </ul>
                             </div>
