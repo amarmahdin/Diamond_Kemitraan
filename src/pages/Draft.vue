@@ -193,8 +193,8 @@ import navbar from '../components/navbar.vue'
                                 <td class="w-[130px] px-3">
                                     <span class="px-2 py-1 text-xs bg-[#E7F1FD] font-medium text-[#4791F2] border-[#91BEF7] border-1 rounded-[100px]">{{ row.status }}</span>
                                 </td>
-                                <td class="w-[130px] px-3">
-                                    <span :class="row.statusClass" class="px-[5px] py-1 text-xs font-medium border-1 rounded-[100px]">{{ row.statusap }}</span>
+                                <td class="w-[135px] px-3">
+                                    <span :class="row.statusClass" class="px-[6px] py-1 text-xs font-medium border-1 rounded-[100px]">{{ row.statusap }}</span>
                                 </td>
                                 <td class="w-[54px] px-3">
                                     <div @click="toggleView1(index, row.type)" class="w-6 h-6 bg-[#E5E7E9] rounded-lg flex justify-center cursor-pointer">
