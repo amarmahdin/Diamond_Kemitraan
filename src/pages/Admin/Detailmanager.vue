@@ -1,17 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import sidemanager from '@/components/sidemanager.vue';
-import navbar from '@/components/navbar.vue';
 import dialog from '@/assets/img/Dialog.png';
 import kirim from '@/assets/img/Dialogkirim.png';
-
+import Navadmin from '@/components/navadmin.vue';
 </script>
 
 <template>
     <div class="flex">    
     <sidemanager/>
     <div class="flex-grow">
-        <navbar/>
+        <Navadmin/>
         <div class="h-[54px] flex">
                 <router-link to="/Approvalpengajuanbaru"><h1 class="text-[#2671D9] text-sm ml-6 mt-3">Approval</h1></router-link>
                 <svg width="16" height="16" viewBox="0 0 16 16" class="mt-[19px] ml-1" fill="none" xmlns="http://www.w3.org/2000/svg">

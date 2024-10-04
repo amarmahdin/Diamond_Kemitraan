@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// date
-import Date from "@/components/datepicker.vue"
-
 // Login
 import Login from "@/pages/Login.vue";
 
@@ -16,7 +13,6 @@ import Selesaimanager from "@/pages/Admin/Selesaimanager.vue";
 import Detailmanager from "@/pages/Admin/Detailmanager.vue";
 import Detailprosesmanager from "@/pages/Admin/Detailprosesmanager.vue";
 import DetailMoUmanager from "@/pages/Admin/DetailMoUmanager.vue";
-import Notifadmin from "@/components/notifadmin.vue";
 
 // User
 import Dashboard from "@/pages/Dashboard.vue";
@@ -46,9 +42,6 @@ import Pkslampiran from '../pages/PKS/Pkslampiran.vue';
 
 const routes = [
 
-    // Date
-    { path: '/Date', name: 'Date', component: Date },
-
     // Login
     { path: '/', name: 'Login', component: Login },
     
@@ -62,7 +55,6 @@ const routes = [
     { path: '/Detailpengajuanadmin', name: 'Detailmanager', component: Detailmanager},
     { path: '/Detailprosesmanager', name: 'Detailprosesmanager', component: Detailprosesmanager},
     { path: '/DetailMoUmanager', name: 'DetailMoUmanager', component: DetailMoUmanager},
-    { path: '/Notifadmin', name: 'Notifadmin', component: Notifadmin},
 
     // User
     { path: '/Dashboard', name: 'Dashboard', component: Dashboard },

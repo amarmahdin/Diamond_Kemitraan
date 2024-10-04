@@ -89,7 +89,7 @@ import deliv4 from '../assets/img/Delivered4.png'
                         </div>
                     
                         <!-- Filter -->
-                        <div class="w-[90px] ml-2 relative">
+                        <div class="w-[90px] ml-2 ">
                             <button @click="filterDropdown" class="w-[90px] border-[1px] px-1 py-2 flex justify-center rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-[6px] cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
                                 <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
@@ -155,7 +155,7 @@ import deliv4 from '../assets/img/Delivered4.png'
         
                         </div>
 
-                        <div class="w-[109px] relative ml-2">
+                        <div class="w-[109px] ml-2">
                             <button @click="dateDropdown" class="w-auto border-[1px] px-3 py-2 flex justify-center rounded-lg">
                                 <svg width="16" height="16" class="mt-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.50001 1.33337C4.8682 1.33337 5.16668 1.63185 5.16668 2.00004V2.83337H10.8333V2.00004C10.8333 1.63185 11.1318 1.33337 11.5 1.33337C11.8682 1.33337 12.1667 1.63185 12.1667 2.00004V2.83337H12.5C13.6966 2.83337 14.6667 3.80342 14.6667 5.00004V12.5C14.6667 13.6967 13.6966 14.6667 12.5 14.6667H3.50001C2.30339 14.6667 1.33334 13.6967 1.33334 12.5V5.00004C1.33334 3.80342 2.30339 2.83337 3.50001 2.83337H3.83334V2.00004C3.83334 1.63185 4.13182 1.33337 4.50001 1.33337ZM3.50001 4.16671C3.03977 4.16671 2.66668 4.5398 2.66668 5.00004V5.49943C2.92321 5.39245 3.20471 5.33337 3.50001 5.33337H12.5C12.7953 5.33337 13.0768 5.39245 13.3333 5.49943V5.00004C13.3333 4.5398 12.9602 4.16671 12.5 4.16671H3.50001ZM13.3333 7.50004C13.3333 7.0398 12.9602 6.66671 12.5 6.66671H3.50001C3.03977 6.66671 2.66668 7.0398 2.66668 7.50004V12.5C2.66668 12.9603 3.03977 13.3334 3.50001 13.3334H12.5C12.9602 13.3334 13.3333 12.9603 13.3333 12.5V7.50004Z" fill="#2671D9"/>
@@ -163,7 +163,7 @@ import deliv4 from '../assets/img/Delivered4.png'
                                 <span class="text-[#333333] ml-2">{{ selectedDay || 'Tanggal' }}</span>
                             </button>
                         </div>
-                        <DatePicker v-show="isDate" v-model="selectedDay" @date-selected="updateSelectedDay"/>
+                        <DatePicker v-show="isDate" v-model="selectedDay" @date-selected="updateSelectedDay" class="z-10 ml-[443px] mt-[50px]"/>
                     </div>
 
                 <!-- All -->

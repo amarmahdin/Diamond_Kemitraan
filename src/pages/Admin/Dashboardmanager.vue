@@ -2,7 +2,7 @@
 <script setup>
 
 import sidemanager from '@/components/sidemanager.vue'
-import navbar from '@/components/navbar.vue'
+import navadmin from '@/components/navadmin.vue'
 import user from '@/assets/img/User.png'
 import group from '@/assets/img/Group.png'
 import deliv from '@/assets/img/Delivered.png'
@@ -17,7 +17,7 @@ import deliv4 from '@/assets/img/Delivered4.png'
     <div class="flex">    
     <sidemanager/>
     <div class="flex-grow">
-        <navbar/>
+        <navadmin/>
         <div class="w-auto h-[54px]"></div>
         <div class="h-auto py-3 px-4 bg-slate-100">
 
@@ -29,13 +29,13 @@ import deliv4 from '@/assets/img/Delivered4.png'
                 </div>
                 <span class="text-base text-[#9C9C9C] pl-4">Dashboard User</span>
                 <div class="w-[1170px] h-[100px] bg-[#2671D9] ml-4 mt-4 rounded-lg">
-                    <div class="ml-[23px] translate-y-[23px] flex">
-                        <img :src="user" alt="User Image" class="w-[18px] h-[18px]">
-                        <div class="">
+                    <div class="ml-[23px] flex">
+                        <img :src="user" alt="User Image" class="w-[18px] h-[18px] mt-[23px]">
+                        <div class="mt-[23px]">
                             <h1 class="text-[15px] ml-2 text-white font-medium">OFFICER KEMITRAAN BISNIS</h1>
-                            <h1 class="text-[20px] text-white ml-2 mt-2 ">Staff Sub Bidang Kemitraan Bisnis Konektivitas dan Infrastruktur</h1>
+                            <h1 class="text-[20px] text-white ml-2 mt-2 w-[600px]">Staff Sub Bidang Kemitraan Bisnis Konektivitas dan Infrastruktur</h1>
                         </div>
-                        <img :src="group" alt="Group Image" class="-translate-y-[23px] translate-x-[316px] rounded-lg">
+                        <img :src="group" alt="Group Image" class="ml-[275px] rounded-lg">
                     </div>
                 </div>
 

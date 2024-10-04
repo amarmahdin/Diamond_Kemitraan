@@ -111,7 +111,7 @@ import Sidebar from '@/components/sidebar.vue';
                             </div>
 
                             <!-- Filter -->
-                            <div class="w-[90px] ml-2 relative">
+                            <div class="w-[90px] ml-2">
                                 <button @click="filterDropdown" :class="{'rounded-t-lg': isFilterOpen, 'rounded-lg': !isFilterOpen}" class="w-[90px] border-[1px] px-1 py-2 flex justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-2 cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
                                         <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
@@ -246,9 +246,9 @@ import Sidebar from '@/components/sidebar.vue';
                 <!-- Start Pop up -->
                 <div>
                     <!-- Tambah RAB-->
-                     <div v-if="isOpen" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
-                        <div class="bg-white rounded-lg shadow-lg w-[973px] h-[622px]">
-                            <div class="bg-[#E9F1FB] w-auto h-[76px] flex justify-between p-4">
+                     <div v-if="isOpen"  class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+                        <div class="bg-white rounded-lg shadow-lg w-[973px] h-[690px]">
+                            <div class="bg-[#E9F1FB] w-auto h-[76px] rounded-t-lg flex justify-between p-4">
                                 <h1 class="text-xl font-semibold">Tambah Rencana Anggaran Biaya</h1>
                                 <div @click="closeSend" class="cursor-pointer mt-2">
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

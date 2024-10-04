@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 
 <template>
-    <div class="w-[312px] h-[450px] border-[1px] rounded-lg px-4 py-4 absolute bg-white z-10 ml-[443px] mt-[50px]">
+    <div class="w-[312px] h-[450px] border-[1px] rounded-lg px-4 py-4 absolute bg-white">
       <div class="w-full h-[44px]">
         <span class="text-xs font-semibold text-[#9C9C9C]">{{ selectedYear }}</span>
         <h1 class="text-[#333333] font-semibold text-base">{{ selectedDay }} {{ months[selectedMonth] }}</h1>

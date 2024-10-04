@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-import navbar from '@/components/navbar.vue'
+import Navadmin from '@/components/navadmin.vue';
 import Sidemanager from '@/components/sidemanager.vue';
 </script>
 
@@ -8,7 +8,7 @@ import Sidemanager from '@/components/sidemanager.vue';
     <div class="flex">    
     <Sidemanager/>
     <div class="flex-grow">
-        <navbar/>
+        <Navadmin/>
         <div class="h-[54px] flex">
                 <router-link to="/Prosesadmin"><h1 class="text-[#2671D9] text-sm ml-6 mt-3">Proses</h1></router-link>
                 <svg width="16" height="16" viewBox="0 0 16 16" class="mt-[19px] ml-1" fill="none" xmlns="http://www.w3.org/2000/svg">

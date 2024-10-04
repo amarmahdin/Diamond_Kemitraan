@@ -34,7 +34,7 @@ import navbar from '../components/navbar.vue'
                         </div>
                 
                         <!-- Filter -->
-                        <div class="w-[90px] ml-2 relative">
+                        <div class="w-[90px] ml-2">
                             <button @click="filterDropdown" class="w-[90px] border-[1px] px-1 py-2 flex justify-center rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-[6px] cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
                                     <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
@@ -99,7 +99,7 @@ import navbar from '../components/navbar.vue'
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Approval Direksi'" readonly>
                                         <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Approval Direksi'}">Approval Direksi</span>
                                     </li>
-                                    <li @click="updateFilterStatus('Waiting Approvali')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                    <li @click="updateFilterStatus('Waiting Approval')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
                                         <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Waiting Approval'" readonly>
                                         <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Waiting Approval'}">Waiting Approval</span>
                                     </li>
@@ -346,9 +346,9 @@ export default {
                 { id: 3, judul: 'Kerja Sama Reseller Produk IBM', code: '100322', type: 'PKS', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Direksi', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
                 { id: 4, judul: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', pelaksana: 'Pusat',status:'Draft', statusap: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 5, judul: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', pelaksana: 'Pusat',status:'Draft', statusap: 'Waiting Approval', statusClass: 'bg-[#FFF6E1] text-[#FFB200] border-[#FFD064]' },
-                { id: 6, judul: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manage', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 7, judul: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manage', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
-                { id: 8, judul: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manage', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+                { id: 6, judul: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manager', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+                { id: 7, judul: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manager', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
+                { id: 8, judul: 'MoU Rencana Kerja Sama Terkait Pe', code: '200423', type: 'MoU', pelaksana: 'Pusat',status:'Draft', statusap: 'Approval Manager', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
             ]
             };
         },
