@@ -85,7 +85,7 @@ import Sidebar from '@/components/sidebar.vue';
                     </div>
                     <!-- End layout angka -->
 
-                    <h1 class="text-xl text-[#333333] font-medium pl-4 mt-4">Lingkup Pekerjaan</h1>
+                    <h1 class="text-xl text-[#333333] font-medium pl-4 py-4">Lingkup Pekerjaan</h1>
                     <div class="w-[1220px] h-auto"> 
                         <!-- Start Lingkup -->
                         <div class="container">

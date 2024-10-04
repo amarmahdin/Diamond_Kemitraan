@@ -108,7 +108,7 @@ import Sidebar from '@/components/sidebar.vue';
                         </div>
 
                         <!-- Tanggal -->
-                        <div class="relative">
+                        <div class="">
                             <label for="dateInput" class="text-[#4D5E80] font-medium">Tanggal <span class="text-[#FF5656]">*</span></label>
                             <div class="w-[560px] py-[10px] px-4 mt-2 border-[1px] rounded-lg text-sm flex justify-between items-center">
                             <span :class="{'text-black': selectedDate, 'text-[#9C9C9C]': !selectedDate}">{{ selectedDate || "Pilih Tanggal" }}</span>
