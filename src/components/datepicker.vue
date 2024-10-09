@@ -12,11 +12,11 @@
         <div class="w-[55px]">
           <div class="w-[100px] relative flex">
           <span  class="text-[#333333] font-semibold text-base">{{ months[selectedMonth] }}</span>
-          <svg @click="showMonths = !showMonths" width="16" height="16" class="ml-5 mt-[5px]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg @click="showMonths = !showMonths" width="16" height="16" class="cursor-pointer ml-5 mt-[5px]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.70711 11.2071C8.31658 11.5976 7.68342 11.5976 7.29289 11.2071L2.29289 6.20711C1.90237 5.81658 1.90237 5.18342 2.29289 4.79289C2.68342 4.40237 3.31658 4.40237 3.70711 4.79289L8 9.08579L12.2929 4.79289C12.6834 4.40237 13.3166 4.40237 13.7071 4.79289C14.0976 5.18342 14.0976 5.81658 13.7071 6.20711L8.70711 11.2071Z" fill="#2671D9"/>
           </svg>
           </div>
-          <div v-if="showMonths" class="absolute bg-white shadow-md p-2 -translate-x-1 w-[50px]">
+          <div v-show="showMonths" class="absolute bg-white shadow-md p-2 -translate-x-1 w-[50px] month-dropdown">
             <span v-for="(month, index) in months" :key="index" @click="selectMonth(index)" class="block text-[#333333] cursor-pointer hover:text-[#2671D9] font-semibold text-base">{{ month }}</span>
           </div>
         </div>
@@ -25,13 +25,13 @@
       <div class="w-[65px] ml-6">
           <div class="w-[100px] relative flex">
             <span class=" text-[#333333] font-semibold text-base">{{ selectedYear }}</span>
-            <svg @click="showYears = !showYears" width="16" height="16" class="ml-6 mt-[5px]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg @click="showYears = !showYears" width="16" height="16" class="cursor-pointer ml-6 mt-[5px]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M8.70711 11.2071C8.31658 11.5976 7.68342 11.5976 7.29289 11.2071L2.29289 6.20711C1.90237 5.81658 1.90237 5.18342 2.29289 4.79289C2.68342 4.40237 3.31658 4.40237 3.70711 4.79289L8 9.08579L12.2929 4.79289C12.6834 4.40237 13.3166 4.40237 13.7071 4.79289C14.0976 5.18342 14.0976 5.81658 13.7071 6.20711L8.70711 11.2071Z" fill="#2671D9"/>
             </svg>
         </div>
-        <div v-if="showYears" class="absolute bg-white shadow-md p-2 -translate-x-1 w-[50px]">
-            <span v-for="year in years" :key="year" @click="selectYear(year)" class="block text-[#333333] cursor-pointer hover:text-[#2671D9] font-semibold text-base">{{ year }}</span>
-        </div>
+        <div v-show="showYears" class="absolute bg-white shadow-md p-2 -translate-x-1 w-[50px] year-dropdown">
+        <span v-for="year in years" :key="year" @click="selectYear(year)" class="block text-[#333333] cursor-pointer hover:text-[#2671D9] font-semibold text-base">{{ year }}</span>
+      </div>
       </div>
   
         <!-- Navigation Buttons -->
@@ -79,94 +79,91 @@
     </div>
 </template>
   
-  
 <script>
-  export default {
-    data() {
-  return {
-    showMonths: false,
-    selectedMonth: 8, // September
-    months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    selectedYear: 2024,
-    showYears: false,
-    selectedDay: 30,
-    years: Array.from({ length: 21 }, (_, i) => 2024 - 10 + i), // 10 tahun sebelum dan sesudah
-    calendar: []
+export default {
+  data() {
+    return {
+      showMonths: false,
+      selectedMonth: 8, // September
+      months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      selectedYear: 2024,
+      showYears: false,
+      selectedDay: 30,
+      years: Array.from({ length: 21 }, (_, i) => 2024 - 6 + i), 
+      calendar: []
   };
 },
-mounted() {
-  const today = new Date();
-  this.selectedYear = today.getFullYear();
-  this.selectedMonth = today.getMonth();
-  this.selectedDay = today.getDate();
-  this.generateCalendar();
-},
-    methods: {
-    selectYear(year) {
-      this.selectedYear = year;
-      this.showYears = false;
+  mounted() {
+    const today = new Date();
+    this.selectedYear = today.getFullYear();
+    this.selectedMonth = today.getMonth();
+    this.selectedDay = today.getDate();
+    this.generateCalendar();
+  },
+methods: {
+  selectYear(year) {
+    this.selectedYear = year;
+    this.showYears = false;
+    this.generateCalendar();
+  },
+  selectMonth(index) {
+    this.selectedMonth = index;
+    this.showMonths = false;
+    this.generateCalendar();
+  },
+  emitSelectedDate(selectedDate) {
+    this.$emit('date-selected', selectedDate);
+  },
+  applyDate() {
+    const selectedDate = `${this.selectedDay}`;
+    this.emitSelectedDate(selectedDate);
+  },
+  prevMonth() {
+    if (this.selectedMonth === 0) {
+      this.selectedMonth = 11;
+      this.selectedYear -= 1;
+    } else {
+      this.selectedMonth -= 1;
+    }
       this.generateCalendar();
-    },
-    selectMonth(index) {
-      this.selectedMonth = index;
-      this.showMonths = false;
+  },
+  nextMonth() {
+    if (this.selectedMonth === 11) {
+      this.selectedMonth = 0;
+      this.selectedYear += 1;
+    } else {
+      this.selectedMonth += 1;
+    }
       this.generateCalendar();
-    },
-    emitSelectedDate(selectedDate) {
-      this.$emit('date-selected', selectedDate);
-    },
-    applyDate() {
-      const selectedDate = `${this.selectedDay}`;
-      this.emitSelectedDate(selectedDate);
-    },
-    prevMonth() {
-      if (this.selectedMonth === 0) {
-          this.selectedMonth = 11;
-          this.selectedYear -= 1;
-      } else {
-          this.selectedMonth -= 1;
-      }
-        this.generateCalendar();
-    },
-    nextMonth() {
-      if (this.selectedMonth === 11) {
-          this.selectedMonth = 0;
-          this.selectedYear += 1;
-      } else {
-          this.selectedMonth += 1;
-      }
-        this.generateCalendar();
-    },
-    selectDay(day) {
-      this.selectedDay = day;
-    },
-    generateCalendar() {
-  const firstDay = new Date(this.selectedYear, this.selectedMonth, 1).getDay();
-  const daysInMonth = new Date(this.selectedYear, this.selectedMonth + 1, 0).getDate();
-  let calendar = [];
-  let week = Array(firstDay).fill('');
+  },
+  selectDay(day) {
+    this.selectedDay = day;
+  },
+  generateCalendar() {
+    const firstDay = new Date(this.selectedYear, this.selectedMonth, 1).getDay();
+    const daysInMonth = new Date(this.selectedYear, this.selectedMonth + 1, 0).getDate();
+    let calendar = [];
+    let week = Array(firstDay).fill('');
 
   for (let day = 1; day <= daysInMonth; day++) {
     week.push(day);
-  
   if (week.length === 7 || day === daysInMonth) {
     calendar.push(week);
     week = [];  
   }
 }
 
-if (week.length > 0) {
-  while (week.length < 7) {
-    week.push(''); 
-  }
-  calendar.push(week);
-}
-
-this.calendar = calendar;
-},
-      dayClass(day) {
-        return day === this.selectedDay ? 'bg-[#2671D9] rounded-lg text-white font-semibold' : 'text-[#333333]';
-      }
+  if (week.length > 0) {
+    while (week.length < 7) {
+      week.push(''); 
     }
-  };
+    calendar.push(week);
+  }
+    this.calendar = calendar;
+  },
+  dayClass(day) {
+    return day === this.selectedDay ? 'bg-[#2671D9] rounded-lg text-white font-semibold' : 'text-[#333333]';
+  }
+  }
+};
 </script>
