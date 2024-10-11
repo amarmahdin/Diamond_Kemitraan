@@ -91,7 +91,7 @@ import deliv4 from '@/assets/img/Delivered4.png'
                         </div>
                     
                         <!-- Filter -->
-                        <div class="w-[90px] ml-2 relative">
+                        <div class="w-[90px] ml-2 filter-container">
                             <button @click="filterDropdown" class="w-[90px] border-[1px] px-1 py-2 flex justify-center rounded-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-[6px] cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
                                 <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
@@ -127,45 +127,45 @@ import deliv4 from '@/assets/img/Delivered4.png'
                             <div v-show="isFilterTipe" class="absolute w-[240px] ml-[247px] mt-[48px] border-[1px] rounded-lg bg-white z-10">
                             <ul class="text-sm w-full">
                                 <li @click="updateFilterType('PKS')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
-                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'PKS'" readonly>
-                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'PKS'}">PKS</span>
+                                <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'PKS'" readonly>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'PKS'}">PKS</span>
                                 </li>
                                 <li @click="updateFilterType('NDA')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
-                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'NDA'" readonly>
-                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'NDA'}">NDA</span>
+                                <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'NDA'" readonly>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'NDA'}">NDA</span>
                                 </li>
                                 <li @click="updateFilterType('MoU')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
-                                    <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'MoU'" readonly>
-                                    <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'MoU'}">MoU</span>
+                                <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterType === 'MoU'" readonly>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterType === 'MoU'}">MoU</span>
                                 </li>
                             </ul>
                             </div>
 
                             <!-- Status -->
                             <div v-show="isFilterStatus" class="absolute w-[240px] ml-[247px] mt-[90px] border-[1px] rounded-lg bg-white z-10">
-                                <ul class="text-sm w-full">
-                                    <li @click="updateFilterStatus('Selesai')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
-                                        <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Selesai'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Selesai'}">Selesai</span>
-                                    </li>
-                                    <li @click="updateFilterStatus('Revisi')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
-                                        <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Revisi'" readonly>
-                                        <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Revisi'}">Revisi</span>
-                                    </li>
-                                </ul>
+                            <ul class="text-sm w-full">
+                                <li @click="updateFilterStatus('Selesai')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Selesai'" readonly>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Selesai'}">Selesai</span>
+                                </li>
+                                <li @click="updateFilterStatus('Revisi')" class="border-b h-[40px] flex items-center group hover:bg-[#E9F1FB]">
+                                <input type="checkbox" class="w-4 h-4 border-[2px] ml-4 accent-[#2671D9]" :checked="filterStatus === 'Revisi'" readonly>
+                                <span class="text-[#333333] ml-2 group-hover:font-semibold group-hover:text-[#2671D9]" :class="{'text-[#2671D9] font-semibold': filterStatus === 'Revisi'}">Revisi</span>
+                                </li>
+                            </ul>
                             </div>
         
                         </div>
 
-                        <div class="w-[109px] relative ml-2">
+                        <div class="w-[109px] ml-2 filter-date-container">
                             <button @click="dateDropdown" class="w-auto border-[1px] px-3 py-2 flex justify-center rounded-lg">
                                 <svg width="16" height="16" class="mt-1" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.50001 1.33337C4.8682 1.33337 5.16668 1.63185 5.16668 2.00004V2.83337H10.8333V2.00004C10.8333 1.63185 11.1318 1.33337 11.5 1.33337C11.8682 1.33337 12.1667 1.63185 12.1667 2.00004V2.83337H12.5C13.6966 2.83337 14.6667 3.80342 14.6667 5.00004V12.5C14.6667 13.6967 13.6966 14.6667 12.5 14.6667H3.50001C2.30339 14.6667 1.33334 13.6967 1.33334 12.5V5.00004C1.33334 3.80342 2.30339 2.83337 3.50001 2.83337H3.83334V2.00004C3.83334 1.63185 4.13182 1.33337 4.50001 1.33337ZM3.50001 4.16671C3.03977 4.16671 2.66668 4.5398 2.66668 5.00004V5.49943C2.92321 5.39245 3.20471 5.33337 3.50001 5.33337H12.5C12.7953 5.33337 13.0768 5.39245 13.3333 5.49943V5.00004C13.3333 4.5398 12.9602 4.16671 12.5 4.16671H3.50001ZM13.3333 7.50004C13.3333 7.0398 12.9602 6.66671 12.5 6.66671H3.50001C3.03977 6.66671 2.66668 7.0398 2.66668 7.50004V12.5C2.66668 12.9603 3.03977 13.3334 3.50001 13.3334H12.5C12.9602 13.3334 13.3333 12.9603 13.3333 12.5V7.50004Z" fill="#2671D9"/>
                                 </svg>
                                 <span class="text-[#333333] ml-2">{{ selectedDay || 'Tanggal' }}</span>
                             </button>
+                            <DatePicker v-show="isDate" v-model="selectedDay" @date-selected="updateSelectedDay" :key="selectedDay" class="z-10 mt-2"/>
                         </div>
-                        <DatePicker v-show="isDate" v-model="selectedDay" @date-selected="updateSelectedDay"/>
                     </div>
 
                 <!-- All -->
@@ -264,10 +264,10 @@ import deliv4 from '@/assets/img/Delivered4.png'
                 </div>
 
                 <!-- Start Menampilkan -->
-                <div class="w-[1170px] ml-4 py-3  flex justify-between">
+                <div class="w-[1170px] ml-4 py-3 flex justify-between">
                     <div class="flex">
                     <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
-                    <div class="w-[44px] ml-4 relative">
+                    <div class="w-[44px] ml-4 relative filter-data-container">
                         <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
                             <span class="text-sm mt-1 pl-3">{{ DataOption || '7' }}</span>
                             <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -300,7 +300,7 @@ import deliv4 from '@/assets/img/Delivered4.png'
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#7F7F80"/>
                             </svg>
                         </button>
-                     </div>
+                    </div>
                 </div>
                 <!-- akhir menampilkan -->
 
@@ -319,14 +319,19 @@ import { ref } from 'vue';
 const isFilterOpen = ref(false);
 const isFilterTipe = ref(false);
 const isFilterStatus = ref(false);
+const isDataOpen = ref(false);
 const filterStatus = ref('');
 const isDate = ref('');
 
+function toggleDataDropdown() {
+    isDataOpen.value = !isDataOpen.value;
+}
+
 function filterDropdown() {
-  isFilterOpen.value = !isFilterOpen.value;
-  isFilterTipe.value = false;
-  isFilterStatus.value = false;
-  isDate.value = false;
+    isFilterOpen.value = !isFilterOpen.value;
+    isFilterTipe.value = false;
+    isFilterStatus.value = false;
+    isDate.value = false;
 }
 
 function dateDropdown() {
@@ -335,31 +340,30 @@ function dateDropdown() {
 }
 
 function filterTipe() {
-  isFilterTipe.value = !isFilterTipe.value;
-  if (isFilterTipe.value) {
-    isFilterStatus.value = false;    
-  }
+    isFilterTipe.value = !isFilterTipe.value;
+    if (isFilterTipe.value) {
+        isFilterStatus.value = false;    
+    }
 }
 
 function updateFilterStatus(status) {
-  filterStatus.value = status;
-  isFilterOpen.value = false;
-  isFilterStatus.value = false;
+    filterStatus.value = status;
+    isFilterOpen.value = false;
+    isFilterStatus.value = false;
 }
 
 function toggleFilterStatus() {
-  isFilterStatus.value = !isFilterStatus.value;
-  if (isFilterStatus.value) {
-    isFilterTipe.value = false; 
-  }
+    isFilterStatus.value = !isFilterStatus.value;
+    if (isFilterStatus.value) {
+        isFilterTipe.value = false; 
+    }
 }
 
-// Data
 export default {
 components: { DatePicker },
     data() {
         return {
-            isDataOpen: false,
+            isDataOpen,
             DataOption: '8',
             currentPage: 1,
             rowsPerPage: 8, 
@@ -368,6 +372,7 @@ components: { DatePicker },
             FilterOptionStatus: '',
             searchQuery: '',
             selectedDay: '',
+            filterClickListener: null,
             dataRows: [
                 { id: 1, name: 'Kerja Sama Reseller Produk IBM', code: '100122', type: 'PKS', startDate: '25/08/2024', endDate: '02/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
                 { id: 2, name: 'Perjanjian Mitra Bisnis IBM', code: '100222', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
@@ -399,8 +404,8 @@ components: { DatePicker },
                 { id: 28, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '09/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 29, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
                 { id: 30, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 31, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 32, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+                { id: 31, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300123', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+                { id: 32, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 33, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 34, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 35, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
@@ -415,12 +420,6 @@ components: { DatePicker },
             { id: 44, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
             { id: 45, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '25/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
             { id: 46, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '09/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 47, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '25/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 48, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 49, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 50, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 51, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 ]
         };
     },
@@ -621,8 +620,23 @@ methods: {
         if (this.currentPage > totalPages) {
         this.currentPage = totalPages;
         }
-        this.isDataOpen = false;
+        isDataOpen.value = false;
     },
+},
+
+mounted() {
+    this.filterClickListener = (e) => {
+        if (!e.target.closest('.filter-container') 
+            && !e.target.closest('.filter-date-container')
+            && !e.target.closest('.filter-data-container')) {
+            isFilterOpen.value = false;
+            isFilterTipe.value = false;
+            isFilterStatus.value = false;
+            isDate.value = false;
+            isDataOpen.value = false;
+        }
+    };
+    document.addEventListener('click', this.filterClickListener);
 }
 };
 </script>
