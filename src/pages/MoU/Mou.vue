@@ -91,7 +91,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <!-- MoU/NDA -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">MoU / NDA <span class="text-[#FF5656]">*</span></label>
-                            <div class="w-[560px] mt-2">
+                            <div class="w-[560px] mt-2 drop-container">
                                 <button @click="toggleDropdown" :class="{'rounded-t-lg': isDropdownOpen, 'rounded-lg text-[#7F7F80]': !isDropdownOpen}" class="w-[560px] py-[10px] px-4 border-[1px] text-sm flex justify-between items-center">
                                 <span :class="{'text-black': selectedOption, 'text-[#9C9C9C]': !selectedOption}">{{ selectedOption || 'Pilih MoU/NDA' }}</span>
                                         <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@ import Sidebar from '@/components/sidebar.vue';
                                 <div v-show="isDropdownOpen" class="w-[560px] border-[1px] rounded-b-lg z-10">
                                     <ul class="text-sm">
                                         <li @click="selectOption('MoU')" :class="{'bg-[#2671D9] text-white': selectedOption === 'MoU', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': selectedOption !== 'MoU'}" class="cursor-pointer border-b-[1px] px-4 py-2">MoU</li>
-                                        <li  @click="selectOption('NDA')" :class="{'bg-[#2671D9] text-white': selectedOption === 'NDA', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': selectedOption !== 'NDA'}" class="cursor-pointer  px-4 py-2">NDA</li>
+                                        <li  @click="selectOption('NDA')" :class="{'bg-[#2671D9] text-white rounded-b-lg': selectedOption === 'NDA', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium ': selectedOption !== 'NDA'}" class="cursor-pointer  px-4 py-2">NDA</li>
                                     </ul>
                                 </div>
                             </div>
@@ -166,8 +166,18 @@ export default {
   data() {
     return {
       showDatePicker: false,
-      selectedDate: ''
+      selectedDate: '',
+      filterClickListener: null,
     };
-  }
+  },
+  mounted() {
+    this.filterClickListener = (e) => {
+        if (!e.target.closest('.drop-container') 
+        ){
+            isDropdownOpen.value = false;
+        }
+    };
+    document.addEventListener('click', this.filterClickListener);
+    }
 };
 </script>

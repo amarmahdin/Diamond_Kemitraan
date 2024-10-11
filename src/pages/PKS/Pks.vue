@@ -104,7 +104,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <!-- Jenis Kemitraan -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Jenis Kemitraan <span class="text-[#FF5656]">*</span></label>
-                            <div class="relative w-[540px] mt-2">
+                            <div class="relative w-[540px] mt-2 jenis-container">
                                 <button @click="jenisDropdown" :class="{'rounded-t-lg': isJenisOpen, 'rounded-lg text-[#7F7F80]': !isJenisOpen}" class="w-[540px] py-[10px] px-4 border-[1px] text-sm flex justify-between items-center">
                                     <span :class="{'text-black': jenissOption, 'text-[#9C9C9C]': !jenissOption}">{{ jenissOption || 'Pilih Jenis Kemitraan' }}</span>
                                         <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +116,7 @@ import Sidebar from '@/components/sidebar.vue';
                                         <li @click="jenisOption('Join Operation')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Join Operation', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Operation'}" class="cursor-pointer border-b-[1px] px-4 py-2">Join Operation</li>
                                         <li @click="jenisOption('Resseler')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Resseler', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Resseler'}" class="cursor-pointer border-b-[1px] px-4 py-2">Resseler</li>
                                         <li @click="jenisOption('Bundling Layanan')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Bundling Layanan', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Bundling Layanan'}" class="cursor-pointer border-b-[1px] px-4 py-2">Bundling Layanan</li>
-                                        <li @click="jenisOption('Join Investmen')" :class="{'bg-[#2671D9] text-white': jenissOption === 'Join Investmen', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Investmen'}" class="cursor-pointer px-4 py-2">Join Investmen</li>
+                                        <li @click="jenisOption('Join Investmen')" :class="{'bg-[#2671D9] text-white rounded-b-lg': jenissOption === 'Join Investmen', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': jenissOption !== 'Join Investmen'}" class="cursor-pointer px-4 py-2">Join Investmen</li>
                                     </ul>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <!-- Tipe Anggaran -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Tipe Anggaran <span class="text-[#FF5656]">*</span></label>
-                            <div class="relative w-[540px] mt-2">
+                            <div class="relative w-[540px] mt-2 tipe-container">
                                 <button @click="tipeDropdown" :class="{'rounded-t-lg': isTipeOpen, 'rounded-lg text-[#7F7F80]': !isTipeOpen}" class="w-[540px] py-[10px] px-4 border-[1px] text-sm flex justify-between items-center">
                                     <span :class="{'text-black': tipeeOption, 'text-[#9C9C9C]': !tipeeOption}">{{ tipeeOption || 'Pilih Tipe Anggaran' }}</span>
                                         <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +150,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <ul class="text-sm">
                                         <li @click="tipeOption('Capex')" :class="{'bg-[#2671D9] text-white': tipeeOption === 'Capex', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': tipeeOption !== 'Capex'}" class="cursor-pointer border-b-[1px] px-4 py-2">Capex</li>
                                         <li @click="tipeOption('Opex')" :class="{'bg-[#2671D9] text-white': tipeeOption === 'Opex', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': tipeeOption !== 'Opex'}" class="cursor-pointer border-b-[1px] px-4 py-2">Opex</li>
-                                        <li @click="tipeOption('Capex & Opex')" :class="{'bg-[#2671D9] text-white': tipeeOption === 'Capex & Opex', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': tipeeOption !== 'Capex & Opex'}" class="cursor-pointer border-b-[1px] px-4 py-2">Capex & Apex</li>
+                                        <li @click="tipeOption('Capex & Opex')" :class="{'bg-[#2671D9] text-white rounded-b-lg': tipeeOption === 'Capex & Opex', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': tipeeOption !== 'Capex & Opex'}" class="cursor-pointer border-b-[1px] px-4 py-2">Capex & Apex</li>
                                     </ul>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ import Sidebar from '@/components/sidebar.vue';
                         <!-- Metode Kemitraan -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Metode Kemitraan <span class="text-[#FF5656]">*</span></label>
-                            <div class="relative w-[540px] mt-2">
+                            <div class="relative w-[540px] mt-2 metode-container">
                                 <button @click="metodeDropdown" :class="{'rounded-t-lg': isMetodeOpen, 'rounded-lg text-[#7F7F80]': !isMetodeOpen}" class="w-[540px] py-[10px] px-4 border-[1px] text-sm flex justify-between items-center">
                                     <span :class="{'text-black': metodeeOption, 'text-[#9C9C9C]': !metodeeOption}">{{ metodeeOption || 'Pilih Metode Kemitraan' }}</span>
                                         <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -179,16 +179,16 @@ import Sidebar from '@/components/sidebar.vue';
                                 <div v-show="isMetodeOpen" class="w-[540px] border-[1px] rounded-b-lg z-10">
                                     <ul class="text-sm">
                                         <li @click="metodeOption('Tunjuk Langsung')" :class="{'bg-[#2671D9] text-white': metodeeOption === 'Tunjuk Langsung', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': metodeeOption !== 'Tunjuk Langsung'}" class="cursor-pointer border-b-[1px] px-4 py-2">Tunjuk Langsung</li>
-                                        <li @click="metodeOption('Terbuka')" :class="{'bg-[#2671D9] text-white': metodeeOption === 'Terbuka', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': metodeeOption !== 'Terbuka'}" class="cursor-pointer border-b-[1px] px-4 py-2">Terbuka</li>
+                                        <li @click="metodeOption('Terbuka')" :class="{'bg-[#2671D9] text-white rounded-b-lg': metodeeOption === 'Terbuka', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': metodeeOption !== 'Terbuka'}" class="cursor-pointer border-b-[1px] px-4 py-2">Terbuka</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Jenis Kemitraan -->
+                        <!-- Jenis Material -->
                         <div>
                             <label class="text-[#4D5E80] font-medium">Jenis Material <span class="text-[#FF5656]">*</span></label>
-                            <div class="relative w-[540px] mt-2">
+                            <div class="relative w-[540px] mt-2 material-container">
                                 <button @click="materialDropdown" :class="{'rounded-t-lg': isMaterialOpen, 'rounded-lg text-[#7F7F80]': !isMaterialOpen}" class="w-[555px] py-[10px] px-4 border-[1px] text-sm flex justify-between items-center">
                                     <span :class="{'text-black': materiallOption, 'text-[#9C9C9C]': !materiallOption}">{{ materiallOption || 'Pilih Jenis Material' }}</span>
                                         <svg width="16" height="16" class="ml-3" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,7 +199,7 @@ import Sidebar from '@/components/sidebar.vue';
                                     <ul class="text-sm">
                                         <li @click="materialOption('Material Only')" :class="{'bg-[#2671D9] text-white': materiallOption === 'Material Only', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': materiallOption !== 'Material Only'}" class="cursor-pointer border-b-[1px] px-4 py-2">Material Only</li>
                                         <li @click="materialOption('Service Only')" :class="{'bg-[#2671D9] text-white': materiallOption === 'Service Only', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': materiallOption !== 'Service Only'}" class="cursor-pointer border-b-[1px] px-4 py-2">Service Only</li>
-                                        <li @click="materialOption('Material and Service')" :class="{'bg-[#2671D9] text-white': materiallOption === 'Material and Service', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': materiallOption !== 'Material and Service'}" class="cursor-pointer border-b-[1px] px-4 py-2">Material and Service</li>
+                                        <li @click="materialOption('Material and Service')" :class="{'bg-[#2671D9] text-white rounded-b-lg': materiallOption === 'Material and Service', 'hover:bg-[#E9F1FB] hover:text-[#2671D9] hover:font-medium': materiallOption !== 'Material and Service'}" class="cursor-pointer border-b-[1px] px-4 py-2">Material and Service</li>
                                     </ul>
                                 </div>
                             </div>
@@ -236,6 +236,9 @@ const isJenisOpen = ref(false);
 const jenissOption = ref('');
 function jenisDropdown() {
   isJenisOpen.value = !isJenisOpen.value;
+  isTipeOpen.value = false;
+  isMetodeOpen.value = false;
+  isMaterialOpen.value = false;
 }
 function jenisOption(option) {
     jenissOption.value = option;
@@ -247,6 +250,9 @@ const isTipeOpen = ref(false);
 const tipeeOption = ref(''); 
 function tipeDropdown() {
   isTipeOpen.value = !isTipeOpen.value;
+  isJenisOpen.value = false;
+  isMetodeOpen.value = false;
+  isMaterialOpen.value = false;
 }
 function tipeOption(option) {
     tipeeOption.value = option;
@@ -258,6 +264,9 @@ const isMetodeOpen = ref(false);
 const metodeeOption = ref('');
 function metodeDropdown() {
   isMetodeOpen.value = !isMetodeOpen.value;
+  isJenisOpen.value = false;
+  isTipeOpen.value = false;
+  isMaterialOpen.value = false;
 }
 function metodeOption(option) {
     metodeeOption.value = option;
@@ -269,6 +278,9 @@ const isMaterialOpen = ref(false);
 const materiallOption = ref(''); 
 function materialDropdown() {
   isMaterialOpen.value = !isMaterialOpen.value;
+  isJenisOpen.value = false;
+  isTipeOpen.value = false;
+  isMetodeOpen.value = false;
 }
 function materialOption(option) {
     materiallOption.value = option;
@@ -282,6 +294,20 @@ export default {
       showDatePicker: false,
       selectedDate: ''
     };
-  }
+  },
+  mounted() {
+    this.filterClickListener = (e) => {
+        if (!e.target.closest('.jenis-container') 
+        && !e.target.closest('.tipe-container')
+        && !e.target.closest('.metode-container')
+        && !e.target.closest('.material-container')){
+            isJenisOpen.value = false;
+            isTipeOpen.value = false;
+            isMetodeOpen.value = false;
+            isMaterialOpen.value = false;
+        }
+    };
+    document.addEventListener('click', this.filterClickListener);
+    }
 };
 </script>

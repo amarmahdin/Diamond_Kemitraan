@@ -191,9 +191,9 @@ import Sidebar from '@/components/sidebar.vue';
                     <div class="w-[1120px] ml-4 py-3  flex justify-between">
                         <div class="flex">
                         <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
-                        <div class="w-[44px] ml-4 relative">
+                        <div class="w-[44px] ml-4 relative data-container">
                             <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
-                                <span class="text-sm mt-1 pl-2">{{ DataOption || '7' }}</span>
+                                <span class="text-sm mt-1 pl-3">{{ DataOption || '8' }}</span>
                                 <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 10.2663L4 6.26634L4.93333 5.33301L8 8.39967L11.0667 5.33301L12 6.26634L8 10.2663Z" fill="#2671D9"/>
                                 </svg>
@@ -338,19 +338,16 @@ import Sidebar from '@/components/sidebar.vue';
 <script>
 import { ref } from 'vue'
 
-// Date
 export default {
   data() {
     return {
-    // Pop Up
     isOpen: false, 
     isOkOpen: false, 
-      
-    //   Data
-    isDataOpen: false,
+    isDataOpen,
     DataOption: '8',
     currentPage: 1,
     rowsPerPage: 8,
+    filterClickListener: null,
     dataRows: [
         { id: 1, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
         { id: 2, pelanggan: 'Lorem ipsum dolor sit amet', produk: 'Lorem ipsum dolor sit amet', desk: 'Lorem ipsum dolor sit amet', type: 'Lorem ipsum dolor sit amet'},
@@ -418,8 +415,6 @@ export default {
     },
     },
   methods: {
-
-    // Data
     toggleDataDropdown() {
         this.isDataOpen = !this.isDataOpen;
     },
@@ -445,28 +440,37 @@ export default {
         if (this.currentPage > totalPages) {
         this.currentPage = totalPages;
         }
-
-        this.isDataOpen = false;
+        isDataOpen.value = false;
     },
-
     // Pop Up
     openTambah() {
-      this.isOpen = true;
-      this.isOkOpen = false; 
+        this.isOpen = true;
+        this.isOkOpen = false; 
     },
     closeSend() {
-      this.isOpen = false;
+        this.isOpen = false;
     },
     openOk() {
-      this.isOkOpen = true;
-      this.isOpen = false; 
+        this.isOkOpen = true;
+        this.isOpen = false; 
     },
     closeOk() {
-      this.isOkOpen = false;
+        this.isOkOpen = false;
     },
-  },
+    },
+    mounted() {
+    this.filterClickListener = (e) => {
+        if (!e.target.closest('.data-container')) {
+            isDataOpen.value = false;
+        }
+    };
+    document.addEventListener('click', this.filterClickListener);
+    }
 };
-
+const isDataOpen = ref(false);
+function toggleDataDropdown() {
+    isDataOpen.value = !isDataOpen.value;
+}
 // Pop up RAB
 const isPlnOpen = ref(false);
 const PlnOption = ref('');
@@ -481,6 +485,7 @@ function plnOption(option) {
 // Filter
 const isFilterOpen = ref(false);
 const FilterOption = ref('');
+
 
 function filterDropdown() {
   isFilterOpen.value = !isFilterOpen.value;

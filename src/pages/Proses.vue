@@ -34,7 +34,7 @@ import navbar from '@/components/navbar.vue';
                         </div>
                 
                         <!-- Filter -->
-                        <div class="w-[90px] ml-2">
+                        <div class="w-[90px] ml-2 filter-container">
                             <button @click="filterDropdown" class="w-[90px] border-[1px] px-1 py-2 flex justify-center rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px] mt-[6px] cursor-pointer" viewBox="0 0 6.35 6.35" id="filter">
                                     <path fill-rule="evenodd" d="M2 .998A1 1 0 0 0 .996 2.002v4.002a1 1 0 0 0 .252.656l6.754 7.715V22a1 1 0 0 0 1.55.834l6-4.002a1 1 0 0 0 .444-.834v-3.623l6.756-7.715a1 1 0 0 0 .25-.656V2.002A1 1 0 0 0 21.998.998H2zm.996 2h18.006V5H2.996V2.998zM4.2 7h15.6l-5.553 6.34a1 1 0 0 0-.242.658v3.469l-4.002 2.666v-6.135a1 1 0 0 0-.25-.658L4.199 7z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" paint-order="stroke fill markers" transform="scale(.26458)" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;isolation:auto;mix-blend-mode:normal" fill="#2671d9" class="color000000 svgShape"></path>
@@ -187,7 +187,7 @@ import navbar from '@/components/navbar.vue';
                 <div class="w-[1170px] ml-4 py-3  flex justify-between">
                     <div class="flex">
                     <span class="text-sm text-[#333333] mt-[5px]">Menampilkan</span>
-                    <div class="w-[44px] ml-4 relative">
+                    <div class="w-[44px] ml-4 relative data-container">
                         <button @click="toggleDataDropdown" :class="[isDataOpen ? 'rounded-b-lg' : 'rounded-lg', 'flex w-[44px] h-8 border-[1px]']">
                             <span class="text-sm mt-1 pl-3">{{ DataOption || '7' }}</span>
                             <svg width="16" height="16" class="mt-2 transition-transform duration-300" :class="{'rotate-180': isDataOpen}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +241,12 @@ import { ref } from 'vue';
 
 const isFilterOpen = ref(false);
 const isFilterTipe = ref(false);
+const isDataOpen = ref(false);
 const filterStatus = ref('');
+
+function toggleDataDropdown() {
+    isDataOpen.value = !isDataOpen.value;
+}
 
 function filterDropdown() {
   isFilterOpen.value = !isFilterOpen.value;
@@ -259,13 +264,14 @@ export default {
         isView1Visible: false,
 
         // Data
-        isDataOpen: false,
+        isDataOpen,
         DataOption: '8',
         currentPage: 1,
         rowsPerPage: 8,
         filterType: '',
         searchQuery: '',
         activeViewIndex: null,
+        filterClickListener: null,
         dataRows: [
             { id: 1, judul: 'Sewa Menyewa Infrastruktur Telek...', code: '101224', type: 'PKS', progres: 'Masuk Kemitraan', progresClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFC3]' },
             { id: 2, judul: 'MoU Rencana Kerja Sama Pemanfa...', code: '200724', type: 'MoU', progres: 'Proposal', progresClass: 'bg-[#E7F1FD] text-[#4791F2] border-[#91BEF7]' },
@@ -444,8 +450,20 @@ methods: {
         if (this.currentPage > totalPages) {
             this.currentPage = totalPages;
         }
-            this.isDataOpen = false;
+            isDataOpen.value = false;
     },
 },
+mounted() {
+    this.filterClickListener = (e) => {
+        if (!e.target.closest('.filter-container') 
+            && !e.target.closest('.type-container') 
+            && !e.target.closest('.data-container')) {
+            isFilterOpen.value = false;
+            isFilterTipe.value = false;
+            isDataOpen.value = false;
+        }
+    };
+    document.addEventListener('click', this.filterClickListener);
+}
 };
 </script>

@@ -404,8 +404,8 @@ components: { DatePicker },
                 { id: 28, name: 'NDA FTTH Project Collaboration', code: '300122', type: 'NDA', startDate: '01/08/2024', endDate: '09/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 29, name: 'MoU Rencana Kerja Sama Terkait', code: '200223', type: 'MoU', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#E2FCF3] text-[#0EA976] border-[#8ADFCF]' },
                 { id: 30, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 31, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-                { id: 32, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+                { id: 31, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300123', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
+                { id: 32, name: 'NDA Penjajakan Kerja Sama berkaita', code: '300223', type: 'NDA', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Selesai', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 33, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 34, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 { id: 35, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
@@ -420,12 +420,6 @@ components: { DatePicker },
             { id: 44, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
             { id: 45, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '25/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
             { id: 46, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '09/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 47, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '25/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 48, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 49, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 50, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '01/08/2024', endDate: '20/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 51, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
-            { id: 52, name: 'Kerja Sama Penyediaan APN Private', code: '100523', type: 'PKS', startDate: '10/08/2024', endDate: '11/09/2024', status: 'Revisi', statusClass: 'bg-[#FFF3E6] text-[#FF8000] border-[#FFD6AD]' },
                 ]
         };
     },
@@ -633,11 +627,8 @@ methods: {
 mounted() {
     this.filterClickListener = (e) => {
         if (!e.target.closest('.filter-container') 
-            && !e.target.closest('.filter-type-container') 
-            && !e.target.closest('.filter-status-container')
             && !e.target.closest('.filter-date-container')
-            && !e.target.closest('.filter-data-container')
-            && !e.target.closest('.filter-notif-container')) {
+            && !e.target.closest('.filter-data-container')) {
             isFilterOpen.value = false;
             isFilterTipe.value = false;
             isFilterStatus.value = false;
@@ -646,6 +637,6 @@ mounted() {
         }
     };
     document.addEventListener('click', this.filterClickListener);
-    }
+}
 };
 </script>

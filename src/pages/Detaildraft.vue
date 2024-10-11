@@ -28,60 +28,24 @@ import navbar from '../components/navbar.vue'
                     </div>
                     <span class="text-base text-[#9C9C9C] pl-4">#no_pengajuan</span>
                     </div>
-                    <!-- <div class="w-[209px] h-[72px] border-[1px] border-[#E5E7E9] rounded-xl">
-                        <div class="w-auto h-[29px] bg-[#FFB200] rounded-t-xl text-[10px] text-[#333333] px-4 py-[7px]">Progres Kemitraan</div>
-                        <div class="text-[#FFB200] text-lg font-bold flex px-4">
-                            <span class="py-2">Proposal</span>
-                            <svg width="60" height="60" class="cursor-pointer" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g filter="url(#filter0_d_1290_22642)">
-                                <g opacity="0.4" filter="url(#filter1_d_1290_22642)">
-                                <path d="M19 26C23.1421 26 26.5 22.6421 26.5 18.5C26.5 14.3579 23.1421 11 19 11C14.8579 11 11.5 14.3579 11.5 18.5C11.5 22.6421 14.8579 26 19 26Z" fill="#FFB200"/>
-                                </g>
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3536 18.6464C21.5488 18.8417 21.5488 19.1583 21.3536 19.3536L18.8536 21.8536C18.6583 22.0488 18.3417 22.0488 18.1464 21.8536C17.9512 21.6583 17.9512 21.3417 18.1464 21.1464L20.2929 19L18.1464 16.8536C17.9512 16.6583 17.9512 16.3417 18.1464 16.1464C18.3417 15.9512 18.6583 15.9512 18.8536 16.1464L21.3536 18.6464Z" fill="#F08800"/>
-                                </g>
-                                <defs>
-                                <filter id="filter0_d_1290_22642" x="6" y="6.5" width="26" height="26" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dy="1"/>
-                                <feGaussianBlur stdDeviation="2"/>
-                                <feComposite in2="hardAlpha" operator="out"/>
-                                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.778759 0 0 0 0 0.267318 0 0 0 1 0"/>
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_22642"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_22642" result="shape"/>
-                                </filter>
-                                <filter id="filter1_d_1290_22642" x="0.5" y="0" width="45" height="45" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dx="4" dy="4"/>
-                                <feGaussianBlur stdDeviation="7.5"/>
-                                <feComposite in2="hardAlpha" operator="out"/>
-                                <feColorMatrix type="matrix" values="0 0 0 0 0.763946 0 0 0 0 0.970231 0 0 0 0 0.498223 0 0 0 0.5 0"/>
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1290_22642"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1290_22642" result="shape"/>
-                                </filter>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div> -->
-                    <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] hover:bg-[#2671D9] hover:text-white font-semibold rounded-lg mt-2">Edit</button>   
+                    <!-- <button class="w-[52px] h-[42px] border-[1px] border-[#2671D9] text-[#2671D9] hover:bg-[#2671D9] hover:text-white font-semibold rounded-lg mt-2">Edit</button>    -->
                 </div>
 
                 <!-- Status Approval Approve Manager -->
-                <!-- <div class="w-[1170px] h-[58px] bg-[#E2FCF3] border-[#0EA976] border-[1px] rounded-lg ml-4 mt-4 flex p-3">
+                <div class="w-[1170px] h-[58px] bg-[#E2FCF3] border-[#0EA976] border-[1px] rounded-lg ml-4 mt-4 flex p-3">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8849 4.62468C17.3258 4.06756 18.1523 3.96002 18.731 4.3845C19.3097 4.80898 19.4214 5.60472 18.9805 6.16185L10.1066 17.3754C9.87619 17.6665 9.52645 17.8476 9.1472 17.8721C8.76794 17.8967 8.39616 17.7623 8.12738 17.5035L3.13581 12.6978C2.6214 12.2025 2.6214 11.3995 3.13581 10.9042C3.65021 10.409 4.48423 10.409 4.99864 10.9042L8.92446 14.684L16.8849 4.62468Z" fill="#0EA976"/>
                     </svg>
                     <h1 class="text-base font-semibold ml-2">Status Approval : <span class="text-[#0EA976]"> Approval Manager</span></h1>
-                </div> -->
+                </div>
 
                 <!-- Status Approval Revisi -->
-                <div class="w-[1170px] h-[58px] bg-[#FEF6EC] border-[#F08800] border-[1px] rounded-lg ml-4 mt-3 flex p-3">
+                <!-- <div class="w-[1170px] h-[58px] bg-[#FEF6EC] border-[#F08800] border-[1px] rounded-lg ml-4 mt-3 flex p-3">
                     <svg width="20" height="20" class="mt-1" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99992 2.66634C5.94983 2.66634 2.66659 5.94959 2.66659 9.99967C2.66659 14.0498 5.94983 17.333 9.99992 17.333C14.05 17.333 17.3333 14.0498 17.3333 9.99967C17.3333 5.94959 14.05 2.66634 9.99992 2.66634ZM0.833252 9.99967C0.833252 4.93706 4.93731 0.833008 9.99992 0.833008C15.0625 0.833008 19.1666 4.93706 19.1666 9.99967C19.1666 15.0623 15.0625 19.1663 9.99992 19.1663C4.93731 19.1663 0.833252 15.0623 0.833252 9.99967ZM9.99992 6.33301C10.5062 6.33301 10.9166 6.74341 10.9166 7.24967V10.6872C10.9166 11.1934 10.5062 11.6038 9.99992 11.6038C9.49366 11.6038 9.08325 11.1934 9.08325 10.6872V7.24967C9.08325 6.74341 9.49366 6.33301 9.99992 6.33301ZM9.08325 13.4372C9.08325 12.9309 9.49366 12.5205 9.99992 12.5205H10.0068C10.5131 12.5205 10.9235 12.9309 10.9235 13.4372V13.444C10.9235 13.9503 10.5131 14.3607 10.0068 14.3607H9.99992C9.49366 14.3607 9.08325 13.9503 9.08325 13.444V13.4372Z" fill="#F08800"/>
                     </svg>
                     <h1 class="text-base font-semibold ml-2">Status Approval : <span class="text-[#F08800]">Revisi</span></h1>
-                </div>
+                </div> -->
 
                 <!-- Informasi Umum -->
                 <div class="mt-3">
@@ -450,7 +414,7 @@ import navbar from '../components/navbar.vue'
                 </svg>
 
                 <div class="mr-5 flex justify-end py-4">
-                 <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button>
+                 <!-- <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button> -->
                 </div>
 
             </div>
