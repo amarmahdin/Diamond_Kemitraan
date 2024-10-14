@@ -468,13 +468,13 @@ import Sidemanager from '@/components/sidemanager.vue';
                     <div>
                         <h1 class="text-base text-[#4D5E80] font-semibold">Tanggapan</h1>
                         <div class="w-[561px] h-[88px] bg-[#E0E0E0] border-[1px] border-[#E5E7E9] rounded-lg mt-2">
-                           <p class="text-[#333333] px-4 py-3 text-sm">Lorem ipsum dolor sit amet consectetur. Pretium quis amet quam.</p>
+                            <p class="text-[#333333] px-4 py-3 text-sm">Lorem ipsum dolor sit amet consectetur. Pretium quis amet quam.</p>
                         </div>
                     </div>
                     <div>
                         <h1 class="text-base text-[#4D5E80] font-semibold">Approval</h1>
                         <div class="w-[561px] h-[88px] bg-[#E0E0E0] border-[1px] border-[#E5E7E9] rounded-lg mt-2">
-                           <p class="text-[#333333] px-4 py-3 text-sm">Lorem ipsum dolor sit amet consectetur. Pretium quis amet quam.</p>
+                            <p class="text-[#333333] px-4 py-3 text-sm">Lorem ipsum dolor sit amet consectetur. Pretium quis amet quam.</p>
                         </div>
                     </div>
                 </div>
@@ -495,7 +495,7 @@ import Sidemanager from '@/components/sidemanager.vue';
                                 <div class="w-[6px] h-7 bg-[#2671D9]"></div>
                                 <h1 class="text-xl font-medium ml-[6px]">Progres Kemitraan</h1>
                                 <svg width="38" height="30" @click="closeSend" class="ml-[780px] cursor-pointer" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0063 15.0063C14.348 14.6646 14.902 14.6646 15.2437 15.0063L19 18.7626L22.7563 15.0063C23.098 14.6646 23.652 14.6646 23.9937 15.0063C24.3354 15.348 24.3354 15.902 23.9937 16.2437L20.2374 20L23.9937 23.7563C24.3354 24.098 24.3354 24.652 23.9937 24.9937C23.652 25.3354 23.098 25.3354 22.7563 24.9937L19 21.2374L15.2437 24.9937C14.902 25.3354 14.348 25.3354 14.0063 24.9937C13.6646 24.652 13.6646 24.098 14.0063 23.7563L17.7626 20L14.0063 16.2437C13.6646 15.902 13.6646 15.348 14.0063 15.0063Z" fill="#2671D9"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0063 15.0063C14.348 14.6646 14.902 14.6646 15.2437 15.0063L19 18.7626L22.7563 15.0063C23.098 14.6646 23.652 14.6646 23.9937 15.0063C24.3354 15.348 24.3354 15.902 23.9937 16.2437L20.2374 20L23.9937 23.7563C24.3354 24.098 24.3354 24.652 23.9937 24.9937C23.652 25.3354 23.098 25.3354 22.7563 24.9937L19 21.2374L15.2437 24.9937C14.902 25.3354 14.348 25.3354 14.0063 24.9937C13.6646 24.652 13.6646 24.098 14.0063 23.7563L17.7626 20L14.0063 16.2437C13.6646 15.902 13.6646 15.348 14.0063 15.0063Z" fill="#2671D9"/>
                                 </svg>
                             </div>
                             <span class="text-base text-[#9C9C9C] ml-[20px]">$judul_pengajuan</span>
@@ -1226,7 +1226,7 @@ import Sidemanager from '@/components/sidemanager.vue';
 
 <script>
 export default {
-  data() {
+data() {
     return {
         dropdownInformasi: false,
         dropdownPekerjaan: false,
@@ -1243,32 +1243,32 @@ export default {
         selectedDate: '',
         selectedDate1: ''
     };
-  },
-  methods: {
+},
+methods: {
     informasiDropdown() {
-      this.dropdownInformasi = !this.dropdownInformasi;
+        this.dropdownInformasi = !this.dropdownInformasi;
     },
     pekerjaanDropdown() {
-      this.dropdownPekerjaan = !this.dropdownPekerjaan;
+        this.dropdownPekerjaan = !this.dropdownPekerjaan;
     },
     rabDropdown() {
-      this.dropdownRab = !this.dropdownRab;
+        this.dropdownRab = !this.dropdownRab;
     },
     berkasDropdown() {
-      this.dropdownBerkas = !this.dropdownBerkas;
+        this.dropdownBerkas = !this.dropdownBerkas;
     },
     progresDropdown() {
-      this.dropdownProgres = !this.dropdownProgres;
+        this.dropdownProgres = !this.dropdownProgres;
     },
 
     // Pop Up Alur
     openAlur() {
-      this.isOpen = true;
-      this.isOkOpen = false; 
+        this.isOpen = true;
+        this.isOkOpen = false; 
     },
     closeSend() {
-      this.isOpen = false;
+        this.isOpen = false;
     },
-  },
+},
 };
 </script>

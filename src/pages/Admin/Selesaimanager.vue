@@ -237,14 +237,14 @@ import navadmin from '@/components/navadmin.vue';
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.20711 5.29289C7.59763 5.68342 7.59763 6.31658 7.20711 6.70711L2.20711 11.7071C1.81658 12.0976 1.18342 12.0976 0.792892 11.7071C0.402369 11.3166 0.402369 10.6834 0.792892 10.2929L5.08579 6L0.792893 1.70711C0.402369 1.31658 0.402369 0.683417 0.792893 0.292893C1.18342 -0.0976314 1.81658 -0.0976313 2.20711 0.292893L7.20711 5.29289Z" fill="#7F7F80"/>
                             </svg>
                         </button>
-                     </div>
+                    </div>
                 </div>
                 <!-- akhir menampilkan -->
 
                 <svg width="1170" class="mt-3 mb-3 ml-4" height="1" viewBox="0 0 1160 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="1160" height="0" transform="translate(0 1)" fill="white"/>
-                        <line y1="0.5" x2="1160" y2="0.5" stroke="#E5E7E9"/>
-                    </svg>
+                    <rect width="1160" height="0" transform="translate(0 1)" fill="white"/>
+                    <line y1="0.5" x2="1160" y2="0.5" stroke="#E5E7E9"/>
+                </svg>
             </div>
             <!-- End Content -->
 
@@ -267,29 +267,29 @@ function toggleDataDropdown() {
 }
 
 function filterDropdown() {
-  isFilterOpen.value = !isFilterOpen.value;
-  isFilterTipe.value = false;
-  isFilterStatus.value = false;
+    isFilterOpen.value = !isFilterOpen.value;
+    isFilterTipe.value = false;
+    isFilterStatus.value = false;
 }
 
 function filterTipe() {
-  isFilterTipe.value = !isFilterTipe.value;
-  if (isFilterTipe.value) {
-    isFilterStatus.value = false;    
-  }
+    isFilterTipe.value = !isFilterTipe.value;
+    if (isFilterTipe.value) {
+        isFilterStatus.value = false;    
+    }
 }
 
 function updateFilterStatus(status) {
-  filterStatus.value = status;
-  isFilterOpen.value = false;
-  isFilterStatus.value = false;
+    filterStatus.value = status;
+    isFilterOpen.value = false;
+    isFilterStatus.value = false;
 }
 
 function toggleFilterStatus() {
-  isFilterStatus.value = !isFilterStatus.value;
-  if (isFilterStatus.value) {
-    isFilterTipe.value = false; 
-  }
+    isFilterStatus.value = !isFilterStatus.value;
+    if (isFilterStatus.value) {
+        isFilterTipe.value = false; 
+    }
 }
 
 export default {
