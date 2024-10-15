@@ -48,10 +48,10 @@ import log from "@/assets/img/log.png";
                         </svg>
                     </form>
                 </div>
-               <div class="mt-20">
+              <div class="mt-20">
                 <router-link to="/Dashboard"><button class="w-full h-[48px] bg-[#2671D9] text-white font-semibold rounded-lg">Login</button></router-link>
                 <button class="w-full h-[48px] text-[#2671D9] border-[1px] mt-4 font-semibold rounded-lg">Login dengan SSO</button>
-               </div>
+              </div>
             </div>
         </div>
     </div>

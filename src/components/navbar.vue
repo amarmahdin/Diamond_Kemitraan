@@ -5,7 +5,7 @@ import topo from '../assets/img/Topo.png'
 </script>
 
 <template>
- <div class="h-[58px] border-y-[1px]">
+<div class="h-[58px] border-y-[1px]">
     <img :src="topo" alt="Topo Image" class="px-3 w-full h-[58px]">
     <div class="flex justify-between w-full -translate-y-11">
         <h1 class="text-xl ml-[26px] font-medium text-[#2671D9]">Selamat Datang di DIAMOND</h1>

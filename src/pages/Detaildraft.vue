@@ -414,7 +414,7 @@ import navbar from '../components/navbar.vue'
                 </svg>
 
                 <div class="mr-5 flex justify-end py-4">
-                 <!-- <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button> -->
+                <!-- <button class="w-[61px] h-[40px] bg-[#2671D9] text-white hover:bg-[#2f63ab] rounded-lg ">Kirim</button> -->
                 </div>
 
             </div>
@@ -427,27 +427,27 @@ import navbar from '../components/navbar.vue'
 
 <script>
 export default {
-  data() {
-    return {
-        dropdownInformasi: false,
-        dropdownPekerjaan: false,
-        dropdownRab: false,
-        dropdownBerkas: false,
-    };
-  },
-  methods: {
-    informasiDropdown() {
-      this.dropdownInformasi = !this.dropdownInformasi;
+    data() {
+        return {
+            dropdownInformasi: false,
+            dropdownPekerjaan: false,
+            dropdownRab: false,
+            dropdownBerkas: false,
+        };
     },
-    pekerjaanDropdown() {
-      this.dropdownPekerjaan = !this.dropdownPekerjaan;
+    methods: {
+        informasiDropdown() {
+        this.dropdownInformasi = !this.dropdownInformasi;
+        },
+        pekerjaanDropdown() {
+        this.dropdownPekerjaan = !this.dropdownPekerjaan;
+        },
+        rabDropdown() {
+        this.dropdownRab = !this.dropdownRab;
+        },
+        berkasDropdown() {
+        this.dropdownBerkas = !this.dropdownBerkas;
+        },
     },
-    rabDropdown() {
-      this.dropdownRab = !this.dropdownRab;
-    },
-    berkasDropdown() {
-      this.dropdownBerkas = !this.dropdownBerkas;
-    },
-  },
 };
 </script>

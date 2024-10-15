@@ -745,8 +745,8 @@ import Sidemanager from '@/components/sidemanager.vue';
                                             </div>
                                     </div> -->
 
-                                     <!-- Berhasil -->
-                                     <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
+                                    <!-- Berhasil -->
+                                    <div class="w-[289px] h-auto border-[1px] ml-[18px] rounded-t-lg rounded-b-lg">
                                         <div class="w-auto h-[40px] bg-[#0EA976] rounded-t-lg"><span class="text-white font-semibold ml-4 absolute translate-y-2">Evaluasi</span></div>
                                         <div class="w-[265px] h-[18px] flex justify-between ml-3 mt-[10px]">
                                             <span class="text-[#333333] text-xs">Dokumen Evaluasi</span>
